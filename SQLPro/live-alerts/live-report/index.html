@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Live Report - Conductor4SQL Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+          ]},
+          {title: "Standard Live Alerts", url: "#standard-live-alerts", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script>
+      <script src="../../../search/main.js"></script> 
+<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
+<script src="../../../js/jquery.fancybox.js" defer></script>
+<script src="../../../js/jquery.fancybox.pack.js" defer></script>
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../edit/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../edit/" class="btn btn-xs btn-link">
+        Edit
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>To get started select the live alerts Icon and choose <strong>Live Report</strong>:</p>
+<p><img alt="" src="/img/live-alerts/open-page.png" /></p>
+<p>The report monitors the success and errors of the standard and custom live alerts.</p>
+<p><img alt="" src="/img/live-alerts/live-report-screen.png" /></p>
+<h1 id="standard-live-alerts">Standard Live Alerts</h1>
+<ul>
+<li><strong>Failed Live Jobs</strong> - <strong>SQL Server Jobs</strong> failing will get flagged by this alert allowing you to take action to fix them.</li>
+<li><strong>Database Not Online</strong> - flags databases with the status offline or single user.</li>
+<li><strong>Agent Offline</strong> - reports on <strong>SQL Server Agent</strong>. The alert will not report if you are running on express.</li>
+<li><strong>Low Space SQL Drive</strong> - will be reported when drives have less than 10% space.</li>
+<li><strong>No Comms</strong> - flagged when there is no connection to the server. Possibilities include the server being off, firewall blocking the connection or the server being to busy to accept connections.</li>
+<li><strong>Incorrect UTC Time</strong> - if the time is more than 10 minutes out it will be flagged by the alert.</li>
+<li><strong>Created Databases</strong> and <strong>Dropped Databases</strong> - Reports on newly created and dropped databases within the last 24 hours.</li>
+<li><strong>Replication Issues</strong> - reports on <strong>SQL Server Replication</strong> typical issues allowing it to be easily monitored.</li>
+<li><strong>Long Running Queries</strong> - flags queries that take more than 2 minutes to run.</li>
+<li><strong>Lead Blockers</strong> - reports if things are blocked for more the 2 minutes.</li>
+<li><strong>No Server Activity Auditing in 24 hours</strong> - flags servers that have had nothing changed or reported within the last 24 hours as it would be unusual in production environments.</li>
+</ul>
+<p>To view more details simply press the view more details icon to trigger a pop up with the details.</p>
+<p><img alt="" src="/img/live-alerts/live-report-view-details.png" /></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../edit/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../edit/" class="btn btn-xs btn-link">
+        Edit
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

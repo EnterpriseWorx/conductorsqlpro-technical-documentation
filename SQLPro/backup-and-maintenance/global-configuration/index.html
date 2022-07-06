@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Global Configuration - Conductor4SQL Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+              {title: "Setup Azure Database Backups", url: "#setup-azure-database-backups" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script>
+      <script src="../../../search/main.js"></script> 
+<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
+<script src="../../../js/jquery.fancybox.js" defer></script>
+<script src="../../../js/jquery.fancybox.pack.js" defer></script>
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../database-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../database-configuration/" class="btn btn-xs btn-link">
+        Database Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>To get started select the <strong>Backup &amp; Maintenance</strong> Icon and choose <strong>Global Configuration</strong></p>
+<p><img alt="" src="/img/backup-and-maintenance/global-config/open-page.png" /></p>
+<p>You will then find your global default settings that can be customized to your database needs.
+Similar to SQL jobs that are used for production databases.</p>
+<p>The Backup window and Mantience window start time and lengths can be set. In this window backup, the database and a maintenance check will run and check the database structure.</p>
+<p><img alt="" src="/img/backup-and-maintenance/global-config/global-config-window.png" /></p>
+<p>With the retention date, you can set how long you would like to keep your backups for and thereby calculate how many backups you would like stored during the window time frame saving you valuable space.</p>
+<p><img alt="" src="/img/backup-and-maintenance/global-config/global-config-schedule.png" /></p>
+<p>The difference between the full backup and log backup is that the logs will only be backed up rather than the whole database allowing you to save much-needed space.  </p>
+<p><img alt="" src="/img/backup-and-maintenance/global-config/global-config-backup-path.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>%DefaultBackupLocation% - this is a placeholder for the SQL Server's backup path that you are making use of. You have the option of setting a custom backup path for your global config. </p>
+</div>
+<p>SQLPro allows one to make use of Azure blob storage and backup to the cloud with an estimated limit on backing up 100GB databases.</p>
+<h2 id="setup-azure-database-backups">Setup Azure Database Backups</h2>
+<p>With SQLPro, offsite backups to Azure Blob Storage is a simple process.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some Microsoft Azure experience is advised for using this guide.</p>
+</div>
+<p>You'll first need to create an Azure Storage account. To do this go to the <strong>Azure Portal</strong> and select <strong>Create a Resource &gt;&gt; Storage account</strong>  </p>
+<p>Take note of the <strong>Storage account name</strong> as you'll need this name later. Select <strong>Review + create</strong> followed by the <strong>Create</strong> button after reviewing the selections. It's also worth taking note of the <strong>Region</strong>, <strong>Performance</strong> and <strong>Redundacy</strong> settings and selecting options that will work for your organisation. </p>
+<p><img alt="" src="/img/backup-and-maintenance/global-config/azure-storage-account-create.png" /></p>
+<p>Go to your new <strong>Storage Account</strong> and select the <strong>Containers</strong> section. Create a new container called <strong>database-backups</strong> or any other name you like and take note of it.</p>
+<p>Now there are two types of credentials for the storage container that work with SQLPro:</p>
+<ul>
+<li><strong>Shared access token</strong> (prefered) - create credentials for the container</li>
+<li><strong>Shared access signature</strong> - create credentials for the entire storage account</li>
+</ul>
+<h3 id="shared-access-token">Shared Access Token</h3>
+<p>To create a <strong>shared access token</strong> open the new container that you've created and select the <strong>Shared access tokens</strong></p>
+<p>Under <strong>Permissions</strong> select <strong>Read</strong> and <strong>Write</strong>. Also be sure to select a reasonable <strong>Expiry</strong> date for the SAS token.</p>
+<p><img alt="" src="/img/backup-and-maintenance/global-config/azure-sp-token.png" /></p>
+<p>Once you click on <strong>Generate SAS token and URL</strong> copy down the <strong>Blob SAS token</strong> as you'll need it to set up the cloud backups for SQLPro.</p>
+<h3 id="shared-access-signature">Shared Access Signature</h3>
+<p>When viewing the <strong>Storage Account</strong>, select the <strong>Shared access signature</strong> tab.</p>
+<p>Take care to select the same permissions as seen in the screenshot below and be sure to select a <strong>End</strong> date for the signature.</p>
+<p><img alt="" src="/img/backup-and-maintenance/global-config/azure-sas-token.png" /></p>
+<p>Once you click on <strong>Generate SAS and connection string</strong> copy down the <strong>SAS token</strong> as you'll need it to set up the cloud backups for SQLPro.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you copy the SAS token, take off the "?" at the start of the token else the token won't work</p>
+</div>
+<h3 id="sqlpro-cloud-backup-setup">SQLPro Cloud Backup Setup</h3>
+<p>Navigate to the <strong>Backup and Maintenance &gt;&gt; Global Configuration</strong> screen</p>
+<p>Complete the entries as follows (fill in the #StorageAccountName# and #ContainerName# values with real values):</p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default Full Backup Path</td>
+<td>https://#StorageAccountName#.blob.core.windows.net/#ContainerName#/%ServerName%/</td>
+</tr>
+<tr>
+<td>Default Log Backup Path</td>
+<td>https://#StorageAccountName#.blob.core.windows.net/#ContainerName#/%ServerName%/logs/</td>
+</tr>
+<tr>
+<td>Azure Blob Storage Credentials</td>
+<td>SAS token that you took note of earlier</td>
+</tr>
+</tbody>
+</table>
+<p>See example below</p>
+<p><img alt="" src="/img/backup-and-maintenance/global-config/cloud-setup.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The %ServerName% variable is dynamic and in this case it will create a seperate folder in blob storage for each server that you working with.</p>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../database-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../database-configuration/" class="btn btn-xs btn-link">
+        Database Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

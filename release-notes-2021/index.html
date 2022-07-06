@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Release Notes - 2021 - Conductor4SQL Technical Documentation</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Version 1.2.0.7 (15/12/2021) Changes", url: "#_top", children: [
+          ]},
+          {title: "Version 1.2.0.6 (10/12/2021) Changes", url: "#version-1206-10122021-changes", children: [
+          ]},
+          {title: "Version 1.2.0.5 (07/12/2021) Changes", url: "#version-1205-07122021-changes", children: [
+          ]},
+          {title: "Version 1.2.0.4 (02/12/2021) Changes", url: "#version-1204-02122021-changes", children: [
+          ]},
+          {title: "Version 1.2.0.3 (03/11/2021) Changes", url: "#version-1203-03112021-changes", children: [
+          ]},
+          {title: "Version 1.2.0.2 (28/10/2021) Changes", url: "#version-1202-28102021-changes", children: [
+          ]},
+          {title: "Version 1.2.0.1 (27/10/2021) Changes", url: "#version-1201-27102021-changes", children: [
+          ]},
+          {title: "Version 1.2.0.0 (07/10/2021) Changes", url: "#version-1200-07102021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.9 (04/10/2021) Changes", url: "#version-1199-04102021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.8 (01/10/2021) Changes", url: "#version-1198-01102021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.7 (23/09/2021) Changes", url: "#version-1197-23092021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.6 (20/09/2021) Changes", url: "#version-1196-20092021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.5 (15/09/2021) Changes", url: "#version-1195-15092021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.4 (13/09/2021) Changes", url: "#version-1194-13092021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.3 (06/09/2021) Changes", url: "#version-1193-06092021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.2 (03/09/2021) Changes", url: "#version-1192-03092021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.1 (19/08/2021) Changes", url: "#version-1191-19082021-changes", children: [
+          ]},
+          {title: "Version 1.1.9.0 (03/08/2021) Changes", url: "#version-1190-03082021-changes", children: [
+          ]},
+          {title: "Version 1.1.8.0 (12/07/2021) Changes", url: "#version-1180-12072021-changes", children: [
+          ]},
+          {title: "Version 1.1.7.4 (02/07/2021) Changes", url: "#version-1174-02072021-changes", children: [
+          ]},
+          {title: "Version 1.1.7.3 (18/03/2021) Changes", url: "#version-1173-18032021-changes", children: [
+          ]},
+          {title: "Version 1.1.7.2 (11/03/2021) Changes", url: "#version-1172-11032021-changes", children: [
+          ]},
+          {title: "Version 1.1.7.1 (02/03/2021) Changes", url: "#version-1171-02032021-changes", children: [
+          ]},
+          {title: "Version 1.1.7.0 (17/02/2021) Changes", url: "#version-1170-17022021-changes", children: [
+          ]},
+          {title: "Version 1.1.6.9 (16/02/2021) Changes", url: "#version-1169-16022021-changes", children: [
+          ]},
+          {title: "Version 1.1.6.8 (05/02/2021) Changes", url: "#version-1168-05022021-changes", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../js/custom.js"></script>
+      <script src="../search/main.js"></script> 
+<link rel="stylesheet" href="../css/jquery.fancybox.css" type="text/css" defer />
+<script src="../js/jquery.fancybox.js" defer></script>
+<script src="../js/jquery.fancybox.pack.js" defer></script>
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../release-notes-2020/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../release-notes-2020/" class="btn btn-xs btn-link">
+        Release Notes - 2020
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../release-notes/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../release-notes/" class="btn btn-xs btn-link">
+        Release Notes - Recent
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="version-1207-15122021-changes">Version 1.2.0.7 (15/12/2021) Changes</h1>
+<ul>
+<li>HUMMDB-700 No Comms live alert emails no longer working</li>
+<li>HUMMDB-643 Add option to send test live alert immediately</li>
+<li>HUMMDB-683 Add refresh button to Live Alert Monitoring screen</li>
+<li>HUMMDB-624 Capture backup and maintenance duration</li>
+<li>HUMMDB-696 Add DurationSeconds columns in SQLPro database audit tables and populate them</li>
+<li>HUMMDB-687 Health report details has no heading</li>
+<li>HUMMDB-682 Cannot click on same "View Details" on "User Query History" more than once</li>
+<li>HUMMDB-573 Add Login type to user access report in classification report</li>
+<li>HUMMDB-310 Backup and maintenance reporting queries need to check if SQLPro database exists</li>
+<li>HUMMDB-695 Hide sensitive data in the classification tables using data masking</li>
+</ul>
+<h1 id="version-1206-10122021-changes">Version 1.2.0.6 (10/12/2021) Changes</h1>
+<ul>
+<li>HUMMDB-693 Backup and maintenance information query firing 24 times a day</li>
+<li>HUMMDB-692 Adjust Hub to use Conductor4SQL site styling</li>
+<li>HUMMDB-661 Online POV form doesn't have a notification that form was submitted.</li>
+<li>HUMMDB-691 Minor improvements to POV form</li>
+<li>HUMMDB-690 Format POV email in a human readable format</li>
+<li>HUMMDB-650 Add Conductor4SQL hub email alerts on pov forms</li>
+<li>HUMMDB-689 Live alerts does not allow custom queries with column names with spaces</li>
+<li>HUMMDB-688 Implement logging in the SQLPro Hub</li>
+<li>HUMMDB-686 Add email queue to SQLPro hub</li>
+<li>HUMMDB-446 Add export to xlsx on all detail popup tables</li>
+<li>HUMMDB-679 Remove report history scripts and use new KeepTableHistory flag</li>
+<li>HUMMDB-685 Make dev Version of SQLPro use the UAT Hub</li>
+<li>HUMMDB-680 Add UAT SQLPro/Conductor4SQL hub</li>
+<li>HUMMDB-684 Setup Hub certificates to auto renew</li>
+<li>HUMMDB-569 Cannot change instances from one instance type to another</li>
+<li>HUMMDB-95 Add lead blocker detection to monitoring scripts</li>
+</ul>
+<h1 id="version-1205-07122021-changes">Version 1.2.0.5 (07/12/2021) Changes</h1>
+<ul>
+<li>HUMMDB-668 Cannot remove any user query schedules that have been used for email query results</li>
+<li>HUMMDB-667 Add history tables for live alerts</li>
+<li>HUMMDB-678 Add KeepTableHistory flag to base queries functionality</li>
+<li>HUMMDB-666 Add additional Live alert schedules: 2 minutes, 5 minutes and 10 minutes</li>
+<li>HUMMDB-675 SQLPro breaking when using binary server collation</li>
+<li>HUMMDB-677 Newly installed instances getting added with SQLQueueEnabled = 0 and not processing messages on restart</li>
+<li>HUMMDB-655 Prevent user from selecting the same schedule for query schedule and email schedule in user schedules</li>
+</ul>
+<h1 id="version-1204-02122021-changes">Version 1.2.0.4 (02/12/2021) Changes</h1>
+<ul>
+<li>HUMMDB-676 SQLPro certificate expired</li>
+<li>HUMMDB-654 Query schedules are not getting refreshed on schedule change</li>
+<li>HUMMDB-669 Admin role should not be able to see System Query History</li>
+<li>HUMMDB-672 'Job Run Date Age Days' is incorrect in C4Sql_PBI.CM_Report_Client_Jobs_Summary_Latest_VW</li>
+<li>HUMMDB-670 PowerBI report data for Database trends not looking correct</li>
+<li>HUMMDB-674 SQL Server latest service pack/cu information out of date</li>
+<li>HUMMDB-665 Improve each instance type test connection logic</li>
+<li>HUMMDB-642 Add test connection button to add instance screen</li>
+<li>HUMMDB-664 Add business attributes to live alert details</li>
+<li>HUMMDB-649 Add business attributes to "SQLPro Backup &amp; Maintenance Report"</li>
+<li>HUMMDB-645 Add default Admin user with admin role with a strong password</li>
+<li>HUMMDB-660 Allow exporting of C4SQL license .lic file for C4SQL client deployment</li>
+<li>HUMMDB-659 Limit C4SQL license editing to role</li>
+<li>HUMMDB-653 Create web Version of Conductor4SQL license editor</li>
+<li>HUMMDB-647 Update freshdesk integration to use new product name</li>
+<li>HUMMDB-648 Move backup and maintenance reports to Backup and Database menu section</li>
+<li>HUMMDB-640 Email query results does not work when saving results to table</li>
+<li>HUMMDB-646 Using old product name in Health Report</li>
+</ul>
+<h1 id="version-1203-03112021-changes">Version 1.2.0.3 (03/11/2021) Changes</h1>
+<ul>
+<li>HUMMDB-637 Add query result summary to User Query results attachments</li>
+<li>HUMMDB-639 Rename business attributes in query results email</li>
+<li>HUMMDB-633 Add hangfire job to send query results</li>
+<li>HUMMDB-638 Add nullable int UserQueryScheduleID to dbo.SqlStatements to track past scheduled queries</li>
+<li>HUMMDB-635 Add datatable to xlsx conVersion logic</li>
+<li>HUMMDB-632 Allow user to set Email List when scheduling query</li>
+<li>HUMMDB-631 Force user to set email schedule when they set query schedule</li>
+<li>HUMMDB-630 Add ability to have attachments in mail queue</li>
+</ul>
+<h1 id="version-1202-28102021-changes">Version 1.2.0.2 (28/10/2021) Changes</h1>
+<ul>
+<li>HUMMDB-634 SQLPro database deployment failing on error 'Must declare the scalar variable "@fullBackupPath"'</li>
+</ul>
+<h1 id="version-1201-27102021-changes">Version 1.2.0.1 (27/10/2021) Changes</h1>
+<ul>
+<li>HUMMDB-626 Switching between result sets yelds no results</li>
+<li>HUMMDB-623 Apply latest Angular and npm security patches</li>
+<li>HUMMDB-628 Move reporting library to module in SQLPro code base</li>
+<li>HUMMDB-625 Showing HummdbUseDatabase in query results, should be "SQLPro Use Database"</li>
+<li>HUMMDB-627 Improve API endpoint logging</li>
+<li>HUMMDB-620 Add business attributes to query results screens</li>
+<li>HUMMDB-622 Get error "Conductor4SQL service failed to start, check configuration" in configuration utility even if service starts successfully</li>
+<li>HUMMDB-621 Trying to get to the live alert edit screen via the edit icon takes you to the landing page</li>
+<li>HUMMDB-619 Rename Admin/Groups to Admin/Instance Groups</li>
+<li>HUMMDB-618 Email lists inconsistent and no delete confirmation</li>
+<li>HUMMDB-617 No confirmation when deleting saved queries</li>
+</ul>
+<h1 id="version-1200-07102021-changes">Version 1.2.0.0 (07/10/2021) Changes</h1>
+<ul>
+<li>HUMMDB-603 Add Instance Type and business attribute columns to classification screens</li>
+<li>HUMMDB-614 500 Server error when selecting View Query in user or system query</li>
+<li>HUMMDB-616 Don't allow full or log backups of tempdb in backup and maintenance module</li>
+<li>HUMMDB-607 Add business attributes to backup and maintenance screen</li>
+<li>HUMMDB-605 Add Last backup date and Last checkdb date to database configuration screen</li>
+<li>HUMMDB-563 Allow bulk allocation in Backup and Maintenance</li>
+<li>HUMMDB-604 Adjust UI for backup and maintenance to have edit button rather than inline editing</li>
+</ul>
+<h1 id="version-1199-04102021-changes">Version 1.1.9.9 (04/10/2021) Changes</h1>
+<ul>
+<li>HUMMDB-612 Backup and maintenance screen results not populating</li>
+<li>HUMMDB-611 Send to central process no longer working after upgrade to entity framework .net core</li>
+<li>HUMMDB-610 Add build Version to application footer</li>
+<li>HUMMDB-600 Use Picklist control for group assignment screen</li>
+</ul>
+<h1 id="version-1198-01102021-changes">Version 1.1.9.8 (01/10/2021) Changes</h1>
+<ul>
+<li>HUMMDB-609 Remove EntityFramework References</li>
+<li>HUMMDB-598 Remove database objects and cleanup C4Sql.Core project</li>
+<li>HUMMDB-597 Update C4Sql.SqlProcessor to use new database layer</li>
+<li>HUMMDB-595 Move migrations to new database layer</li>
+<li>HUMMDB-596 Update C4Sql.Business to use new database layer</li>
+<li>HUMMDB-594 Create new Database layer for Core module</li>
+<li>HUMMDB-589 Resize the logo and landing page files to rendered size</li>
+<li>HUMMDB-602 Add column selector control to table wrapper component</li>
+<li>HUMMDB-601 Index re-indexing only getting executed via backup SQL jobs</li>
+<li>HUMMDB-592 Add confirmation dialog when deleting role, group and user</li>
+<li>HUMMDB-588 Getting query timeouts in Query module if SQL query runs for longer than 5 minutes</li>
+<li>HUMMDB-590 Add Roles edit screen to SQLSense</li>
+<li>HUMMDB-599 Maintenance report data not refreshing</li>
+</ul>
+<h1 id="version-1197-23092021-changes">Version 1.1.9.7 (23/09/2021) Changes</h1>
+<ul>
+<li>HUMMDB-587 Create script to create database with table fragmentation</li>
+<li>HUMMDB-451 Add schedule for reindexing tables</li>
+<li>HUMMDB-583 SQLPro emails have humm.db in the subject</li>
+<li>HUMMDB-527 Hummdb service doesn't attempt to auto restart if database is not accessible</li>
+<li>HUMMDB-581 Query results tabs wrong cursor</li>
+<li>HUMMDB-408 Add role edit screen</li>
+<li>HUMMDB-580 Show error when trying to view access of classification table for instance types that are not yet supported</li>
+<li>HUMMDB-584 Backup to azure making sub-folders when working with named instances</li>
+<li>HUMMDB-582 500 error when trying to load Database Configuration screen on fresh install</li>
+</ul>
+<h1 id="version-1196-20092021-changes">Version 1.1.9.6 (20/09/2021) Changes</h1>
+<ul>
+<li>HUMMDB-570 Instance type dropdown not visible in dark mode theme</li>
+<li>HUMMDB-571 Tabs in query results view are not easy to see in dark mode theme</li>
+<li>HUMMDB-578 Application build size increased drasticly after ngx-monaco-editor upgrade</li>
+<li>HUMMDB-577 ConfuserEX obscure project fails after .net 3.1 updates</li>
+<li>HUMMDB-576 SQLPro database getting deployed even when no changes have occurred in the schedules</li>
+<li>HUMMDB-575 Upgrade to angular 12</li>
+<li>HUMMDB-567 Add Sensitive Data User Rank Report</li>
+<li>HUMMDB-565 Add Sensitive Instance Database Rank Report</li>
+<li>HUMMDB-572 Add 'Report Date' to classification report tables in format yyyy-MM-dd HH:mm</li>
+<li>HUMMDB-566 Add button to view user access for individual tables in classification report</li>
+<li>HUMMDB-564 Add database access query for classification user access reports</li>
+<li>HUMMDB-568 Export bulk instances no longer works due to new database types</li>
+</ul>
+<h1 id="version-1195-15092021-changes">Version 1.1.9.5 (15/09/2021) Changes</h1>
+<ul>
+<li>HUMMDB-560 Change Service Name to Conductor4SQL Service</li>
+<li>HUMMDB-559 Change HummdbCentral database name to CentralConductor4SQL</li>
+<li>HUMMDB-558 Change Hummdb client database name to SQLPro</li>
+<li>HUMMDB-561 Sign application installer with certificate</li>
+<li>HUMMDB-562 Fix config utility name and icon</li>
+<li>HUMMDB-555 Change folder path in installer from Hummdb to SQLPro</li>
+<li>HUMMDB-557 Remove HomeController and use ASP.NET default spa middleware</li>
+<li>HUMMDB-554 Replace Hummdb browser icon with Conductor4SQL icon</li>
+<li>HUMMDB-553 Add login background image to landing page</li>
+</ul>
+<h1 id="version-1194-13092021-changes">Version 1.1.9.4 (13/09/2021) Changes</h1>
+<ul>
+<li>HUMMDB-549 Add dark mode logos</li>
+<li>HUMMDB-540 Change login page logos and background image</li>
+<li>HUMMDB-551 Setup Azure VM docker with MySQL and PosgreSQL with columns with classification issues</li>
+<li>HUMMDB-541 Add additional icon for Data Classification module/report</li>
+<li>HUMMDB-552 Hummdb license isn't locked to a specific instance</li>
+<li>HUMMDB-550 Max date 9999-12-31 is invalid license expire date find valid max date for license expire date for Hummdb hub</li>
+<li>HUMMDB-543 Hide unlicensed modules in landing page</li>
+<li>HUMMDB-542 Add landing page for all the modules (SQLPro, SQLSense)</li>
+<li>HUMMDB-539 Change Hummdb logo to SQLPro</li>
+<li>HUMMDB-538 Adjust Hummdb colour pallet to SQLPro colors</li>
+<li>HUMMDB-547 Disable functionality for modules for unimplemented client types</li>
+<li>HUMMDB-548 Disable install of Oracle client until we can find a driver that supports transactions and multiline statements</li>
+<li>HUMMDB-534 Create classification report query for PostgreSQL</li>
+<li>HUMMDB-535 Create classification report query for Oracle Express Edition</li>
+<li>HUMMDB-546 Oracle database c# driver cannot handle multiple statements in single query</li>
+<li>HUMMDB-532 Add new instance type: Oracle Express Edition</li>
+<li>HUMMDB-545 Transactions not working in PosgresSQL databases</li>
+<li>HUMMDB-531 Add new instance type: PostgreSQL</li>
+<li>HUMMDB-544 Create docker compose script for all database types supported in Hummdb</li>
+<li>HUMMDB-533 Create classification report query for MySQL</li>
+<li>HUMMDB-530 Add new instance type: MySQL</li>
+</ul>
+<h1 id="version-1193-06092021-changes">Version 1.1.9.3 (06/09/2021) Changes</h1>
+<ul>
+<li>HUMMDB-536 Backup errors in Hummdb since implementing backup to azure blob storage</li>
+<li>HUMMDB-526 Add option to import all instances from Conductor4SQL into Hummdb</li>
+</ul>
+<h1 id="version-1192-03092021-changes">Version 1.1.9.2 (03/09/2021) Changes</h1>
+<ul>
+<li>HUMMDB-524 Migrate Report module to EntityFrameworkCore</li>
+<li>HUMMDB-523 Migrate Live Alerts module to EntityFrameworkCore</li>
+<li>HUMMDB-525 Migrate SKU module to EntityFrameworkCore</li>
+<li>HUMMDB-529 Allow %ServerName% variable in backup and log backup path</li>
+<li>HUMMDB-478 Add Backup to Azure Blob storage functionality to Hummdb UI</li>
+<li>HUMMDB-528 Can no longer change Information and Sensitivity type in classification report</li>
+<li>HUMMDB-521 Migrate Backup and Maintenance module to EntityFrameworkCore</li>
+<li>HUMMDB-518 Make it harder to decompile hummdb</li>
+<li>HUMMDB-493 Create small Winforms Hummdb setup utility</li>
+<li>HUMMDB-517 If license is invalid all modules should be disabled in the UI</li>
+<li>HUMMDB-520 Migrate Classification module to EntityFrameworkCore</li>
+</ul>
+<h1 id="version-1191-19082021-changes">Version 1.1.9.1 (19/08/2021) Changes</h1>
+<ul>
+<li>HUMMDB-512 Add ability to edit license types in the hub</li>
+<li>HUMMDB-516 Add ModuleSkuRequest to the license modules</li>
+<li>HUMMDB-514 Ensure max databases limit for backup and maintenance is handled with bulk csv import</li>
+<li>HUMMDB-513 Ensure max instances handled with bulk csv import</li>
+<li>HUMMDB-515 Use hangfire to check for updates hummdb hub license</li>
+<li>HUMMDB-506 Add screen in hub to edit node licenses</li>
+<li>HUMMDB-507 Hide unlicensed functionality for hummdb client app</li>
+<li>HUMMDB-511 Limit the number of database backups/maintence that can be enabled based on license</li>
+<li>HUMMDB-510 Limit the number of scheduled queries that can be enabled based on the license</li>
+<li>HUMMDB-509 Limit number of live alerts that can be enabled based on the license</li>
+<li>HUMMDB-508 Limit number of instances that can be installed based on the license information</li>
+<li>HUMMDB-504 Store license file in database of Hummdb client app and add screen to refresh license</li>
+<li>HUMMDB-503 Add endpoint in Hub to generate license file from License table</li>
+<li>HUMMDB-505 Live alert details and email alert shouldn't have 'HummdbUseDatabase' column</li>
+<li>HUMMDB-500 Add license table to Hummb hub</li>
+<li>HUMMDB-497 Implement auditing for Data Classification</li>
+<li>HUMMDB-498 Information type and Sensitivity filters not updating when verifying/unverifying columns</li>
+<li>HUMMDB-495 Add a new role to humm, “Data Steward” role, that can only access the data classification screens.</li>
+</ul>
+<h1 id="version-1190-03082021-changes">Version 1.1.9.0 (03/08/2021) Changes</h1>
+<ul>
+<li>HUMMDB-425 Add hummdb installer</li>
+<li>HUMMDB-431 Show sku prices on SKU request screen when requesting a new SKU</li>
+<li>HUMMDB-492 Adjust table filters on classification configuration screen</li>
+<li>HUMMDB-491 Add indicator that screen data is loading</li>
+<li>HUMMDB-490 Allow node deactivation in Hub</li>
+<li>HUMMDB-489 Adjust Hummdb Hub containers to auto restart</li>
+<li>HUMMDB-488 Cannot Verify more than 2000 columns at once</li>
+<li>HUMMDB-486 Bug: If no Azure SQL Clients classification report goes out to all instances</li>
+<li>HUMMDB-483 Move classification report to seperate angular module</li>
+<li>HUMMDB-484 Speed up the bulk verify/unverify process</li>
+<li>HUMMDB-482 Data Classification report query not working on Azure SQL pools</li>
+<li>HUMMDB-485 Classification query failing on SQL Server 2005 Versions</li>
+<li>HUMMDB-481 Allow user to verify and unverify found classifications</li>
+<li>HUMMDB-343 Add UTC time live alert</li>
+</ul>
+<h1 id="version-1180-12072021-changes">Version 1.1.8.0 (12/07/2021) Changes</h1>
+<ul>
+<li>HUMMDB-480 User query edit screen does not load the selected item after first load</li>
+<li>HUMMDB-474 Add Use Database field to Saved user queries</li>
+<li>HUMMDB-477 Add roles to Hummdb Hub API endpoints and prevent unauthorized people from changing administrative settings</li>
+<li>HUMMDB-479 Hummdb Hub Minor wording changes</li>
+<li>HUMMDB-476 Add KPI cards to classification report</li>
+<li>HUMMDB-475 Add high level filters to classification report</li>
+<li>HUMMDB-472 Nothing happens when clicking on the 'Refresh Report Data' button on hummdb/report/data-classification screen</li>
+<li>HUMMDB-470 Update Hummdb Getting Started requirements</li>
+<li>HUMMDB-471 Hummdb fails to start when CentralHummdb Database does not exist</li>
+</ul>
+<h1 id="version-1174-02072021-changes">Version 1.1.7.4 (02/07/2021) Changes</h1>
+<ul>
+<li>HUMMDB-468 Add report screen for data classification report</li>
+<li>HUMMDB-467 User query errors aren't shown in their own tab</li>
+<li>HUMMDB-466 Using ‘%’ in the Use Database fields should exclude system databases</li>
+<li>HUMMDB-461 Add column classification query for azure instances</li>
+<li>HUMMDB-465 Azure SQL instance type not keeping it's type on client instance edit screen</li>
+<li>HUMMDB-464 Implement UseDatabase feature for Azure SQL</li>
+<li>HUMMDB-460 Add ‘Use Database’ option for queries</li>
+<li>HUMMDB-455 Backup and Maintenance still running against removed databases</li>
+<li>HUMMDB-459 Add SQL Azure as a separate instance type</li>
+<li>HUMMDB-462 Upgrade UI packages to resolve security issues</li>
+<li>HUMMDB-463 Upgrade backend packages to resolve security issues</li>
+<li>HUMMDB-458 Get Classification data query failing on older Versions of SQL server</li>
+<li>HUMMDB-456 Get Data Classification data for all databases for all instances</li>
+<li>HUMMDB-453 When getting list of available databases getting error and populating in table [BackupAndMaintenance].[ActualHummdbDatabaseConfiguration]</li>
+<li>HUMMDB-449 Improve look and feel of billing calculator and ROI calculator</li>
+<li>HUMMDB-448 Upgrade Hummdb HUB UI to resolve vulnerabilities</li>
+<li>HUMMDB-434 Create ROI Calculator</li>
+<li>HUMMDB-443 Add theme dropdown selector</li>
+</ul>
+<h1 id="version-1173-18032021-changes">Version 1.1.7.3 (18/03/2021) Changes</h1>
+<ul>
+<li>HUMMDB-438 Improve Hummdb Hub build process</li>
+<li>HUMMDB-437 Add banners to Hummdb hub public pages</li>
+<li>HUMMDB-432 Hummdb public calculator style tweaks</li>
+<li>HUMMDB-435 Hummdb Hub UI does not show errors</li>
+<li>HUMMDB-433 Add screen for configuring client (node)</li>
+<li>HUMMDB-420 Show sku prices on when requesting a sku API</li>
+<li>HUMMDB-427 Make smaller Version of Hummdb calculator that is available to the public</li>
+</ul>
+<h1 id="version-1172-11032021-changes">Version 1.1.7.2 (11/03/2021) Changes</h1>
+<ul>
+<li>HUMMDB-430 Hummdb Pending and Error messages getting marked as Cancelled on service shutdown</li>
+<li>HUMMDB-429 When a server has no comms show the past comms error instead of pending</li>
+<li>HUMMDB-428 No Comms live alert does not give comms error</li>
+<li>HUMMDB-423 Allow editing and updating of available sku items</li>
+<li>HUMMDB-426 Getting 500 error when adding a new instance</li>
+<li>HUMMDB-424 Hummdb Price calculator UI</li>
+<li>HUMMDB-422 Hummdb Price calculator API</li>
+</ul>
+<h1 id="version-1171-02032021-changes">Version 1.1.7.1 (02/03/2021) Changes</h1>
+<ul>
+<li>HUMMDB-421 Allow assigning a billing configuration to a node backend</li>
+<li>HUMMDB-419 Add sku billing to billing configuration screen</li>
+<li>HUMMDB-418 Add billing pricing editor screen in hub</li>
+<li>HUMMDB-416 Refactor Hummdb Hub UI code</li>
+<li>HUMMDB-415 Fix project code style</li>
+<li>HUMMDB-414 Prevent non select statements from commiting changes in live alerts</li>
+<li>HUMMDB-400 Make live alerts work on Azure SQL where possible</li>
+<li>HUMMDB-407 Freshdesk integration part 2</li>
+<li>HUMMDB-374 Integrate Service SKU request with Freshdesk</li>
+<li>HUMMDB-404 Add basic dark theme</li>
+<li>HUMMDB-392 Upgrade frontend to angular 11</li>
+</ul>
+<h1 id="version-1170-17022021-changes">Version 1.1.7.0 (17/02/2021) Changes</h1>
+<ul>
+<li>HUMMDB-320 Importing of large numbers of instances is very slow</li>
+<li>HUMMDB-403 Move backup and maintenance report logic to Backup and Maintenance Module</li>
+<li>HUMMDB-379 Split Maintenance between Integrity checking and index rebuilds</li>
+<li>HUMMDB-402 Hangfire schedules firing before hummdb completed starting up</li>
+</ul>
+<h1 id="version-1169-16022021-changes">Version 1.1.6.9 (16/02/2021) Changes</h1>
+<ul>
+<li>HUMMDB-398 Prevent a backup/maintenance from running multiple times in one window</li>
+<li>HUMMDB-399 Weekly failover job is hardcoded to run on Sundays</li>
+<li>HUMMDB-397 Backup/Maintenance windows that run over midnight not calculating correctly</li>
+<li>HUMMDB-33 Add SQL job backup and maintenance failover for SQL Server Standard plus instances</li>
+<li>HUMMDB-388 Save to table needs to auto add columns if the table already exists</li>
+<li>HUMMDB-393 Remove @ng-bootstrap/ng-bootstrap package dependency</li>
+<li>HUMMDB-394 Replace 'angular-bootstrap-toasts' with primeng toasts</li>
+<li>HUMMDB-396 Hummdb Service not starting up on Windows startup</li>
+<li>HUMMDB-395 Backup and Maintenance history not populating if the backup/maintenance happens at certain times</li>
+<li>HUMMDB-391 Upgrade frontend to Angular 10</li>
+<li>HUMMDB-390 Test hummdb with central on SQL Azure</li>
+</ul>
+<h1 id="version-1168-05022021-changes">Version 1.1.6.8 (05/02/2021) Changes</h1>
+<ul>
+<li>HUMMDB-377 Create Daily humm DBs Backup and Maintenance snapshot</li>
+<li>HUMMDB-386 Cannot select midnight or 1am for backup/maintenance window</li>
+<li>HUMMDB-383 When filtering results on backup-and-maintenance/database-configuration screen the selected group should effect the exported list</li>
+<li>HUMMDB-382 When DISABLING backup and maintenance configurations in bulk we get an error "'SQL Server 2005' not supported"</li>
+<li>HUMMDB-385 When add a new instance or multiple new instances there is no acknowledgement message</li>
+<li>HUMMDB-380 Create pov form prototype on hub app</li>
+<li>HUMMDB-381 Standard user should be able to see audit report</li>
+<li>HUMMDB-354 Replace logout icon</li>
+<li>HUMMDB-378 Add "Hummdb Enabled" toggle on health dashboard</li>
+<li>HUMMDB-292 Implemented auotmatic SSL certificate renewal and change domain to hub.hummdb.com</li>
+<li>HUMMDB-376 Make Hub.Hummdb auth callback dynamic</li>
+</ul>
+<script src="../js/release-notes.js" defer />
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../release-notes-2020/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../release-notes-2020/" class="btn btn-xs btn-link">
+        Release Notes - 2020
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../release-notes/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../release-notes/" class="btn btn-xs btn-link">
+        Release Notes - Recent
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

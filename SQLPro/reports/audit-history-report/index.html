@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Audit History Report - Conductor4SQL Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+          ]},
+          {title: "Alerts", url: "#alerts", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script>
+      <script src="../../../search/main.js"></script> 
+<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
+<script src="../../../js/jquery.fancybox.js" defer></script>
+<script src="../../../js/jquery.fancybox.pack.js" defer></script>
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../health-report/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../health-report/" class="btn btn-xs btn-link">
+        Health Report
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>To get started select the reports icon and choose audit history report:</p>
+<p><img alt="" src="/img/reports/audit-history/audit-history-report-menu.png" /></p>
+<p>Here you can see database structural changes made on your whole environment. This allows you to see if logins, databases, tables, views, indexes etc are being added, modified or removed from your servers. You can also set up email alerts for potentially dangerous operations such as login creation or dropping databases.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Server activity audit is an option that can be set by editing the instance you would like to audit. This feature is only available for Microsoft SQL Server and not SQL Azure or another of the other database types.</p>
+</div>
+<p><img alt="" src="/img/reports/audit-history/audit-history-instance-edit.png" /></p>
+<p><img alt="" src="/img/reports/audit-history/audit-history-report-screen.png" /></p>
+<p>And by viewing a script you can see what statements users have run in SQL. </p>
+<p><img alt="" src="/img/reports/audit-history/audit-history-report-script-view.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the script returns --Encrypted-- then the changes were done by an encrypted stored procedure and you cannot view the SQL that was changed.</p>
+</div>
+<h1 id="alerts">Alerts</h1>
+<p>By clicking the add alerts button you can create alerts for changes being made in a certain database or certain changes being made that you would like flagged and sent via email as an alert.</p>
+<p><img alt="" src="/img/reports/audit-history/audit-history-report-alerts-screen.png" /></p>
+<p><img alt="" src="/img/reports/audit-history/audit-history-report-add-alerts-screen.png" /></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../health-report/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../health-report/" class="btn btn-xs btn-link">
+        Health Report
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
