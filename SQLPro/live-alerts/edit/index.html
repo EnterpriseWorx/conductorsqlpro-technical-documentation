@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../../..../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Edit - ConductorSQLPro Technical Documentation</title>
+    <title>Edit Live Alerts - ConductorSQLPro Technical Documentation</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -33,11 +33,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Edit", url: "#_top", children: [
-          ]},
-          {title: "Threshold Edit", url: "#threshold-edit", children: [
-          ]},
-          {title: "Exclusion Edit", url: "#exclusion-edit", children: [
+          {title: "Edit Live Alerts", url: "#_top", children: [
+              {title: "Threshold Edit", url: "#threshold-edit" },
+              {title: "Exclusion Edit", url: "#exclusion-edit" },
           ]},
         ];
 
@@ -90,9 +88,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="edit">Edit</h1>
+    <h1 id="edit-live-alerts">Edit Live Alerts</h1>
 <p>Live alerts are simple SQL scripts to identify issues to your environment. </p>
-<p>To get to the Edit screen select the edit cog on the top right of the live alerts overview on the Live Report screen.</p>
+<p>To get to the Edit screen select the <strong>Edit Live Alerts</strong> context button on the Live Report screen.</p>
 <p><img alt="" src="../../../img/live-alerts/live-alert-report-navigation.png" /></p>
 <p>You can easily disable and enable your live alerts as well as adding your own live alerts. To add or remove an alert simply go to the live alert configurations page and simply mark the alert as active or slide to make it inactive.</p>
 <p><img alt="" src="../../../img/live-alerts/live-alert-config-page.png" /></p>
@@ -106,11 +104,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="" src="../../../img/live-alerts/live-alert-custom.png" /></p>
 <p>When adding/editing a custom live alert you can add a script of the custom alert you want. Exclusions are available to custom alerts.</p>
 <p><img alt="" src="../../../img/live-alerts/live-alert-edit-custom.png" /></p>
-<h1 id="threshold-edit">Threshold Edit</h1>
+<h2 id="threshold-edit">Threshold Edit</h2>
 <p>You will not be able to change the description for the threshold, only the variable.</p>
 <p><img alt="" src="../../../img/live-alerts/live-alert-edit-threshold-page.png" /></p>
-<h1 id="exclusion-edit">Exclusion Edit</h1>
-<p>Here you can add an exclusion clause and set the dates you want this exclusion to run between.</p>
+<h2 id="exclusion-edit">Exclusion Edit</h2>
+<p>Here you can add an exclusion clause and set the dates you want this exclusion to run between. Exclusions allow you to prevent email and alert spam for known reoccuring exceptions. See below for some examples of exclusions. In the first example below we are excluding dbcc checkdbs from the list of long running queries.</p>
 <p><img alt="" src="../../../img/live-alerts/live-alert-edit-exclusion-page.png" /></p>
 
   <br>

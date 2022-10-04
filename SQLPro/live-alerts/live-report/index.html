@@ -34,8 +34,9 @@
         
         var pageToc = [
           {title: "Introduction", url: "#_top", children: [
-          ]},
-          {title: "Standard Live Alerts", url: "#standard-live-alerts", children: [
+              {title: "Standard Live Alerts", url: "#standard-live-alerts" },
+              {title: "Alert Details", url: "#alert-details" },
+              {title: "Alert History", url: "#alert-history" },
           ]},
         ];
 
@@ -72,7 +73,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
       <a href="../edit/" class="btn btn-xs btn-link">
-        Edit
+        Edit Live Alerts
       </a>
     </div>
     
@@ -91,9 +92,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="introduction">Introduction</h1>
 <p>To get started select the live alerts Icon and choose <strong>Live Report</strong>:</p>
 <p><img alt="" src="../../../img/live-alerts/open-page.png" /></p>
-<p>The report monitors the success and errors of the standard and custom live alerts.</p>
+<p>This report is intended to monitor if there are any issues in your environment. By default no alerts are enabled. To add standard or custom alerts, simply click on the <strong>Edit Live Alerts</strong> button in the context menu.</p>
 <p><img alt="" src="../../../img/live-alerts/live-report-screen.png" /></p>
-<h1 id="standard-live-alerts">Standard Live Alerts</h1>
+<h2 id="standard-live-alerts">Standard Live Alerts</h2>
 <ul>
 <li><strong>Failed Live Jobs</strong> - <strong>SQL Server Jobs</strong> failing will get flagged by this alert allowing you to take action to fix them.</li>
 <li><strong>Database Not Online</strong> - flags databases with the status offline or single user.</li>
@@ -107,8 +108,18 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><strong>Lead Blockers</strong> - reports if things are blocked for more the 2 minutes.</li>
 <li><strong>No Server Activity Auditing in 24 hours</strong> - flags servers that have had nothing changed or reported within the last 24 hours as it would be unusual in production environments.</li>
 </ul>
-<p>To view more details simply press the view more details icon to trigger a pop up with the details.</p>
+<h2 id="alert-details">Alert Details</h2>
+<p>If the alert is <strong>red</strong> then SQLPro has detected an issue. You can click on the <strong>show more</strong> icon (top right of the alert card) to see more details.</p>
 <p><img alt="" src="../../../img/live-alerts/live-report-view-details.png" /></p>
+<h2 id="alert-history">Alert History</h2>
+<p>The alerts also have history for any past alerts that were fired. To view the alert history click on the <strong>show history</strong> icon (also top right of the alert card).</p>
+<p><img alt="" src="../../../img/live-alerts/live-alert-view-history.png" /></p>
+<p>Here you can change the time period for the history by changing the <strong>From</strong> or <strong>To</strong> date. By default the history is one week in the past until now.</p>
+<p>Secondly, you can view the details of any of the past alerts by clicking on one of the nodes in the graph. If you hover over one of the nodes it will show you date and the count of the errors for that time. </p>
+<p>In the example below we are hovering over the node from 2022-09-30 14:56 and there were 5 issues.</p>
+<p><img alt="" src="../../../img/live-alerts/live-alert-history-graph.png" /></p>
+<p>If we click on the node we can see the 5 issues in the details section.</p>
+<p><img alt="" src="../../../img/live-alerts/live-alert-history-details.png" /></p>
 
   <br>
     
@@ -126,7 +137,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
       <a href="../edit/" class="btn btn-xs btn-link">
-        Edit
+        Edit Live Alerts
       </a>
     </div>
     
