@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../..../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>System Settings - ConductorSQLPro Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+              {title: "Dashboard Auto Refresh", url: "#dashboard-auto-refresh" },
+              {title: "Live Alert Summary Email", url: "#live-alert-summary-email" },
+              {title: "Schedules", url: "#schedules" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script>
+      <script src="../../../search/main.js"></script> 
+<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
+<script src="../../../js/jquery.fancybox.js" defer></script>
+<script src="../../../js/jquery.fancybox.pack.js" defer></script>
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../reports/overview/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../reports/overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../edit/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../edit/" class="btn btn-xs btn-link">
+        Edit Live Alerts
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>To get to this dialog, click on the <strong>System Edit</strong> button on the <strong>Live Alert
+Monitoring</strong> screen.</p>
+<p>In Live Alert system settings is split into three sections:</p>
+<ul>
+<li>Dashboard Auto Refresh</li>
+<li>Live Alert Summary Email</li>
+<li>Schedules</li>
+</ul>
+<h2 id="dashboard-auto-refresh">Dashboard Auto Refresh</h2>
+<p>If you are using the dashboard on a large screen with no attached input devices
+or if you have a dedicated monitor for this live alert screen then allowing the
+screen to refresh automatically would be beneficial.</p>
+<p>To enable auto refreshing, simply toggle the <strong>Enable</strong> button. You can also
+adjust the schedule that the refresh occurs by changing the cron string for the
+<strong>Schedule</strong> field. Finally click on the <strong>Save</strong> button once you are done.</p>
+<p><img alt="" src="../../../img/live-alerts/system-edit/dashboard-auto-refresh.png" /></p>
+<h2 id="live-alert-summary-email">Live Alert Summary Email</h2>
+<p>Sending alerts on every issue can result in a fair amount of unwanted email. To
+combat this, you can enable a summary email which has the status of all live
+alerts and lists the instances that have issues and the counts of that issue.
+This way the intended audience will get a single email for all the issues rather
+than an email per issue.</p>
+<p><img alt="" src="../../../img/live-alerts/system-edit/live-alert-summary-email.png" /></p>
+<p>To configure the live alert summary click on the <strong>Live Alert Summary Email</strong>
+tab.</p>
+<p><img alt="" src="../../../img/live-alerts/system-edit/live-alert-summary-email-config.png" /></p>
+<p>Enable the email by toggling on the <strong>Enabled</strong> toggle. Select the <strong>Email
+List</strong> of recipients and adjust the schedule by changing the cron string for the
+<strong>Schedule</strong> field.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default the email is scheduled to arrive at 8:05 AM but this can easily be changed by adjusting the
+text in the cron <strong>Schedule</strong> field</p>
+</div>
+<p>Finally click on the <strong>Save</strong> button once you are done.</p>
+<h2 id="schedules">Schedules</h2>
+<p>The schedules for the <strong>Live Alerts</strong> module is highly configurable as each
+schedule is just a cron string.</p>
+<p>Each schedule line item has two schedules:</p>
+<ul>
+<li>Send Cron Schedule - the schedule in which the live alert query is run against
+  the instance</li>
+<li>Email Cron Schedule - when this schedule fires an email is sent for all live
+  alerts with issues using this schedule</li>
+</ul>
+<p>To edit the schedule click on the <strong>Edit</strong> button.</p>
+<p><img alt="" src="../../../img/live-alerts/system-edit/schedules-config.png" /></p>
+<p>Here you can adjust the schedules by editing the cron string for both the
+<strong>Query Cron Schedule</strong> and the <strong>Email Cron Schedule</strong> field. Finally click on
+the <strong>Save</strong> button once you are done.</p>
+<p><img alt="" src="../../../img/live-alerts/system-edit/schedules-config-edit.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Even though you can change the schedule completely. It is recommended that you leave the
+e.g. 'daily' schedule to only fire once a day and the 'every 12 hours' schedule to only execute
+every 12 hours to avoid confusion.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure that there is a couple of minutes between the <strong>Query Cron Schedule</strong> and the <strong>Email
+Cron Schedule</strong>. Since the Query Schedule needs some time to get the results from all of the
+installed instances.</p>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../reports/overview/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../reports/overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../edit/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../edit/" class="btn btn-xs btn-link">
+        Edit Live Alerts
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

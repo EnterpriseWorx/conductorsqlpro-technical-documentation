@@ -90,29 +90,49 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="introduction">Introduction</h1>
 <p>To view, update or create users select the settings Icon and choose users:</p>
 <p><img alt="" src="../../img/admin/users/open-page.png" /></p>
-<p>By default, you will have a Super Admin, Admin, and User which correlate with the internal roles that come standard with Conductor4SQL.</p>
+<p>By default, you will have a Super Admin, Admin, and User which correlate with
+the internal roles that come standard with Conductor4SQL.</p>
 <p><img alt="" src="../../img/admin/users/add-user-list.png" /></p>
-<p>When adding or editing users you set their user name, password, and role.
-By default, the internal User role, which is a view-only role, will be assigned to newly created users if you do not assign them a <strong><a href="../roles/">custom role</a></strong>. You can create roles as long as you have <strong>AdminRoleUpdate</strong> permission.</p>
+<p>When adding or editing users you set their username, password, and role. By
+default, the internal User role, which is a view-only role, will be assigned to
+newly created users if you do not assign them a <strong><a href="../roles/">custom role</a></strong>.
+You can create roles as long as you have <strong>AdminRoleUpdate</strong> permission.</p>
 <p><img alt="" src="../../img/admin/users/add-user.png" /></p>
 <h2 id="setup-and-enable-azure-ad-integration">Setup and Enable Azure AD Integration</h2>
-<p>Instead of having to create local users for each person wishing to interact with SQLPro it's often easier to enable Microsoft Azure Active Directory integration. This way users do not have to remember another password for another system and it's also more secure than using local logins.</p>
-<p>In order to use Azure AD logins the first step is to log into Azure Portal and navigate to the <strong>Azure Active Directory</strong> screen <a href="https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview">https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview</a>.</p>
-<p>Next select <strong>App Registrations</strong> </p>
+<p>Instead of having to create local users for each person wishing to interact with
+SQLPro it's often easier to enable Microsoft Azure Active Directory integration.
+This way users do not have to remember another password for another system, and
+it's also more secure than using local logins.</p>
+<p>In order to use Azure AD logins the first step is to log into Azure Portal and
+navigate to the <strong>Azure Active Directory</strong> screen
+<a href="https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview">https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview</a>.</p>
+<p>Next select <strong>App Registrations</strong></p>
 <p><img alt="" src="../../img/admin/users/azure-ad-app-registrations-menu.png" /></p>
 <p>Select <strong>New registration</strong></p>
 <p><img alt="" src="../../img/admin/users/azure-ad-app-new-registration-menu.png" /></p>
 <p>Fill in the <strong>Name</strong> field and click on the <strong>Register</strong> button.</p>
-<p>Now open your newly registered app, select the <strong>Authentication</strong> menu item and click on <strong>Add a platform</strong>. Fill in the https address that you are using for SQLPro. in this example I'm using our UAT server <a href="https://sqlprouat:8084">https://sqlprouat:8084</a>. So under Redirect URIs, in my example I put down the uri <strong>https://sqlprouat:8084/login/auth-callback</strong> and I also ticked <strong>ID tokens (used for implicit and hybrid flows)</strong>. Then finally click on the <strong>Configure</strong> button. Note, that you can only use https and you'll need to adjust the URIs to work with your environment.</p>
+<p>Now open your newly registered app, select the <strong>Authentication</strong> menu item and
+click on <strong>Add a platform</strong>. Fill in the https address that you are using for
+SQLPro. in this example I'm using our UAT server <a href="https://sqlprouat:8084">https://sqlprouat:8084</a>. So
+under Redirect URIs, in my example I put down the uri
+<strong>https://sqlprouat:8084/login/auth-callback</strong> and I also ticked <strong>ID tokens
+(used for implicit and hybrid flows)</strong>. Then finally click on the <strong>Configure</strong>
+button. Note, that you can only use https, and you'll need to adjust the URIs to
+work with your environment.</p>
 <p><img alt="" src="../../img/admin/users/azure-ad-app-new-registration-menu.png" /></p>
-<p>Now go to the <strong>Overview</strong> section in your newly registered app and take note of the <strong>Application (client) ID</strong> and <strong>Directory (tenant) ID</strong> for the app as you'll need this information next.</p>
+<p>Now go to the <strong>Overview</strong> section in your newly registered app and take note of
+the <strong>Application (client) ID</strong> and <strong>Directory (tenant) ID</strong> for the app as
+you'll need this information next.</p>
 <p><img alt="" src="../../img/admin/users/azure-ad-app-registration-setup.png" /></p>
-<p>Next in SQLPro, you'll need to go to the <strong>Administration &gt;&gt; Users</strong> screen and select the <strong>Edit Azure Configuration</strong> button. Paste in the <strong>Azure Tenant ID</strong> and the <strong>Azure Client ID</strong> and Save.</p>
+<p>Next in SQLPro, you'll need to go to the <strong>Administration &gt;&gt; Users</strong> screen and
+select the <strong>Edit Azure Configuration</strong> button. Paste in the <strong>Azure Tenant ID</strong>
+and the <strong>Azure Client ID</strong> and Save.</p>
 <p><img alt="" src="../../img/admin/users/edit-azure-authentication-configuration.png" /></p>
-<p>Restart the ConductorSQLPro windows service.</p>
+<p>Restart the ConductorSQLPro Windows service.</p>
 <p>Now when adding new users select the <strong>Azure User</strong> option.</p>
 <p><img alt="" src="../../img/admin/users/add-azure-user.png" /></p>
-<p>If all went well you'll have a <strong>Login With Azure AD</strong> option and you'll be able to login via this method.</p>
+<p>If all went well you'll have a <strong>Login With Azure AD</strong> option, and you'll be
+able to log in via this method.</p>
 <p><img alt="" src="../../img/admin/users/login-azure-ad.png" /></p>
 
   <br>

@@ -1,5 +1,5 @@
 .wy-menu-vertical .subnav li.current .toctree-l4 {
-    padding-left: 4.23em;
+  padding-left: 4.23em;
 }
 
 /*Force lightbox close button to top right*/
@@ -10,20 +10,20 @@
 }
 
 .wy-nav-side {
-    width: 400px;
+  width: 400px;
 }
 
 .wy-nav-content-wrap {
-      margin-left: 400px;
+  margin-left: 400px;
 }
 
 .wy-nav-content {
-    max-width: 1100px;
+  max-width: 1100px;
 }
 
 @media screen and (max-width: 768px) {
   .wy-nav-side {
-      left: -400px;
+    left: -400px;
   }
   .wy-nav-content-wrap {
     margin-left: 0px;
@@ -31,6 +31,6 @@
 }
 
 h1 {
-    font-size: 190%;
-    text-decoration: underline;
+  font-size: 190%;
+  text-decoration: underline;
 }

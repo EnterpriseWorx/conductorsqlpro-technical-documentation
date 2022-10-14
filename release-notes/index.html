@@ -33,7 +33,17 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Version 1.2.8.1 (05/07/2022) Changes", url: "#_top", children: [
+          {title: "Bump Version 1.3.3.0 (14/10/2022)", url: "#_top", children: [
+          ]},
+          {title: "Bump Version 1.3.2.0 (30/09/2022)", url: "#bump-version-1320-30092022", children: [
+          ]},
+          {title: "Version 1.3.1.1 (16/09/2022)", url: "#version-1311-16092022", children: [
+          ]},
+          {title: "Bump Version 1.3.1.0 (16/08/2022)", url: "#bump-version-1310-16082022", children: [
+          ]},
+          {title: "Version 1.3.0.0 (21/07/2022)", url: "#version-1300-21072022", children: [
+          ]},
+          {title: "Version 1.2.9.0 (17/07/2022)", url: "#version-1290-17072022", children: [
           ]},
           {title: "Version 1.2.8.0 (30/06/2022) Changes", url: "#version-1280-30062022-changes", children: [
           ]},
@@ -124,21 +134,148 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="version-1281-05072022-changes">Version 1.2.8.1 (05/07/2022) Changes</h1>
+    <h1 id="bump-version-1330-14102022">Bump Version 1.3.3.0 (14/10/2022)</h1>
 <ul>
+<li>HUMMDB-1062 Add ability to delete Server Activity Alerts</li>
+<li>HUMMDB-1060 Add cypress tests for Server Audit Activity screens</li>
+<li>HUMMDB-1058 Missing back button on the Server Activity Alerts screen</li>
+<li>HUMMDB-910 Allow editing of Event notification refresh schedule and email
+  schedule times</li>
+<li>HUMMDB-1042 Delete old Server Activity Audit History</li>
+<li>HUMMDB-1056 Block swagger when SQLPro is run in production</li>
+<li>HUMMDB-1055 Cannot return to live alert report screen from editor screen using
+  the menu</li>
+<li>HUMMDB-1053 Change business attribute screen to use edit dialog</li>
+<li>HUMMDB-1045 Allow user to add or remove groups in edit instance screen</li>
+<li>HUMMDB-1012 Include Instance Groups column in Instances list screen</li>
+<li>HUMMDB-1052 Live alert screen showing scrollbar in list of live alerts screen</li>
+<li>HUMMDB-1044 Email schedule for user queries stays in hangfire schedules even
+  when schedule deleted</li>
+<li>HUMMDB-1040 User should not be able to edit the permissions of their own role</li>
+<li>HUMMDB-1039 User should not be able to edit or delete a role where user does
+  not have all permissions in role</li>
+<li>HUMMDB-1038 On log out and re-login in menu items are not always reset to new
+  users permissions</li>
+<li>HUMMDB-1037 Change "SQLPro Backup &amp; Maintenance Report" email subject to
+  "SQLPro Backup &amp; Maintenance Report With Failures" when failure occurs</li>
+<li>HUMMDB-1036 On logging in old username and role still shows in top bar</li>
+<li>Remove angular references to 'file-saver' and replace with 'file-saver-es'</li>
+<li>HUMMDB-1026 Empty url needs to redirect to landing page</li>
+<li>HUMMDB-1025 Landing page logos dashboard images shared with menu logo images</li>
+</ul>
+<h1 id="bump-version-1320-30092022">Bump Version 1.3.2.0 (30/09/2022)</h1>
+<ul>
+<li>HUMMDB-982 Replace Admin shell with more user-friendly alternative</li>
+<li>HUMMDB-1018 Upgrade client app typescript packages</li>
+<li>HUMMDB-1017 Upgrade Client App to Angular 14</li>
+<li>HUMMDB-1016 Upgrade c# nuget packages to latest version</li>
+<li>HUMMDB-1015 Upgrade RestSharp to the latest version</li>
+<li>HUMMDB-1013 Audit alerts logic uses SPLIT_STRING statement which isn't
+  supported in SQL Server 2012</li>
+<li>HUMMDB-1010 Remove "TRUSTWORTHY ON" property in for SQLPro database when
+  enabling event notifications</li>
+<li>HUMMDB-1008 Cannot differentiate between groups and instances in the Query
+  Editor screen</li>
+<li>HUMMDB-1004 Move Global Settings from appsettings.json to database</li>
+<li>Split Instance "Bulk Operations" into "Bulk Operations" and "Import/Export" on
+  instance screen</li>
+<li>HUMMDB-1007 Update SQLPro audit report latest SP and CUs</li>
+<li>HUMMDB-997 Allow user to capture groups when bulk importing instances</li>
+<li>HUMMDB-1006 Add instance groups to CSV instance export</li>
+<li>HUMMDB-999 Add ability to bulk enable or disable Server Activity Audit</li>
+<li>HUMMDB-998 Need to be able to bulk delete instances</li>
+<li>HUMMDB-1005 Cannot import same csv file of instances twice in a row</li>
+<li>HUMMDB-987 Show number of updated instances when bulk importing instances</li>
+</ul>
+<h1 id="version-1311-16092022">Version 1.3.1.1 (16/09/2022)</h1>
+<ul>
+<li>HUMMDB-1003 User query send schedule and email schedule use the same schedule
+  regardless of configuration</li>
+<li>HUMMDB-1002 Upgrade C# Nuget packages to improve backend security</li>
+<li>HUMMDB-1001 Mail enabled flag remains false even though all mail settings are
+  configured correctly</li>
+<li>HUMMDB-995 Add hamburger button to hide side panel</li>
+<li>HUMMDB-991 Live Alert history trends graph not visible in dark theme</li>
+<li>HUMMDB-993 SQLSense dialog boxes showing unneeded scroll bars</li>
+<li>HUMMDB-992 Dropdown lists in dialogs are getting cut off on some screens</li>
+<li>HUMMDB-994 Trim all fields before importing csv file for instance list</li>
+<li>HUMMDB-996 Super Admin Role should only be visible to Super Admin users</li>
+<li>HUMMDB-989 When adding users only roles that are available to current user
+  should be visible in the selection list</li>
+<li>HUMMDB-990 Cannot see typed text in pill control when using dark theme</li>
+<li>HUMMDB-984 Import csv should check for duplicate server names in import file</li>
+<li>HUMMDB-983 "Testing Connection" or Saving new Instance doesn't have validation
+  on all fields</li>
+<li>HUMMDB-988 Agent offline not detected for SQL Server Web edition</li>
+<li>HUMMDB-986 Cannot edit instance when client has corrupt Password field in
+  dbo.Clients table</li>
+<li>HUMMDB-985 SQLPro service fails to start up if invalid data in Password column
+  in dbo.Clients Table</li>
+<li>HUMMDB-975 Tweak lead blocker script to show the actual SPIDs that are getting
+  blocked</li>
+</ul>
+<h1 id="bump-version-1310-16082022">Bump Version 1.3.1.0 (16/08/2022)</h1>
+<ul>
+<li>HUMMDB-977 Allow SQLPro central to run on SQLServer 2012</li>
+<li>HUMMDB-971 Allow editing of Reporting section schedule times</li>
+<li>HUMMDB-973 A bad exclusion (invalid SQL syntax) for a Live alert results in
+  500 error for entire dashboard</li>
+<li>HUMMDB-974 Trying to leave Live Alert Dashboard screen if auto-refresh is off
+  results in error</li>
+<li>HUMMDB-972 Report: SQL Server Database Files Latest - fails if auditing is
+  enabled and SQLPro backups are not</li>
+<li>HUMMDB-817 Old live alert history entries need to be removed after retention
+  period is exceeded</li>
+<li>HUMMDB-968 Backups failing after manual backup/restore performed to Azure blob
+  storage via SSMS</li>
+<li>HUMMDB-969 Setting Azure Blob Credentials to blank is not using global azure
+  blob credentials</li>
+<li>HUMMDB-967 IDValuePair Endpoint not secured</li>
+<li>HUMMDB-966 Getting 500 error when trying to view/edit mail configuration</li>
+<li>HUMMDB-919 Add error message if trying to run ad-hoc backup/maintenance and no
+  databases configured</li>
+<li>HUMMDB-960 Add MySQL Long Running Query system live alert</li>
+<li>HUMMDB-964 Make Live Failed Jobs alert monitoring threshold configurable</li>
+<li>HUMMDB-961 Add PostgreSQL Long Running Query system live alert</li>
+<li>HUMMDB-959 Can no longer delete custom live alerts</li>
+</ul>
+<h1 id="version-1300-21072022">Version 1.3.0.0 (21/07/2022)</h1>
+<ul>
+<li>HUMMDB-952 Cannot add more than one live alert exception at once</li>
+<li>HUMMDB-938 Allow Live alerts module to work for all supported Instance Types</li>
+<li>HUMMDB-951 Not all failed backup attempts are getting logged in SQLPro
+  Database Audit tables</li>
+<li>HUMMDB-846 Update SQLPro audit report latest SP and CUs</li>
+</ul>
+<h1 id="version-1290-17072022">Version 1.2.9.0 (17/07/2022)</h1>
+<ul>
+<li>HUMMDB-922 SQLPro service fails to close if there is an outstanding query</li>
+<li>HUMMDB-814 Make live alert schedules configurable</li>
+<li>HUMMDB-926 Make Live alert dashboard auto refresh configurable</li>
+<li>HUMMDB-927 Add "Remember Me" option in login</li>
+<li>HUMMDB-925 Create live alert summary report</li>
+<li>HUMMDB-924 Make SQLPro installer console logging more readable</li>
+<li>HUMMDB-923 Can no longer update Conductor4SQL classic license in hub</li>
+<li>HUMMDB-920 Can save invalid email addresses in SQLPro email editor</li>
+<li>HUMMDB-914 Admin Role cannot make new roles</li>
+<li>HUMMDB-921 Email lists should have at least one email address assigned to them
+  else saving the list should not be possible</li>
 <li>HUMMDB-915 Change name in installer and install path to ConductorSQLPro</li>
 <li>HUMMDB-917 SQLPro fails to start if Always On is enabled for it's database</li>
-<li>HUMMDB-918 Database detail and security report does not cater for Always On databases</li>
+<li>HUMMDB-918 Database detail and security report does not cater for Always On
+  databases</li>
 </ul>
 <h1 id="version-1280-30062022-changes">Version 1.2.8.0 (30/06/2022) Changes</h1>
 <ul>
 <li>HUMMDB-913 Mailer fails to start if no config setup</li>
-<li>HUMMDB-909 Change SQLPro service name to ConductorSQLPro as it's easy to confuse it with the current Conductor4SQL classic service</li>
+<li>HUMMDB-909 Change SQLPro service name to ConductorSQLPro as it's easy to
+  confuse it with the current Conductor4SQL classic service</li>
 <li>HUMMDB-911 Hide "Login With Azure AD" button if Azure AD not setup</li>
 <li>HUMMDB-908 SQLPro looses license if hub not accessible</li>
 <li>HUMMDB-901 Allow manual license installs in SQLPro</li>
 <li>HUMMDB-904 Cannot log into SQLPro if there is no license file</li>
-<li>HUMMDB-900 When using Windows service account login during SQLPro install service fails to start</li>
+<li>HUMMDB-900 When using Windows service account login during SQLPro install
+  service fails to start</li>
 </ul>
 <h1 id="version-1270-23062022-changes">Version 1.2.7.0 (23/06/2022) Changes</h1>
 <ul>
@@ -148,8 +285,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h1 id="version-1260-15062022-changes">Version 1.2.6.0 (15/06/2022) Changes</h1>
 <ul>
 <li>HUMMDB-890 Job details report script returning duplicate Job IDs</li>
-<li>HUMMDB-887 If database name is repeated with a different case we end up with duplicates in configuration screen</li>
-<li>HUMMDB-889 Failure to backup to Azure blob storage is getting logged by SQLPro monitoring as an "Out of Window" error</li>
+<li>HUMMDB-887 If database name is repeated with a different case we end up with
+  duplicates in configuration screen</li>
+<li>HUMMDB-889 Failure to back up to Azure blob storage is getting logged by
+  SQLPro monitoring as an "Out of Window" error</li>
 </ul>
 <h1 id="version-1250-08062022-changes">Version 1.2.5.0 (08/06/2022) Changes</h1>
 <ul>
@@ -163,27 +302,31 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <ul>
 <li>HUMMDB-876 Cannot edit live alerts on fresh application install</li>
 <li>HUMMDB-644 Allow SQLPro to run in an Azure AppService</li>
-<li>HUMMDB-875 Create view scripts failing when creating a new central database for SQLPro</li>
+<li>HUMMDB-875 Create view scripts failing when creating a new central database
+  for SQLPro</li>
 <li>HUMMDB-828 Allow adhoc backups, maintenance, index rebuilds</li>
 <li>HUMMDB-827 Add azure credentials to a database level for backups</li>
 <li>HUMMDB-748 SQLPro views are not encrypted</li>
-<li>HUMMDB-872 Move latest CU/SP information out of query logic</li>
+<li>HUMMDB-872 Move to the latest CU/SP information out of query logic</li>
 </ul>
 <h1 id="version-1230-18052022-changes">Version 1.2.3.0 (18/05/2022) Changes</h1>
 <ul>
 <li>HUMMDB-870 Can no longer create custom live alerts</li>
 <li>HUMMDB-864 No confirmation message when trying to delete custom live alerts</li>
 <li>HUMMDB-865 Fix build warnings in code base</li>
-<li>HUMMDB-863 The logo on login screen still points to www.hummdb.com rather than www.conductor4sql.com</li>
+<li>HUMMDB-863 The logo on login screen still points to www.hummdb.com rather than
+  www.conductor4sql.com</li>
 <li>HUMMDB-857 Upgrade SQLPro backend to .net 6</li>
 <li>HUMMDB-862 Refactor: Move App.config into appsettings.json</li>
 <li>HUMMDB-861 Cleanup "No Comms" history logic</li>
-<li>HUMMDB-860 History for "No Comms" not working when live alerts executed through scheduler</li>
+<li>HUMMDB-860 History for "No Comms" not working when live alerts executed
+  through scheduler</li>
 </ul>
 <h1 id="version-1220-10052022-changes">Version 1.2.2.0 (10/05/2022) Changes</h1>
 <ul>
-<li>HUMMDB-855 "No Comms" and "No Server Activity Auditing in 24 Hours" have no history</li>
-<li>HUMMDB-851 Apply latest angular/npm security patches</li>
+<li>HUMMDB-855 "No Comms" and "No Server Activity Auditing in 24 Hours" have no
+  history</li>
+<li>HUMMDB-851 Apply the latest angular/npm security patches</li>
 </ul>
 <h1 id="version-1219-06052022-changes">Version 1.2.1.9 (06/05/2022) Changes</h1>
 <ul>
@@ -197,11 +340,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <h1 id="version-1217-21042022-changes">Version 1.2.1.7 (21/04/2022) Changes</h1>
 <ul>
-<li>HUMMDB-840 Get an error if we try to generate sql migrations for SQLPro database</li>
+<li>HUMMDB-840 Get an error if we try to generate sql migrations for SQLPro
+  database</li>
 <li>HUMMDB-809 Allow user to edit thresholds for live alert queries</li>
 <li>HUMMDB-836 Health Dashboard "SQLPro enabled" filter not working</li>
 <li>HUMMDB-835 Add return to live alert screen from the edit screen</li>
-<li>HUMMDB-820 Instance add/edit screen and instance import template has column name discrepancies</li>
+<li>HUMMDB-820 Instance add/edit screen and instance import template has column
+  name discrepancies</li>
 <li>HUMMDB-821 Move Health dashboard edit screen to health dashboard</li>
 </ul>
 <h1 id="version-1216-07042022-changes">Version 1.2.1.6 (07/04/2022) Changes</h1>
@@ -218,14 +363,15 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>HUMMDB-806 Add exclusions/ignores to live alerts backend</li>
 <li>HUMMDB-813 Long running query alert showing incorrect run time</li>
 <li>HUMMDB-812 Import database backups and restores in event notifications</li>
-<li>HUMMDB-808 Increase long running query threshold to 2 minutes</li>
+<li>HUMMDB-808 Increase long-running query threshold to 2 minutes</li>
 <li>HUMMDB-805 Old live alerts don't clear from the live alert screen</li>
 </ul>
 <h1 id="version-1214-18032022-changes">Version 1.2.1.4 (18/03/2022) Changes</h1>
 <ul>
 <li>HUMMDB-802 Email lists for mailer getting cached</li>
 <li>HUMMDB-795 Table styling not working on audit/sql-environment-audit</li>
-<li>HUMMDB-800 Browsers offering to save the username and password for mail server setup</li>
+<li>HUMMDB-800 Browsers offering to save the username and password for mail server
+  setup</li>
 <li>HUMMDB-799 Browsers offering to save the username and password for instances</li>
 <li>HUMMDB-798 Windows service failing on startup</li>
 <li>HUMMDB-793 Add Description and Terms and Conditions fields to SKUCategory</li>
@@ -235,14 +381,15 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h1 id="version-1213-03032022-changes">Version 1.2.1.3 (03/03/2022) Changes</h1>
 <ul>
 <li>HUMMDB-790 Fix database relationship between SkuItem and SkuCategory</li>
-<li>HUMMDB-789 SQL Sense not bringing back explicit select permissions for windows logins</li>
+<li>HUMMDB-789 SQL Sense not bringing back explicit select permissions for windows
+  logins</li>
 <li>HUMMDB-785 Health - SQL Server Job Details Script needs to be optimised</li>
 </ul>
 <h1 id="version-1212-17022022-changes">Version 1.2.1.2 (17/02/2022) Changes</h1>
 <ul>
 <li>HUMMDB-769 SKU database sizes are hardcoded in SQLPro</li>
 <li>HUMMDB-780 Change SQLPro to use new hub (hub.conductor4sql.com)</li>
-<li>HUMMDB-774 Add auto restart to SQLPro service failture</li>
+<li>HUMMDB-774 Add auto restart to SQLPro service failure</li>
 <li>HUMMDB-766 Allow public view of the sku items and database size legend</li>
 <li>HUMMDB-765 Add full screen code editor button toggle</li>
 </ul>
@@ -255,19 +402,23 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>HUMMDB-754 Cannot see the full stacktrace of unhandled errors in the hub</li>
 <li>HUMMDB-738 Add screen for viewing the "Server Activity Audit" information</li>
 <li>HUMMDB-752 Angular build errors when regenerating the front end services</li>
-<li>HUMMDB-750 Implement Husky to force code-formatting before commiting</li>
+<li>HUMMDB-750 Implement Husky to force code-formatting before committing</li>
 <li>HUMMDB-751 Upgrade prettier to v2.5.1</li>
 <li>HUMMDB-747 Bulk import instances giving 500 error</li>
 <li>HUMMDB-749 Database list not populating if "Server Activity Audit" is enabled</li>
 <li>HUMMDB-742 Enable session_state in select tables</li>
-<li>HUMMDB-746 Enabling "Server Activity Audit" should not be allowed if the Audit module is disabled</li>
-<li>HUMMDB-745 SQLSense fails with exception on first load of screen in clean database</li>
-<li>HUMMDB-744 Error "RunDuration" missing when creating Reporting.vwHummdbDatabaseBackupHistory view</li>
+<li>HUMMDB-746 Enabling "Server Activity Audit" should not be allowed if the Audit
+  module is disabled</li>
+<li>HUMMDB-745 SQLSense fails with exception on first load of screen in clean
+  database</li>
+<li>HUMMDB-744 Error "RunDuration" missing when creating
+  Reporting.vwHummdbDatabaseBackupHistory view</li>
 </ul>
 <h1 id="version-1210-28012022-changes">Version 1.2.1.0 (28/01/2022) Changes</h1>
 <ul>
 <li>HUMMDB-736 Add live alert "No Server Activity Auditing in 24 Hours"</li>
-<li>HUMMDB-740 Script GetHummdbServerConfigurationDifferences returning information from deactivated instances</li>
+<li>HUMMDB-740 Script GetHummdbServerConfigurationDifferences returning
+  information from deactivated instances</li>
 <li>HUMMDB-739 Test event notifications in uat</li>
 <li>HUMMDB-721 Improve styling of Conductor4SQL POV checklist</li>
 <li>HUMMDB-735 Rename "Event Notifications" to "Server Activity Audit"</li>
@@ -275,8 +426,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h1 id="version-1209-27012022-changes">Version 1.2.0.9 (27/01/2022) Changes</h1>
 <ul>
 <li>HUMMDB-724 Add event notifications support for MsSQL in SQLPro</li>
-<li>HUMMDB-719 Allow users to add additional email lists from the saved user query screen</li>
-<li>HUMMDB-720 Delta to Json MySQL and PosgreSQL test scripts</li>
+<li>HUMMDB-719 Allow users to add additional email lists from the saved user query
+  screen</li>
+<li>HUMMDB-720 Delta to Json MySQL and PostgreSQL test scripts</li>
 <li>HUMMDB-714 Add ability to add new schedules from saved queries</li>
 <li>HUMMDB-715 Create new POV checklist on Conductor4SQL Hub</li>
 </ul>
@@ -290,13 +442,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>HUMMDB-704 Adjust look and feel of table on /internal/live-alerts</li>
 <li>HUMMDB-706 Show name of user that has logged into the SQLPro hub</li>
 <li>HUMMDB-705 Add logout menu item to the SQLPro hub</li>
-<li>HUMMDB-707 Add production hub database to source control for local development testing</li>
+<li>HUMMDB-707 Add production hub database to source control for local development
+  testing</li>
 <li>HUMMDB-702 Add Conductor4SQL logo to SQLPro hub internal pages</li>
 <li>HUMMDB-97 Store DBCC table results errors</li>
-<li>HUMMDB-586 Database reindexing/reorganising should not occur if dbcc checkdb fails</li>
+<li>HUMMDB-586 Database reindexing/reorganising should not occur if dbcc checkdb
+  fails</li>
 <li>HUMMDB-703 Add SQLPro theme colors to SQLPro hub</li>
 <li>HUMMDB-701 Cannot add more than one additional license type on the hub</li>
 </ul>
+<!--suppress CheckEmptyScriptTag -->
 <script src="../js/release-notes.js" defer />
 
   <br>
