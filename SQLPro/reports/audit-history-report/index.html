@@ -37,6 +37,8 @@
           ]},
           {title: "Alerts", url: "#alerts", children: [
           ]},
+          {title: "Exclusions", url: "#exclusions", children: [
+          ]},
         ];
 
     </script>
@@ -103,8 +105,8 @@ to audit. This feature is only available for Microsoft SQL Server and not SQL Az
 of the other database types.</p>
 </div>
 <p><img alt="" src="../../../img/reports/audit-history/audit-history-instance-edit.png" /></p>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png" /></p>
 <p>And by viewing a script you can see what statements users have run in SQL.</p>
+<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png" /></p>
 <p><img alt="" src="../../../img/reports/audit-history/audit-history-report-script-view.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -112,11 +114,62 @@ of the other database types.</p>
 procedure and you cannot view the SQL that was changed.</p>
 </div>
 <h1 id="alerts">Alerts</h1>
-<p>By clicking the add alerts button you can create alerts for changes being made
-in a certain database or certain changes being made that you would like flagged
-and sent via email as an alert.</p>
+<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png" /></p>
+<p>Clicking on the <strong>Alerts</strong> button will bring you to the <strong>Server Activity
+Alerts</strong> screen. Here you can set up alert emails for specific events such as a
+table being created or a database being dropped for example</p>
 <p><img alt="" src="../../../img/reports/audit-history/audit-history-report-alerts-screen.png" /></p>
+<p>By clicking the <strong>Add Alert</strong>, you can create a new alert.</p>
 <p><img alt="" src="../../../img/reports/audit-history/audit-history-report-add-alerts-screen.png" /></p>
+<ul>
+<li><strong>Alert Name</strong> - A free text name of the alert which affects the email subject
+  line, so you can tell from which alert the event fired from.</li>
+<li><strong>Email List</strong> - The list of To And CC addresses to send the email to</li>
+<li><strong>Is Active</strong> - Turn on or off the Alert</li>
+<li><strong>Include Statement in Email</strong> - by default we don't include the actual SQL
+  text that was run, turn this on if you would like to see the text.</li>
+<li><strong>Event Type</strong> - The list of events that trigger the Alert. e.g. if I select
+  DROP_DATABASE, I will get alerted when a user drops a database.</li>
+<li><strong>Event Start Date</strong> - this is set to the date that the alert was created, if
+  you want to test what emails will be sent you can set this date to a date in
+  the past.</li>
+<li><strong>Group Name</strong> - here you can limit the alert to a selection of instances that
+  are part of a group</li>
+<li><strong>Login/Database/Schema/Object Name Like</strong> - Here you can limit the alerts to
+  only work with a number of objects with matching like clause. e.g. if I put in
+  <strong>Adventure%</strong> for the <strong>Database Name Like</strong> field it would only capture
+  events on the matching <strong>AdventureWorks</strong> and <strong>Adventure</strong> databases</li>
+<li><strong>Login/Database/Schema/Object Name Not Like</strong> - In the same way as the
+  <strong>Like</strong> operators, here you can exclude a specific item from the list. e.g.
+  if I have a login called <strong>POSUser</strong> which is allowed to do anything in the
+  system and I don't want alerts on anything this user does, I would add
+  <strong>POSUser</strong> to the <strong>Login Name Not Like</strong> field.</li>
+</ul>
+<h1 id="exclusions">Exclusions</h1>
+<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png" /></p>
+<p>Clicking on the <strong>Exclusions</strong> button will bring you to the <strong>Server Activity
+Exclusions</strong> screen. Here you can set up specific events that get excluded
+altogether in the <strong>Service Activity Audit History</strong>. A good example where this
+is useful would be if a destructive load process drops and recreates reporting
+tables every day. This allows you filter out "noise" so you can focus on the
+important events.</p>
+<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-exclusion-list.png" /></p>
+<p>By default, we exclude some of the objects that are dropped and recreated in
+SQLPro's Backup and Maintenance Module.</p>
+<p>To add a new exclusion, click on the <strong>Add Exclusion</strong> button.</p>
+<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-edit-exclusion.png" /></p>
+<ul>
+<li><strong>Name</strong> - the friendly name for the exclusion</li>
+<li><strong>Event Type Like</strong> - the event that you would like to exclude, note that it
+  takes wildcards so the <strong>%_DATABASE</strong> will match the <strong>CREATE_DATABASE</strong>,
+  <strong>ALTER_DATABASE</strong> and <strong>DROP_DATABASE</strong> events.</li>
+<li><strong>Login/Database/Schema/Object Name Like</strong> - here we can finely tune which
+  objects to exclude</li>
+<li><strong>Is Active</strong> - toggle the exclusion on or off</li>
+</ul>
+<p>In the example, I am excluding the dropping, creating or altering of the
+database "Staging"</p>
+<p>Click on the <strong>Save</strong> button to save the exclusion.</p>
 
   <br>
     
