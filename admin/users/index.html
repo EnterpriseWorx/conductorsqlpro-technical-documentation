@@ -34,6 +34,7 @@
         
         var pageToc = [
           {title: "Introduction", url: "#_top", children: [
+              {title: "Set LDAP (Active Directory)", url: "#set-ldap-active-directory" },
               {title: "Setup and Enable Azure AD Integration", url: "#setup-and-enable-azure-ad-integration" },
           ]},
         ];
@@ -98,11 +99,32 @@ default, the internal User role, which is a view-only role, will be assigned to
 newly created users if you do not assign them a <strong><a href="../roles/">custom role</a></strong>.
 You can create roles as long as you have <strong>AdminRoleUpdate</strong> permission.</p>
 <p><img alt="" src="../../img/admin/users/add-user.png" /></p>
-<h2 id="setup-and-enable-azure-ad-integration">Setup and Enable Azure AD Integration</h2>
+<h2 id="set-ldap-active-directory">Set LDAP (Active Directory)</h2>
 <p>Instead of having to create local users for each person wishing to interact with
-SQLPro it's often easier to enable Microsoft Azure Active Directory integration.
-This way users do not have to remember another password for another system, and
-it's also more secure than using local logins.</p>
+SQLPro it's often easier to use Microsoft's Active Directory. This way users do
+not have to remember another password for another system, and it's also more
+secure than using local logins.</p>
+<p>SQLPro supports LDAP which Microsoft uses Active Directory.</p>
+<p>First thing you'll need to do is find out where your AD server is located. So
+open the Command Prompt line on your central server hosting SQLPro and run the
+following command</p>
+<pre><code class="language-cmd">set l | find /i &quot;LOGONSERVER=\\&quot;
+</code></pre>
+<p>In our example the AD server name is TEST-AD1, take note of your AD server
+location.</p>
+<p>Next in SQLPro, you'll need to go to the Administration &gt;&gt; Users screen and
+select the Edit Configuration button.</p>
+<p><img alt="" src="../../img/admin/users/authentication-configuration-edit.png" /></p>
+<p>Fill in the <strong>LDAP Host</strong> field with your AD server location and in most cases
+keep <strong>LDAP Port</strong> as 389 and click on <strong>Save</strong>.</p>
+<p>When adding a new User, make sure you select <strong>LDAP User</strong> for <strong>Authentication
+Type</strong>. Also include your domain name in the <strong>Username</strong> field.</p>
+<p><img alt="" src="../../img/admin/users/add-ldap-user.png" /></p>
+<p>Now you should be able to log in as this user using normal AD credentials
+(remember to include your domain name in your username)</p>
+<p><img alt="" src="../../img/admin/users/login-ldap-login.png" /></p>
+<h2 id="setup-and-enable-azure-ad-integration">Setup and Enable Azure AD Integration</h2>
+<p>SQLPro also supports Azure Active Directory</p>
 <p>In order to use Azure AD logins the first step is to log into Azure Portal and
 navigate to the <strong>Azure Active Directory</strong> screen
 <a href="https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview">https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview</a>.</p>
@@ -125,8 +147,8 @@ the <strong>Application (client) ID</strong> and <strong>Directory (tenant) ID</
 you'll need this information next.</p>
 <p><img alt="" src="../../img/admin/users/azure-ad-app-registration-setup.png" /></p>
 <p>Next in SQLPro, you'll need to go to the <strong>Administration &gt;&gt; Users</strong> screen and
-select the <strong>Edit Azure Configuration</strong> button. Paste in the <strong>Azure Tenant ID</strong>
-and the <strong>Azure Client ID</strong> and Save.</p>
+select the <strong>Edit Configuration</strong> button. Paste in the <strong>Azure Tenant ID</strong> and
+the <strong>Azure Client ID</strong> and Save.</p>
 <p><img alt="" src="../../img/admin/users/edit-azure-authentication-configuration.png" /></p>
 <p>Restart the ConductorSQLPro Windows service.</p>
 <p>Now when adding new users select the <strong>Azure User</strong> option.</p>
