@@ -39,6 +39,8 @@
           ]},
           {title: "Exclusions", url: "#exclusions", children: [
           ]},
+          {title: "System Settings", url: "#system-settings", children: [
+          ]},
         ];
 
     </script>
@@ -170,6 +172,20 @@ SQLPro's Backup and Maintenance Module.</p>
 <p>In the example, I am excluding the dropping, creating or altering of the
 database "Staging"</p>
 <p>Click on the <strong>Save</strong> button to save the exclusion.</p>
+<h1 id="system-settings">System Settings</h1>
+<p>Here you can edit schedules and retention periods for the Server Activity Audit
+report</p>
+<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-system-settings.png" /></p>
+<ul>
+<li><strong>Query Schedule</strong> - The frequency to connect to all the server instances to
+  get Audit changes</li>
+<li><strong>Email Schedule</strong> - All alerts currently share a single email schedule that
+  can be adjusted here</li>
+<li><strong>Archive Schedule</strong> - How often to remove audit data that has exceeded the
+  <strong>History Retention Period (in Days)</strong></li>
+<li><strong>History Retention Period (In Days)</strong> - the number of days to keep the audit
+  data</li>
+</ul>
 
   <br>
     
