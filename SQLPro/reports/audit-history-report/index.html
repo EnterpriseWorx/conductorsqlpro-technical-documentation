@@ -127,6 +127,10 @@ table being created or a database being dropped for example</p>
 <li><strong>Alert Name</strong> - A free text name of the alert which affects the email subject
   line, so you can tell from which alert the event fired from.</li>
 <li><strong>Email List</strong> - The list of To And CC addresses to send the email to</li>
+<li><strong>Email Results Type</strong> - the options are </li>
+<li><strong>HTML Only</strong> - the alerts are embedded in the email body</li>
+<li><strong>Attachment Only</strong> - the alerts are included as an XLSX attachment</li>
+<li><strong>HTML &amp; Attachment</strong> -  alerts are included in the HTML body and an XLSX attachment</li>
 <li><strong>Is Active</strong> - Turn on or off the Alert</li>
 <li><strong>Include Statement in Email</strong> - by default we don't include the actual SQL
   text that was run, turn this on if you would like to see the text.</li>
@@ -146,6 +150,7 @@ table being created or a database being dropped for example</p>
   if I have a login called <strong>POSUser</strong> which is allowed to do anything in the
   system and I don't want alerts on anything this user does, I would add
   <strong>POSUser</strong> to the <strong>Login Name Not Like</strong> field.</li>
+<li><strong>Email Schedule</strong> - The cron string schedule to use for the email alerts</li>
 </ul>
 <h1 id="exclusions">Exclusions</h1>
 <p><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png" /></p>
@@ -179,8 +184,7 @@ report</p>
 <ul>
 <li><strong>Query Schedule</strong> - The frequency to connect to all the server instances to
   get Audit changes</li>
-<li><strong>Email Schedule</strong> - All alerts currently share a single email schedule that
-  can be adjusted here</li>
+<li><strong>Default Email Schedule</strong> - The default schedule to use for all new alerts</li>
 <li><strong>Archive Schedule</strong> - How often to remove audit data that has exceeded the
   <strong>History Retention Period (in Days)</strong></li>
 <li><strong>History Retention Period (In Days)</strong> - the number of days to keep the audit
