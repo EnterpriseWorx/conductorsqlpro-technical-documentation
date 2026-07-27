@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Mail - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Mail - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -40,12 +38,13 @@
 
     </script>
     <script src="../../js/base.js"></script>
-      <script src="../../js/custom.js"></script>
-      <script src="../../search/main.js"></script> 
-<link rel="stylesheet" href="../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../js/jquery.fancybox.js" defer></script>
-<script src="../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../js/custom.js"></script> 
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -93,17 +92,17 @@ these features you can set up email lists and configure your SMTP settings. To
 set up a mail client it’s necessary to configure an SMTP server that will take
 care of the delivery of your emails.</p>
 <p>First on the home page go to the setting and click mail:</p>
-<p><img alt="" src="../../img/admin/mail/open-page.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/mail/open-page.png" data-desc-position="bottom"><img alt="" src="../../img/admin/mail/open-page.png"></a></p>
 <p>Then you'll get to the below screen and fill in your SMTP and Address
 information</p>
-<p><img alt="" src="../../img/admin/mail/configure-smtp.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/mail/configure-smtp.png" data-desc-position="bottom"><img alt="" src="../../img/admin/mail/configure-smtp.png"></a></p>
 <p>Then once done, click on the <strong>Send Test Email</strong> button to see if all works fine</p>
-<p><img alt="" src="../../img/admin/mail/send-test-mail.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/mail/send-test-mail.png" data-desc-position="bottom"><img alt="" src="../../img/admin/mail/send-test-mail.png"></a></p>
 <h2 id="email-lists">Email Lists</h2>
 <p>The email lists are currently for sending live alerts emails, sending user query
 results, and backup and maintenance alert emails. Add multiple email lists if
 you have multiple groups of people that respond to different issues.</p>
-<p><img alt="" src="../../img/admin/mail/email-lists.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/mail/email-lists.png" data-desc-position="bottom"><img alt="" src="../../img/admin/mail/email-lists.png"></a></p>
 
   <br>
     
@@ -142,5 +141,6 @@ you have multiple groups of people that respond to different issues.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

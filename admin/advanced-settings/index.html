@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Advanced Settings - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Advanced Settings", url: "#_top", children: [
+              {title: "SQL Processor", url: "#sql-processor" },
+              {title: "Mailer", url: "#mailer" },
+              {title: "Syslog logging", url: "#syslog-logging" },
+              {title: "Data Sync", url: "#data-sync" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+      <script src="../../js/custom.js"></script> 
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../SQLPro/overview/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../SQLPro/overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../license/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../license/" class="btn btn-xs btn-link">
+        License
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="advanced-settings">Advanced Settings</h1>
+<p><strong>Advanced Settings</strong> controls system-wide options that affect how SQLPro
+processes SQL queues, sends mail, writes syslog output, and runs Data Sync.</p>
+<p>To open the page, select the <strong>Administration</strong> menu and choose <strong>Advanced
+Settings</strong>:</p>
+<!-- Screenshot: Administration menu with Advanced Settings highlighted -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/advanced-settings/open-page.png" data-desc-position="bottom"><img alt="" src="../../img/admin/advanced-settings/open-page.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need the <strong>AdminAdvancedSettingsUpdate</strong> permission to open and change
+Advanced Settings. Without it, the menu item is hidden.</p>
+</div>
+<!-- Screenshot: Advanced Settings form with Save Settings button -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/advanced-settings/form.png" data-desc-position="bottom"><img alt="" src="../../img/admin/advanced-settings/form.png"></a></p>
+<p>Select <strong>Save Settings</strong> to store the values. Changes are written to the SQLPro
+global configuration table.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>After saving, restart the <strong>ConductorSQLPro</strong> service for the new settings to
+take effect.</p>
+</div>
+<h2 id="sql-processor">SQL Processor</h2>
+<p>These settings control how SQLPro processes SQL message queues for connected
+instances.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SQL Processor Retry Interval (Seconds)</strong></td>
+<td>How long to wait before retrying a failed SQL queue message</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><strong>SQL Processor Peek Timeout (Seconds)</strong></td>
+<td>How long a processor waits when peeking for the next message on a queue</td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td><strong>SQL Processor Max Concurrent Threads</strong></td>
+<td>Maximum number of SQL messages that can be processed at the same time</td>
+<td><code>10</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Increase <strong>Max Concurrent Threads</strong> only when the SQLPro host and target
+instances can handle more parallel work. Too high a value can overload the
+SQLPro service or the databases it talks to.</p>
+</div>
+<h2 id="mailer">Mailer</h2>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mailer Enabled</strong></td>
+<td>Master switch for outbound email from the SQLPro service. When off, SQLPro does not send alert or report emails even if SMTP is configured under <strong><a href="../mail/">Mail</a></strong></td>
+<td><code>On</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="syslog-logging">Syslog logging</h2>
+<p>Use these settings to forward SQLPro application logs to a remote syslog
+collector (for example Papertrail or another SIEM).</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Syslog Logging Enabled</strong></td>
+<td>Turns remote syslog forwarding on or off</td>
+<td><code>Off</code></td>
+</tr>
+<tr>
+<td><strong>Syslog Server</strong></td>
+<td>Hostname or address of the syslog collector</td>
+<td><code>logs4.papertrailapp.com</code></td>
+</tr>
+<tr>
+<td><strong>Syslog Port</strong></td>
+<td>UDP/TCP port used by the syslog collector</td>
+<td><code>10287</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Syslog settings are applied when the ConductorSQLPro service starts. After
+changing them, restart the service and confirm log delivery in your
+collector.</p>
+</div>
+<h2 id="data-sync">Data Sync</h2>
+<p>These settings control whether Data Sync runs and how many worker threads it
+uses.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sync Feature Enabled</strong></td>
+<td>Enables or disables the Data Sync feature. When off, sync processors do not start and users lose the <strong>SyncUpdate</strong> permission</td>
+<td><code>Off</code></td>
+</tr>
+<tr>
+<td><strong>Sync Source Thread Count</strong></td>
+<td>Number of worker threads that process source-side sync queue work</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><strong>Sync Target Thread Count</strong></td>
+<td>Number of worker threads that process target-side sync queue work</td>
+<td><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Leave thread counts at <code>1</code> unless you have measured that source or target
+queues are backlog-bound and the SQLPro host can support more parallelism.
+Raise source and target counts independently based on which side is the
+bottleneck.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Turning <strong>Sync Feature Enabled</strong> off stops sync processing and removes Data
+Sync access for users until it is turned back on and the service is
+restarted.</p>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../SQLPro/overview/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../SQLPro/overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../license/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../license/" class="btn btn-xs btn-link">
+        License
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

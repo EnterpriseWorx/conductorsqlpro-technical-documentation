@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Overview - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Overview - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -39,12 +37,13 @@
 
     </script>
     <script src="../../../js/base.js"></script>
-      <script src="../../../js/custom.js"></script>
-      <script src="../../../search/main.js"></script> 
-<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../../js/jquery.fancybox.js" defer></script>
-<script src="../../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -90,14 +89,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>The queries tab is where you create, store and schedule queries to run against
 your instances.</p>
 <p>To reach the queries section click on the Queries Icon.</p>
-<p><img alt="" src="../../../img/queries/open-page.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/queries/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/queries/open-page.png"></a></p>
 <p>The queries menu offers the following options:</p>
 <ul>
-<li><strong><a href="../query-editor/">Query Editor</a></strong> - Where you write and executed queries.
+<li><strong><a href="../query-editor/">Query Editor</a></strong> - Where you write and execute queries.
   Results pop up in a table after execution.</li>
-<li><strong><a href="../query-schedule/">Query Schedules</a></strong> - Find and manipulate offered
-  scheduling options for your queries to run on.</li>
-<li><strong><a href="./user-query-history">User Query History</a></strong> - Where executed queries are
+<li><strong><a href="../query-schedule/">Query Schedules</a></strong> - Find and manage scheduling
+  options for your queries to run on.</li>
+<li><strong><a href="../user-query-history/">User Query History</a></strong> - Where executed queries are
   saved via SQLPro and can be viewed or canceled.</li>
 </ul>
 
@@ -138,5 +137,6 @@ your instances.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

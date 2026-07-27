@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>SQLPro Sync vs Fabric Pipelines - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "SQLPro Sync vs Fabric Pipelines", url: "#_top", children: [
+              {title: "Quick summary", url: "#quick-summary" },
+              {title: "Feature comparison", url: "#feature-comparison" },
+              {title: "When to use SQLPro Sync", url: "#when-to-use-sqlpro-sync" },
+              {title: "When to use Fabric Pipelines", url: "#when-to-use-fabric-pipelines" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../sku-request/overview/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../sku-request/overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../queue-monitoring/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../queue-monitoring/" class="btn btn-xs btn-link">
+        Queue Monitoring
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="sqlpro-sync-vs-fabric-pipelines">SQLPro Sync vs Fabric Pipelines</h1>
+<p>SQLPro Sync is purpose-built for ongoing SQL Server → Fabric Warehouse
+replication. Microsoft Fabric Pipelines are a general-purpose ETL tool that can
+move data from many sources, including SQL Server, but require you to design and
+maintain the load logic yourself.</p>
+<p>Use this page to decide which approach fits your situation.</p>
+<h2 id="quick-summary">Quick summary</h2>
+<ul>
+<li><strong>Choose SQLPro Sync</strong> when you need to keep SQL Server tables continuously up
+  to date in Fabric with minimal engineering.</li>
+<li><strong>Choose Fabric Pipelines</strong> when you need transformations, non-SQL-Server
+  sources, tables without a primary key, or custom control over how inserts,
+  updates, and deletes are applied to the target.</li>
+</ul>
+<h2 id="feature-comparison">Feature comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>SQLPro Sync</th>
+<th>Fabric Pipelines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Incremental change detection</td>
+<td>Change Tracking - detects inserts, updates, and deletes without reading the full table</td>
+<td>Must be designed manually: watermark columns, CDC, or full truncate-reload</td>
+</tr>
+<tr>
+<td>Pipeline engineering required</td>
+<td>Configure sources, targets, schedules, and table lists in SQLPro</td>
+<td>Own the copy activities, watermark logic, schema drift handling, and MERGE/COPY scripts</td>
+</tr>
+<tr>
+<td>Source pressure</td>
+<td>Change Tracking records only that a row changed - less log and storage pressure than full CDC-style approaches</td>
+<td>Depends on design; full-reload and CDC approaches are typically heavier</td>
+</tr>
+<tr>
+<td>Built-in data validation</td>
+<td>Scheduled row-count and checksum comparisons between source and target</td>
+<td>Requires a separate validation pipeline</td>
+</tr>
+<tr>
+<td>Resyncs and delta isolation</td>
+<td>Delta and resync queues are separate - a full table reload does not block ongoing incremental sync</td>
+<td>Full-reload and incremental jobs share the same pipeline resources</td>
+</tr>
+<tr>
+<td>Load path into Fabric DW</td>
+<td>Initial load: Parquet → Blob → <code>COPY INTO</code>. Delta: temp table in Fabric followed by <code>MERGE</code> - no staging hop</td>
+<td>Flexible; you choose and build the load pattern</td>
+</tr>
+<tr>
+<td>Operational visibility</td>
+<td>Queue monitoring, sync status, schedules, and reconciliation are built-in product features</td>
+<td>Must be built into each pipeline (alerts, logging, dashboards)</td>
+</tr>
+<tr>
+<td>Source types</td>
+<td>SQL Server, Azure SQL, and Azure SQL Managed Instance only</td>
+<td>Many connectors (files, APIs, other databases, Lakehouse, and more)</td>
+</tr>
+<tr>
+<td>Table requirements</td>
+<td>Base tables with a primary key only</td>
+<td>Any table, view, or arbitrary SQL query</td>
+</tr>
+<tr>
+<td>Data transformations</td>
+<td>None - 1:1 column replication</td>
+<td>Full ETL: joins, filters, expressions, lookups, and column remapping</td>
+</tr>
+<tr>
+<td>Delete handling</td>
+<td>Hard deletes are applied to the target via <code>MERGE</code></td>
+<td>Configurable - hard delete, soft delete, or custom logic</td>
+</tr>
+</tbody>
+</table>
+<h2 id="when-to-use-sqlpro-sync">When to use SQLPro Sync</h2>
+<p>SQLPro Sync is the right choice when:</p>
+<ul>
+<li>You want SQL Server tables continuously replicated into Fabric with low
+  engineering effort.</li>
+<li>Your tables have primary keys and you need inserts, updates, and deletes
+  reflected in the target.</li>
+<li>You want scheduled row-count and checksum validation without building a
+  separate reconciliation pipeline.</li>
+<li>Keeping the source SQL Server lightly loaded matters.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are loading many tables from one or more SQL Server databases into a
+Fabric Data Warehouse, SQLPro Sync will typically take significantly less
+time to configure and maintain than an equivalent set of Fabric pipelines.</p>
+</div>
+<h2 id="when-to-use-fabric-pipelines">When to use Fabric Pipelines</h2>
+<p>Fabric Pipelines are the right choice when:</p>
+<ul>
+<li>Your source is not SQL Server (files, APIs, other databases, Lakehouse, etc.).</li>
+<li>The tables you need to load do not have a primary key.</li>
+<li>You need to transform, join, or filter data on the way into Fabric.</li>
+<li>You need to sync views or the results of arbitrary SQL queries.</li>
+<li>You need soft-delete behaviour or custom control over how inserts, updates,
+  and deletes are applied in Fabric.</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../sku-request/overview/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../sku-request/overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../queue-monitoring/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../queue-monitoring/" class="btn btn-xs btn-link">
+        Queue Monitoring
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

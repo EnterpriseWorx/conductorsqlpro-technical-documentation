@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Roles - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Roles - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -39,12 +37,13 @@
 
     </script>
     <script src="../../js/base.js"></script>
-      <script src="../../js/custom.js"></script>
-      <script src="../../search/main.js"></script> 
-<link rel="stylesheet" href="../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../js/jquery.fancybox.js" defer></script>
-<script src="../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../js/custom.js"></script> 
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -92,12 +91,12 @@ cannot be changed or edited. You can create custom roles that will dictate what
 can be viewed and updated by a user via the assigned role.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You need to be a Super Admin, Admin, or have a role that has the permissions <strong>AdminUpdateRole</strong> in order to add new custom roles.</p>
+<p>You need to be a Super Admin, Admin, or have a role that has the permission <strong>AdminRoleUpdate</strong> in order to add new custom roles.</p>
 </div>
 <p>The first step is to select the settings Icon and choose <strong>Roles</strong>.</p>
-<p><img alt="" src="../../img/admin/roles/open-page.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/roles/open-page.png" data-desc-position="bottom"><img alt="" src="../../img/admin/roles/open-page.png"></a></p>
 <p>To create a role click on the <strong>Add Role</strong>.</p>
-<p><img alt="" src="../../img/admin/roles/add-role-list.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/roles/add-role-list.png" data-desc-position="bottom"><img alt="" src="../../img/admin/roles/add-role-list.png"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Only permissions that your current role has access to will be available in the permissions dropdown as you can't assign permissions that your role does not have to new roles.</p>
@@ -140,5 +139,6 @@ can be viewed and updated by a user via the assigned role.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Edit Live Alerts - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Edit Live Alerts - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -41,12 +39,13 @@
 
     </script>
     <script src="../../../js/base.js"></script>
-      <script src="../../../js/custom.js"></script>
-      <script src="../../../search/main.js"></script> 
-<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../../js/jquery.fancybox.js" defer></script>
-<script src="../../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -92,12 +91,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Live alerts are simple SQL scripts to identify issues to your environment.</p>
 <p>To get to the Edit screen select the <strong>Edit Live Alerts</strong> context button on the
 Live Report screen.</p>
-<p><img alt="" src="../../../img/live-alerts/live-alert-report-navigation.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/live-alert-report-navigation.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/live-alert-report-navigation.png"></a></p>
 <p>You can easily disable and enable your live alerts as well as adding your own
 live alerts. To add or remove an alert simply go to the live alert
 configurations page and simply mark the alert as active or slide to make it
 inactive.</p>
-<p><img alt="" src="../../../img/live-alerts/live-alert-config-page.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/live-alert-config-page.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/live-alert-config-page.png"></a></p>
 <p>On the edit screen for the system alerts you can add exceptions and customize
 the thresholds for certain system alerts.</p>
 <div class="admonition note">
@@ -105,24 +104,24 @@ the thresholds for certain system alerts.</p>
 <p>The threshold customization table will only be visible on system alerts that allow for that
 customization.</p>
 </div>
-<p><img alt="" src="../../../img/live-alerts/live-alert-edit-page.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/live-alert-edit-page.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/live-alert-edit-page.png"></a></p>
 <p>To add a custom live alert go to the add live alert button on configuration
 screen. Then a new row of the Custom live alert comes up like below</p>
-<p><img alt="" src="../../../img/live-alerts/live-alert-custom.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/live-alert-custom.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/live-alert-custom.png"></a></p>
 <p>When adding/editing a custom live alert you can add a script of the custom alert
 you want. Exclusions are available to custom alerts.</p>
-<p><img alt="" src="../../../img/live-alerts/live-alert-edit-custom.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/live-alert-edit-custom.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/live-alert-edit-custom.png"></a></p>
 <h2 id="threshold-edit">Threshold Edit</h2>
 <p>You will not be able to change the description for the threshold, only the
 variable.</p>
-<p><img alt="" src="../../../img/live-alerts/live-alert-edit-threshold-page.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/live-alert-edit-threshold-page.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/live-alert-edit-threshold-page.png"></a></p>
 <h2 id="exclusion-edit">Exclusion Edit</h2>
 <p>Here you can add an exclusion clause and set the dates you want this exclusion
 to run between. Exclusions allow you to prevent email and alert spam for known
 reoccurring exceptions. See below for some examples of exclusions. In the first
 example below we are excluding DBCC CHECKDB from the list of long-running
 queries.</p>
-<p><img alt="" src="../../../img/live-alerts/live-alert-edit-exclusion-page.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/live-alert-edit-exclusion-page.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/live-alert-edit-exclusion-page.png"></a></p>
 
   <br>
     
@@ -161,5 +160,6 @@ queries.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

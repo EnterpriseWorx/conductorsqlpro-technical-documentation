@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Queue Configuration - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+              {title: "Queue list", url: "#queue-list" },
+              {title: "Add or edit a queue", url: "#add-or-edit-a-queue" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../table-list-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../table-list-configuration/" class="btn btn-xs btn-link">
+        Table List Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../schedule-configuration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../schedule-configuration/" class="btn btn-xs btn-link">
+        Schedule Configuration
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>Queues group sync work so table lists can share processing capacity. A
+<strong>Default</strong> queue is available out of the box.</p>
+<p>To get started, select the <strong>Data Sync</strong> menu and choose <strong>Queue
+Configuration</strong>:</p>
+<!-- Screenshot: Queue Configuration list page -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/queue/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/queue/open-page.png"></a></p>
+<h2 id="queue-list">Queue list</h2>
+<p>The list shows queue names and whether each queue is active.</p>
+<!-- Screenshot: Queue list including the Default queue -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/queue/list.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/queue/list.png"></a></p>
+<p>Use <strong>Add Queue</strong> to create a queue, <strong>Refresh</strong> to reload, and <strong>Edit</strong> on a
+row to change an existing queue.</p>
+<h2 id="add-or-edit-a-queue">Add or edit a queue</h2>
+<!-- Screenshot: Add / Edit Queue dialog -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/queue/edit-dialog.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/queue/edit-dialog.png"></a></p>
+<p>Fields:</p>
+<ul>
+<li><strong>Queue Name</strong> - required name for the queue.</li>
+<li><strong>Is Active</strong> - inactive queues should not be used by new table lists.</li>
+</ul>
+<p>Select <strong>Save</strong> or <strong>Cancel</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use separate queues when you want large table sets
+isolated from lighter, frequent delta work. Assign the queue on the
+<a href="../table-list-configuration/">Table List Configuration</a> page.</p>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../table-list-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../table-list-configuration/" class="btn btn-xs btn-link">
+        Table List Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../schedule-configuration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../schedule-configuration/" class="btn btn-xs btn-link">
+        Schedule Configuration
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

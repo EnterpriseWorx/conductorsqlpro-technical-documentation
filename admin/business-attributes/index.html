@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Business Attributes - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Business Attributes - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -39,12 +37,13 @@
 
     </script>
     <script src="../../js/base.js"></script>
-      <script src="../../js/custom.js"></script>
-      <script src="../../search/main.js"></script> 
-<link rel="stylesheet" href="../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../js/jquery.fancybox.js" defer></script>
-<script src="../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../js/custom.js"></script> 
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -90,13 +89,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Business attributes allow you to add additional information to your instances,
 which can be used as a filter when viewing the data in your instances.</p>
 <p>To get started select the settings Icon and choose business attributes:</p>
-<p><img alt="" src="../../img/admin/business-attributes/open-page.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/business-attributes/open-page.png" data-desc-position="bottom"><img alt="" src="../../img/admin/business-attributes/open-page.png"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can customize the Attribute names by simply clicking on the name you want to change in
 the table shown below.</p>
 </div>
-<p><img alt="" src="../../img/admin/business-attributes/business-attributes-list.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/business-attributes/business-attributes-list.png" data-desc-position="bottom"><img alt="" src="../../img/admin/business-attributes/business-attributes-list.png"></a></p>
 <p>As an example: You can create a "Region" attribute and a "Store Type" attribute.
 Having your attribute set to active allows you to set those attributes when
 creating or editing an instance on the same screen. E.g. so you could set the
@@ -139,5 +138,6 @@ creating or editing an instance on the same screen. E.g. so you could set the
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

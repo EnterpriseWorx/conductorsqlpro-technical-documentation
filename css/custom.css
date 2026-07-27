@@ -1,36 +1,137 @@
-.wy-menu-vertical .subnav li.current .toctree-l4 {
-  padding-left: 4.23em;
+/* SQLPro brand colors (from the application theme) */
+:root {
+  --primary-color: #2c88bc;
+  --primary-color-dark: #1e5f83;
+  --primary-color-darker: #163f57;
+  --primary-color-light: #e0eff7;
+  --primary-color-lighter: #f0f7fb;
+  --text-color: #333333;
+  --text-color-secondary: #848484;
+  --surface-a: #ffffff;
+  --surface-b: #f4f4f4;
+  --border-color: #1e5f83;
 }
 
-/*Force lightbox close button to top right*/
-.lb-close {
-  position: absolute;
-  right: 30px;
-  top: -35px;
+body {
+  background-color: var(--surface-b);
+  color: var(--text-color);
 }
 
-.wy-nav-side {
-  width: 400px;
+/***********************************************************************
+ Top bar — match SQLPro primary blue
+ ***********************************************************************/
+
+.navbar,
+.wm-top-tool-expanded {
+  background-color: var(--primary-color);
 }
 
-.wy-nav-content-wrap {
-  margin-left: 400px;
+.wm-top-brand,
+.wm-top-link,
+.wm-top-link:hover,
+.wm-top-link:active,
+.wm-top-link:visited,
+.wm-top-link:focus {
+  color: #fff;
 }
 
-.wy-nav-content {
+.wm-top-version {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/***********************************************************************
+ Side navigation
+ ***********************************************************************/
+
+.wm-toc-pane {
+  background-color: var(--primary-color-lighter);
+  border-right-color: var(--primary-color-light);
+}
+
+.wm-toctree a,
+.wm-toctree a:visited,
+.wm-toctree a:hover,
+.wm-toctree a:focus {
+  color: var(--primary-color-dark);
+}
+
+.wm-toc-li.wm-current,
+.wm-toc-li.wm-current:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.wm-toc-li.wm-current a,
+.wm-toc-li.wm-current a:visited,
+.wm-toc-li.wm-current a:hover,
+.wm-toc-li.wm-current a:focus {
+  color: #fff;
+}
+
+.wm-toc-li:hover {
+  background-color: var(--primary-color-light);
+}
+
+.wm-toc-li-nested.wm-page-toc {
+  border-left-color: var(--primary-color);
+}
+
+/***********************************************************************
+ Content links and headings
+ ***********************************************************************/
+
+.wm-page-content {
   max-width: 1100px;
 }
 
-@media screen and (max-width: 768px) {
-  .wy-nav-side {
-    left: -400px;
-  }
-  .wy-nav-content-wrap {
-    margin-left: 0px;
-  }
+.wm-page-content a,
+.wm-page-content a:visited {
+  color: var(--primary-color);
+}
+
+.wm-page-content a:hover,
+.wm-page-content a:focus {
+  color: var(--primary-color-dark);
+}
+
+.wm-article-nav > a,
+.wm-article-nav > a:visited,
+.wm-article-nav > a:hover,
+.wm-article-nav > a:focus {
+  color: var(--primary-color-dark);
 }
 
 h1 {
   font-size: 190%;
   text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  color: var(--primary-color-darker);
+}
+
+/***********************************************************************
+ Search dropdown
+ ***********************************************************************/
+
+#mkdocs-search-results .dropdown-header {
+  color: var(--primary-color);
+}
+
+/***********************************************************************
+ Admonitions
+ ***********************************************************************/
+
+/* Tip — green, same pattern as Windmill warning */
+.admonition.tip {
+  color: #3a7a3a;
+  background-color: #edf7ed;
+  border-color: #c3e6c3;
+}
+
+/* Note / info — brand blue */
+.admonition.note,
+.admonition.info {
+  color: var(--primary-color-dark);
+  background-color: var(--primary-color-lighter);
+  border-color: #b8dced;
 }

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Query Schedule - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Query Schedule - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -34,17 +32,19 @@
         
         var pageToc = [
           {title: "Scheduling", url: "#_top", children: [
+              {title: "Cron format", url: "#cron-format" },
           ]},
         ];
 
     </script>
     <script src="../../../js/base.js"></script>
-      <script src="../../../js/custom.js"></script>
-      <script src="../../../search/main.js"></script> 
-<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../../js/jquery.fancybox.js" defer></script>
-<script src="../../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -89,37 +89,100 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="scheduling">Scheduling</h1>
 <p>To schedule queries go to the <strong>Query Schedules</strong> page where you can create
 schedules which can be added to queries.</p>
-<p><img alt="" src="../../../img/queries/user-query-schedule/user-query-schedule-menu.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/queries/user-query-schedule/user-query-schedule-menu.png" data-desc-position="bottom"><img alt="" src="../../../img/queries/user-query-schedule/user-query-schedule-menu.png"></a></p>
 <ul>
 <li><strong>Schedule Name:</strong> The scheduled date and time.</li>
 <li><strong>Schedule:</strong> The scheduled date and time using a cron string.</li>
 <li><strong>Number Scheduled Queries:</strong> The amount of times the specific schedule has
   been assigned to a query.</li>
 </ul>
-<p><img alt="" src="../../../img/queries/user-query-schedule/user-query-schedule-screen.png" /></p>
-<p>On the <strong>Adding and Editing Screen</strong> you set the date with cron which will
-generate the schedule name for you automatically. You can also set the schedule
-name to a custom one.</p>
-<p>With the <strong>Next Executions</strong> screen you can make sure the schedule will be
-firing off your query at the correct intended dates and times. !!!Cron time
-Consists of five asterisks which correlate to the time/date format in the
-following order.</p>
-<pre><code>* Minute
-* Hour
-* Day of the month
-* Month
-* Day of the week
-
-Useful Operators
-
-* &amp;nbsp; ** * ** &amp;nbsp;&amp;nbsp; any value
-* &amp;nbsp; **,** &amp;nbsp;&amp;nbsp; value list seperator
-* &amp;nbsp; **-** &amp;nbsp;&amp;nbsp; range of values
-* &amp;nbsp; **/** &amp;nbsp;&amp;nbsp; allows you to step values
-
-For more assistance around creating cron strings please visit &lt;https://crontab.guru&gt;
-</code></pre>
-<p><img alt="" src="../../../img/queries/user-query-schedule/user-query-schedule-edit.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/queries/user-query-schedule/user-query-schedule-screen.png" data-desc-position="bottom"><img alt="" src="../../../img/queries/user-query-schedule/user-query-schedule-screen.png"></a></p>
+<p>On the <strong>Adding and Editing Screen</strong>, define the schedule with a cron
+expression. SQLPro can auto-generate the schedule name, or you can provide a
+custom name.</p>
+<p>Use the <strong>Next Executions</strong> preview to confirm the schedule will run at the
+expected times before assigning it to a query.</p>
+<h2 id="cron-format">Cron format</h2>
+<p>SQLPro uses a standard 5-field cron format:</p>
+<p><code>minute hour day-of-month month day-of-week</code></p>
+<p>Example:</p>
+<p><code>0 8 * * 1-5</code> = every weekday at 08:00</p>
+<h3 id="field-order">Field order</h3>
+<ul>
+<li>Minute (0-59)</li>
+<li>Hour (0-23)</li>
+<li>Day of month (1-31)</li>
+<li>Month (1-12)</li>
+<li>Day of week (0-6, where 0 = Sunday)</li>
+</ul>
+<h3 id="useful-operators">Useful operators</h3>
+<ul>
+<li><code>*</code> any value</li>
+<li><code>,</code> value list separator</li>
+<li><code>-</code> range of values</li>
+<li><code>/</code> step values</li>
+</ul>
+<h3 id="common-examples">Common examples</h3>
+<table>
+<thead>
+<tr>
+<th>Cron expression</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*/5 * * * *</code></td>
+<td>Every 5 minutes</td>
+</tr>
+<tr>
+<td><code>*/15 * * * *</code></td>
+<td>Every 15 minutes</td>
+</tr>
+<tr>
+<td><code>0 * * * *</code></td>
+<td>At the top of every hour</td>
+</tr>
+<tr>
+<td><code>0 */2 * * *</code></td>
+<td>Every 2 hours</td>
+</tr>
+<tr>
+<td><code>0 6 * * *</code></td>
+<td>Every day at 06:00</td>
+</tr>
+<tr>
+<td><code>0 8 * * 1-5</code></td>
+<td>Every weekday (Mon-Fri) at 08:00</td>
+</tr>
+<tr>
+<td><code>30 9 * * 1</code></td>
+<td>Every Monday at 09:30</td>
+</tr>
+<tr>
+<td><code>0 0 * * 0</code></td>
+<td>Every Sunday at midnight</td>
+</tr>
+<tr>
+<td><code>0 18 * * 5</code></td>
+<td>Every Friday at 18:00</td>
+</tr>
+<tr>
+<td><code>0 0 1 * *</code></td>
+<td>On the first day of each month at 00:00</td>
+</tr>
+<tr>
+<td><code>0 12 1 1 *</code></td>
+<td>At noon on 1 January each year</td>
+</tr>
+<tr>
+<td><code>15,45 * * * *</code></td>
+<td>At 15 and 45 minutes past every hour</td>
+</tr>
+</tbody>
+</table>
+<p>For help building cron expressions, use <a href="https://crontab.guru/">crontab.guru</a>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/queries/user-query-schedule/user-query-schedule-edit.png" data-desc-position="bottom"><img alt="" src="../../../img/queries/user-query-schedule/user-query-schedule-edit.png"></a></p>
 
   <br>
     
@@ -158,5 +221,6 @@ For more assistance around creating cron strings please visit &lt;https://cronta
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

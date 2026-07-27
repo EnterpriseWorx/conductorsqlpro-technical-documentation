@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Installation - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Installation - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -43,12 +41,13 @@
 
     </script>
     <script src="../../js/base.js"></script>
-      <script src="../../js/custom.js"></script>
-      <script src="../../search/main.js"></script> 
-<link rel="stylesheet" href="../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../js/jquery.fancybox.js" defer></script>
-<script src="../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../js/custom.js"></script> 
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -82,7 +81,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
       <a href="../../prerequisites/instance-prerequisites/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
         Previous</a><a href="../../prerequisites/instance-prerequisites/" class="btn btn-xs btn-link">
-        Instance Prerequisites
+        Supported Instance Types
       </a>
     </div>
     
@@ -99,9 +98,9 @@ for each release.</p>
 <p>To install the Conductor4SQL web service simply copy the installer executable
 over to the server that you wish to install the app.</p>
 <p>You then will be prompted to setup installation:</p>
-<p><img alt="" src="../../img/installation/installation.png" /> <img alt="" src="../../img/installation/shortcut.png" />
-<img alt="" src="../../img/installation/install.png" /></p>
-<p>Finally, after the setup has complete a browser window will open to
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/installation.png" data-desc-position="bottom"><img alt="" src="../../img/installation/installation.png"></a> <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/shortcut.png" data-desc-position="bottom"><img alt="" src="../../img/installation/shortcut.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/install.png" data-desc-position="bottom"><img alt="" src="../../img/installation/install.png"></a></p>
+<p>Finally, after the setup is complete a browser window will open to
 http://localhost:8085 which will open the step by step web installer.</p>
 <p>After configuration is complete, you can then access the service using
 http://localhost:8083 or https://localhost:8084. Adjust your firewall rules to
@@ -109,19 +108,19 @@ access the application from an external browser.</p>
 <h2 id="upgrades">Upgrades</h2>
 <p>Before you upgrade ConductorSQLPro, you'll first want to uninstall the old
 version of Conductor4SQLPro. Go to Windows <strong>Settings</strong> and open <strong>Apps</strong></p>
-<p><img alt="" src="../../img/installation/windows-settings-apps.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/windows-settings-apps.png" data-desc-position="bottom"><img alt="" src="../../img/installation/windows-settings-apps.png"></a></p>
 <p>Search for <strong>ConductorSQLPro</strong> and select the <strong>Uninstall</strong> option</p>
-<p><img alt="" src="../../img/installation/search-and-uninstall.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/search-and-uninstall.png" data-desc-position="bottom"><img alt="" src="../../img/installation/search-and-uninstall.png"></a></p>
 <p>Then follow the steps for a new installation.</p>
 <h2 id="removal">Removal</h2>
 <p>To uninstall the Conductor4SQL web service, go to Windows <strong>Settings</strong> and open
 <strong>Apps</strong></p>
-<p><img alt="" src="../../img/installation/windows-settings-apps.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/windows-settings-apps.png" data-desc-position="bottom"><img alt="" src="../../img/installation/windows-settings-apps.png"></a></p>
 <p>Search for <strong>ConductorSQLPro</strong> and select the <strong>Uninstall</strong> option</p>
-<p><img alt="" src="../../img/installation/search-and-uninstall.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/search-and-uninstall.png" data-desc-position="bottom"><img alt="" src="../../img/installation/search-and-uninstall.png"></a></p>
 <p>Lastly, you'll need to drop the <strong>Conductor4SQLCentral</strong> database via <strong>SQL
 Server Management Studio</strong>.</p>
-<p><img alt="" src="../../img/installation/drop-sqlpro-database.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/drop-sqlpro-database.png" data-desc-position="bottom"><img alt="" src="../../img/installation/drop-sqlpro-database.png"></a></p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Should you have issues with the ConductorSQLPro service, if you chose the
 standard installation folder, you'll find the application log files in
@@ -154,7 +153,7 @@ at support@ewx.co.za and zip and attach the log file for reference.</p>
       <a href="../../prerequisites/instance-prerequisites/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
         Previous</a><a href="../../prerequisites/instance-prerequisites/" class="btn btn-xs btn-link">
-        Instance Prerequisites
+        Supported Instance Types
       </a>
     </div>
     
@@ -167,5 +166,6 @@ at support@ewx.co.za and zip and attach the log file for reference.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

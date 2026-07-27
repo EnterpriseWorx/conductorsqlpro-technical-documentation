@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Source Host Configuration - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+              {title: "Source Host list", url: "#source-host-list" },
+              {title: "Add a source host", url: "#add-a-source-host" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../target-host-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../target-host-configuration/" class="btn btn-xs btn-link">
+        Target Host Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../getting-started/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../getting-started/" class="btn btn-xs btn-link">
+        Getting Started
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>Source hosts identify the Microsoft SQL Server instances that Data Sync reads
+from. This includes Azure SQL, Azure SQL Managed Instance, and on-premises
+Microsoft SQL Server.</p>
+<p>To get started, select the <strong>Data Sync</strong> menu and choose <strong>Source Host
+Configuration</strong>:</p>
+<!-- Screenshot: Source Host Configuration list page -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/source-host/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/source-host/open-page.png"></a></p>
+<h2 id="source-host-list">Source Host list</h2>
+<p>The list shows registered source hosts, including the instance name and whether
+the host is active.</p>
+<!-- Screenshot: Source Host list with at least one row -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/source-host/list.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/source-host/list.png"></a></p>
+<p>Use <strong>Refresh</strong> to reload the list. Use the row <strong>Edit</strong> action to change an
+existing source host.</p>
+<h2 id="add-a-source-host">Add a source host</h2>
+<p>Select <strong>Add Source Host</strong> to open the edit dialog.</p>
+<!-- Screenshot: Add / Edit Source Host dialog -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/source-host/edit-dialog.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/source-host/edit-dialog.png"></a></p>
+<p>Fields:</p>
+<ul>
+<li><strong>Instance Name</strong> - the SQLPro instance (client) to use as the source.
+  Required. Locked after the host is created.</li>
+<li><strong>Is Active</strong> - when off, the host is unavailable for new sync configurations
+  and in all the monitoring screens.</li>
+</ul>
+<p>Select <strong>Save</strong> to create or update the host, or <strong>Cancel</strong> to discard changes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Source hosts are always Microsoft SQL Server (Azure SQL, Azure SQL Managed
+Instance, or on-premises). Fabric instances cannot be used as sources.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Register the instance under <strong>Administration &gt; Instances</strong> before adding it
+as a source host.</p>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../target-host-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../target-host-configuration/" class="btn btn-xs btn-link">
+        Target Host Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../getting-started/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../getting-started/" class="btn btn-xs btn-link">
+        Getting Started
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

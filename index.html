@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     <meta name="description" content="None">
     
     
-    <link rel="shortcut icon" href=".../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Conductor4SQL SQLPro Technical Documentation</title>
     <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="./css/base.css" rel="stylesheet">
@@ -43,12 +41,13 @@
 
     </script>
     <script src="./js/base.js"></script>
-      <script src="js/custom.js"></script>
-      <script src="search/main.js"></script> 
-<link rel="stylesheet" href="./css/jquery.fancybox.css" type="text/css" defer />
-<script src="./js/jquery.fancybox.js" defer></script>
-<script src="./js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="js/custom.js"></script> 
+<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -61,8 +60,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <div class="wm-top-tool pull-right wm-vcenter">
       <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
         
-        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
-          ><i class="fa fa-search" aria-hidden="true"></i></button>
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 
         <div class="input-group input-group-sm wm-top-search">
           <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
@@ -88,7 +86,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <a href="" class="wm-top-brand wm-top-link wm-vcenter">
       
       <div class="wm-top-title">
-        ConductorSQLPro Technical Documentation<br>
+        Conductor4SQL SQLPro Technical Documentation<br>
         
       </div>
     </a>
@@ -108,7 +106,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev2 "><a href="prerequisites/central-prerequisites/" class="wm-article-link wm-toc-text">Central Node Prerequisites</a>
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="prerequisites/instance-prerequisites/" class="wm-article-link wm-toc-text">Instance Prerequisites</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="prerequisites/instance-prerequisites/" class="wm-article-link wm-toc-text">Supported Instance Types</a>
 </li>
   </ul>
 </li>
@@ -135,6 +133,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="admin/license/" class="wm-article-link wm-toc-text">License</a>
 </li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="admin/advanced-settings/" class="wm-article-link wm-toc-text">Advanced Settings</a>
+</li>
   </ul>
 </li>
 
@@ -159,7 +159,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   </ul>
 </li>
 
-      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Backup & Maintenance</span>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Backup &amp; Maintenance</span>
 </li>
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
@@ -199,9 +199,40 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/reports/overview/" class="wm-article-link wm-toc-text">Overview</a>
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/reports/sql-environment-audit-report/" class="wm-article-link wm-toc-text">SQL Environment Audit History Report</a>
+</li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/reports/audit-history-report/" class="wm-article-link wm-toc-text">Audit History Report</a>
 </li>
       <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/reports/health-report/" class="wm-article-link wm-toc-text">Health Report</a>
+</li>
+  </ul>
+</li>
+
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Data Sync</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/overview/" class="wm-article-link wm-toc-text">Overview</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/getting-started/" class="wm-article-link wm-toc-text">Getting Started</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/source-host-configuration/" class="wm-article-link wm-toc-text">Source Host Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/target-host-configuration/" class="wm-article-link wm-toc-text">Target Host Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/schedule-configuration/" class="wm-article-link wm-toc-text">Schedule Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/queue-configuration/" class="wm-article-link wm-toc-text">Queue Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/table-list-configuration/" class="wm-article-link wm-toc-text">Table List Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/sync-configuration/" class="wm-article-link wm-toc-text">Sync Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/monitoring/" class="wm-article-link wm-toc-text">Monitoring</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/queue-monitoring/" class="wm-article-link wm-toc-text">Queue Monitoring</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/sync-vs-fabric-pipelines/" class="wm-article-link wm-toc-text">SQLPro Sync vs Fabric Pipelines</a>
 </li>
   </ul>
 </li>
@@ -224,14 +255,23 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLSense/classification/overview/" class="wm-article-link wm-toc-text">Overview</a>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLSense/overview/" class="wm-article-link wm-toc-text">Overview</a>
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLSense/classification/verify-data-claassification/" class="wm-article-link wm-toc-text">Verfiy Data Classification</a>
+      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Classification</span>
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLSense/classification/instance-database-rank-report/" class="wm-article-link wm-toc-text">Instance Database Ranked Report</a>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLSense/classification/overview/" class="wm-article-link wm-toc-text">Overview</a>
 </li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLSense/classification/user-rank-report/" class="wm-article-link wm-toc-text">User Rank Report</a>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLSense/classification/verify-data-classification/" class="wm-article-link wm-toc-text">Verify Data Classification</a>
 </li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLSense/classification/instance-database-rank-report/" class="wm-article-link wm-toc-text">Instance Database Ranked Report</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLSense/classification/user-rank-report/" class="wm-article-link wm-toc-text">User Rank Report</a>
+</li>
+  </ul>
+</li>
+
   </ul>
 </li>
 
@@ -240,6 +280,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
       <li class="wm-toc-li wm-toc-lev2 "><a href="release-notes/" class="wm-article-link wm-toc-text">Release Notes - Recent</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="release-notes-2025/" class="wm-article-link wm-toc-text">Release Notes - 2025</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="release-notes-2024/" class="wm-article-link wm-toc-text">Release Notes - 2024</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="release-notes-2023/" class="wm-article-link wm-toc-text">Release Notes - 2023</a>
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="release-notes-2022/" class="wm-article-link wm-toc-text">Release Notes - 2022</a>
 </li>
@@ -283,7 +329,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p><img alt="" src="../img/logo.png" /></p>
+    <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="img/logo.png" data-desc-position="bottom"><img alt="" src="img/logo.png"></a></p>
 <h1 id="conductor4sql-overview">Conductor4SQL Overview</h1>
 <p>Conductor4SQL is an advanced database management solution that permits
 organisations to effectively manage a large number of database instances with an
@@ -291,7 +337,8 @@ unlimited number of databases, especially those which are dispersed over a large
 geographic area. A key advantage of this solution is that it can greatly reduce
 a lot of the frustration when managing multiple databases over erratic networks
 because of its automation capabilities. It supports multiple database
-technologies such as MS SQL Server, Azure SQL, MySQL and PostgreSQL.</p>
+technologies such as MS SQL Server, Azure SQL, Azure SQL Managed Instance,
+Microsoft Fabric Data Warehouse, MySQL and PostgreSQL.</p>
 <h1 id="the-conductor4sql-modules">The Conductor4SQL Modules</h1>
 <p>Conductor4SQL is divided into modules, taking the pay for what you need
 approach.</p>
@@ -305,17 +352,23 @@ approach.</p>
 <p><strong>SQLPro</strong> - a module focused on mundane task automation and monitoring.</p>
 </li>
 <li>
-<p><strong>Live Alerts</strong> - Intermediately know about issues such as No comms, Low
-    disk space, failing jobs, long-running queries (MS SQL Server only)</p>
+<p><strong>Live Alerts</strong> - Immediately know about issues such as No comms, Low disk
+    space, failing jobs, and long-running queries. Some built-in alerts are
+    Microsoft SQL Server–specific (for example SQL Agent, jobs, and
+    replication).</p>
 </li>
 <li><strong>Centralised Query</strong> - Query multiple instances of multiple database types
-    (MS SQL Server, Azure SQL, MySQL and PostgreSQL) using the standard SQL
-    syntax from a centralised location.</li>
+    (MS SQL Server, Azure SQL, Azure SQL Managed Instance, Microsoft Fabric Data
+    Warehouse, MySQL and PostgreSQL) using the standard SQL syntax from a
+    centralised location.</li>
 <li><strong>Backup &amp; Maintenance</strong> - Configure local or cloud database backups and
     database maintenance from a central location (MS SQL Server only)</li>
+<li><strong>Auditing</strong> - Audit DDL changes and create email alerts for any defined
+    dangerous changes.</li>
 <li>
-<p><strong>Auditing</strong> - Audit DDL changes and create email alerts for any defined
-    dangerous changes.</p>
+<p><strong>Data Sync</strong> - Replicate selected Microsoft SQL Server tables (Azure SQL,
+    Azure SQL Managed Instance, or on-premises) to Microsoft Fabric Data
+    Warehouse or another SQL Server destination using Change Tracking.</p>
 </li>
 <li>
 <p><strong>SQLSense</strong> - a module focused on sensitive data detection and checking on
@@ -353,9 +406,10 @@ approach.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2025-10-07 10:17:19.352211+00:00
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html><!--
+MkDocs version : ProperDocs 1.6.7
+Build Date UTC : 2026-07-27 11:46:00.990655+00:00
 -->

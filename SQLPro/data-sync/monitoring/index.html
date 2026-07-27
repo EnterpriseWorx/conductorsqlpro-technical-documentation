@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Monitoring - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+              {title: "Sync Monitoring summary", url: "#sync-monitoring-summary" },
+              {title: "Sync Monitoring details", url: "#sync-monitoring-details" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../queue-monitoring/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../queue-monitoring/" class="btn btn-xs btn-link">
+        Queue Monitoring
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../sync-configuration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../sync-configuration/" class="btn btn-xs btn-link">
+        Sync Configuration
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p><strong>Sync Monitoring</strong> shows the health of your sync configurations and the status
+of individual tables.</p>
+<p>To get started, select the <strong>Data Sync</strong> menu and choose <strong>Sync Monitoring</strong>:</p>
+<!-- Screenshot: Sync Monitoring summary page -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/monitoring/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/monitoring/open-page.png"></a></p>
+<h2 id="sync-monitoring-summary">Sync Monitoring summary</h2>
+<p>The summary lists each sync configuration with hosts, databases, table list,
+last sync date, and status counts.</p>
+<!-- Screenshot: Summary table with Total Tables, Pending/Resync, Syncing, Disabled, Errors, Checksum Errors -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/monitoring/summary.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/monitoring/summary.png"></a></p>
+<p>Key columns:</p>
+<ul>
+<li><strong>Sync Configuration Name</strong></li>
+<li><strong>Source Host</strong> / <strong>Source Database</strong></li>
+<li><strong>Target Host</strong> / <strong>Target Database</strong></li>
+<li><strong>Table List Name</strong></li>
+<li><strong>Last Sync Date</strong></li>
+<li><strong>Total Tables</strong></li>
+<li><strong>Pending/Resync</strong></li>
+<li><strong>Syncing</strong></li>
+<li><strong>Disabled</strong></li>
+<li><strong>Errors</strong></li>
+<li><strong>Checksum Errors</strong></li>
+</ul>
+<p>Click a count (for example <strong>Errors</strong> or <strong>Total Tables</strong>) to open the detail
+page filtered to that configuration and status.</p>
+<p>Use <strong>Refresh</strong> to reload the summary.</p>
+<h2 id="sync-monitoring-details">Sync Monitoring details</h2>
+<p>The detail page lists tables for one or more configurations.</p>
+<!-- Screenshot: Sync Monitoring Details page with filters and table rows -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/monitoring/details.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/monitoring/details.png"></a></p>
+<p>Header actions:</p>
+<ul>
+<li><strong>Back to Sync Monitoring</strong> - return to the summary</li>
+<li><strong>Refresh</strong> - reload the detail list</li>
+</ul>
+<h3 id="filters">Filters</h3>
+<ul>
+<li><strong>Sync Configuration</strong> - limit to one configuration, or show all</li>
+<li><strong>Sync Status</strong> - Pending, Syncing, Disabled, or Errors</li>
+<li><strong>Checksum Status</strong> - Matches or Not Matches</li>
+<li><strong>Clear Filters</strong> - reset all filters</li>
+</ul>
+<h3 id="status-meanings">Status meanings</h3>
+<p>Table sync statuses:</p>
+<ul>
+<li><strong>R</strong> - pending resync (marked by you or the system)</li>
+<li><strong>Q</strong> - resync enqueued</li>
+<li><strong>I</strong> - pending / in initial sync</li>
+<li><strong>S</strong> - syncing (steady-state deltas)</li>
+<li><strong>D</strong> - pending disablement</li>
+<li><strong>E</strong> - disable enqueued</li>
+<li><strong>N</strong> - disabled / not syncing</li>
+<li><strong>X</strong> - error</li>
+</ul>
+<p>UI status filters group these as:</p>
+<ul>
+<li><strong>Pending</strong> - <code>I</code>, <code>R</code>, <code>Q</code></li>
+<li><strong>Syncing</strong> - <code>S</code></li>
+<li><strong>Disabled</strong> - <code>N</code>, <code>D</code>, <code>E</code></li>
+<li><strong>Errors</strong> - <code>X</code></li>
+</ul>
+<p>Checksum results may show matches, row-count or checksum mismatches, or <strong>Data
+Movement</strong> when changes occurred during calculation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Checksums exclude several types (for example text, binary, XML, and
+datetime) because source and target platforms can compare them differently.</p>
+</div>
+<h3 id="bulk-actions">Bulk actions</h3>
+<p>Select one or more tables to enable bulk actions:</p>
+<ul>
+<li><strong>Mark Selected for Resync</strong> - marks tables for a full reload on the next
+  resync schedule run</li>
+<li><strong>Disable Selected</strong> - stops syncing on the next delta schedule run</li>
+<li><strong>Calculate Checksum for Selected</strong> - triggers checksum calculation</li>
+</ul>
+<!-- Screenshot: Bulk action bar with tables selected -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/monitoring/bulk-actions.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/monitoring/bulk-actions.png"></a></p>
+<p>Confirm the change before the action runs.</p>
+<!-- Screenshot: Bulk confirm dialog listing tables to process -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/monitoring/bulk-confirm.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/monitoring/bulk-confirm.png"></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Resync drops and recreates the target table, then reloads all data for that
+table.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If tables remain in pending status or show errors, check
+<a href="../queue-monitoring/">Queue Monitoring</a> and confirm the related schedule is
+active.</p>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../queue-monitoring/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../queue-monitoring/" class="btn btn-xs btn-link">
+        Queue Monitoring
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../sync-configuration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../sync-configuration/" class="btn btn-xs btn-link">
+        Sync Configuration
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

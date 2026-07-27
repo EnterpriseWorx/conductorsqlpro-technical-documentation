@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Getting Started - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Supported platforms", url: "#supported-platforms" },
+              {title: "Recommended setup order", url: "#recommended-setup-order" },
+              {title: "How sync works", url: "#how-sync-works" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../source-host-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../source-host-configuration/" class="btn btn-xs btn-link">
+        Source Host Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>This page describes how to prepare for Data Sync and the recommended order for
+setting it up.</p>
+<p>To reach Data Sync, select the <strong>Data Sync</strong> menu:</p>
+<!-- Screenshot: Data Sync menu open from the SQLPro landing / main menu -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/getting-started/open-menu.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/getting-started/open-menu.png"></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the <strong>Data Sync</strong> menu is not available, check that:</p>
+<ul>
+<li>your role includes the <strong>SyncUpdate</strong> permission</li>
+<li><strong>Sync Feature Enabled</strong> is turned on under
+  <strong><a href="../../../admin/advanced-settings/">Administration &gt;&gt; Advanced Settings</a></strong>,
+  then restart the <strong>ConductorSQLPro</strong> service</li>
+</ul>
+</div>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you configure Data Sync, ensure the following:</p>
+<ul>
+<li>Your user role includes the <strong>SyncUpdate</strong> permission.</li>
+<li>Source and target instances are already registered under <strong>Administration &gt;
+  Instances</strong>.</li>
+<li>Source databases are <strong>Microsoft SQL Server</strong> (including Azure SQL, Azure SQL
+  Managed Instance, and on-premises SQL Server). Data Sync uses SQL Server
+  Change Tracking. Fabric instances cannot be used as sources.</li>
+<li>Each source table you plan to sync has a <strong>primary key</strong>.</li>
+<li>Source deletes are applied as <strong>hard deletes</strong> on the target. Soft-delete
+  patterns are not supported.</li>
+<li>For <strong>Microsoft Fabric Data Warehouse</strong> targets, you have an Azure Blob
+  Storage <strong>SAS URL</strong> that SQLPro can use for staging data.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A resync drops and recreates the target table, then reloads all data. Plan
+accordingly if other processes depend on those target tables.</p>
+</div>
+<h2 id="supported-platforms">Supported platforms</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Supported platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td>Microsoft SQL Server (Azure SQL, Azure SQL Managed Instance, and on-premises)</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>Microsoft Fabric Data Warehouse, or Microsoft SQL Server (Azure SQL, Managed Instance, and on-premises)</td>
+</tr>
+</tbody>
+</table>
+<p>Sync is always <strong>one-way</strong>: source to target. There is no bidirectional sync or
+conflict resolution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Throughout Data Sync, <strong>Microsoft SQL Server</strong> means Azure SQL, Azure SQL
+Managed Instance, and on-premises Microsoft SQL Server.</p>
+</div>
+<h2 id="recommended-setup-order">Recommended setup order</h2>
+<p>Configure Data Sync in this order so each step has what it needs:</p>
+<ol>
+<li><strong><a href="../source-host-configuration/">Source Host Configuration</a></strong> - register
+   the SQL Server instance that owns the source data.</li>
+<li><strong><a href="../target-host-configuration/">Target Host Configuration</a></strong> - register
+   the Fabric or SQL Server destination (including Blob SAS for Fabric).</li>
+<li><strong><a href="../schedule-configuration/">Schedule Configuration</a></strong> - define when
+   delta, checksum, and resync jobs run.</li>
+<li><strong><a href="../queue-configuration/">Queue Configuration</a></strong> - create or reuse a
+   processing queue (a <strong>Default</strong> queue is provided).</li>
+<li><strong><a href="../table-list-configuration/">Table List Configuration</a></strong> - select the
+   tables to sync and assign them to a queue.</li>
+<li><strong><a href="../sync-configuration/">Sync Configuration</a></strong> - combine source, target,
+   schedule, table list, and databases into a sync job.</li>
+<li><strong><a href="../monitoring/">Monitoring</a></strong> - confirm tables move from pending to
+   syncing, and use bulk actions as needed.</li>
+</ol>
+<h2 id="how-sync-works">How sync works</h2>
+<p>Once a sync configuration is active:</p>
+<ol>
+<li>Tables start in a pending/resync state.</li>
+<li>The <strong>resync</strong> schedule performs the initial full load (or a later full
+   reload).</li>
+<li>The <strong>delta</strong> schedule applies ongoing Change Tracking inserts, updates, and
+   deletes to the target.</li>
+<li>An optional <strong>checksum</strong> schedule compares source and target row counts and
+   checksums for validation.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <strong><a href="../queue-monitoring/">Queue Monitoring</a></strong> if a table stays pending
+longer than expected, or if errors appear in monitoring.</p>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../source-host-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../source-host-configuration/" class="btn btn-xs btn-link">
+        Source Host Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
+        Overview
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

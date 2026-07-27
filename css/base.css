@@ -7,7 +7,7 @@ body {
  ***********************************************************************/
 
 .navbar {
-  background-color: #2C88BC;
+  background-color: #546e7a;
   box-shadow: 0 1.5px 3px rgba(0,0,0,.24), 0 3px 8px rgba(0,0,0,.05);
   border: none;
   border-radius: 0px;
@@ -87,7 +87,7 @@ body {
   right: 0px;
   padding: inherit;
   width: 100%;
-  background-color: #2C88BC;
+  background-color: #546e7a;
 }
 
 .wm-top-search {
@@ -220,7 +220,7 @@ body {
 }
 
 .wm-toctree a, .wm-toctree a:visited, .wm-toctree a:hover, .wm-toctree a:focus {
-  color: #2C88BC;
+  color: #546e7a;
   text-decoration: none;
   outline: none;
 }
@@ -263,7 +263,7 @@ body {
 }
 
 .wm-toc-li.wm-current, .wm-toc-li.wm-current:hover {
-  background-color: #2C88BC;
+  background-color: #546e7a;
   color: white;
 }
 
@@ -279,7 +279,7 @@ body {
   font-size: 1.2rem;
   line-height: 1.2rem;
   overflow: hidden;
-  border-left: 1px solid #2C88BC;
+  border-left: 1px solid #546e7a;
 }
 
 .wm-page-toc-opener > .wm-toc-text::after {
@@ -337,14 +337,14 @@ body {
 }
 
 .wm-page-content a {
-  color: #5cacd9;
+  color: #2fa4e7;
 }
 
 .wm-article-nav {
   display: inline-block;
   max-width: 48%;
   white-space: nowrap;
-  color: #2C88BC;
+  color: #546e7a;
   text-align: right;
 }
 
@@ -357,7 +357,7 @@ body {
 }
 
 .wm-article-nav > a, .wm-article-nav > a:visited, .wm-article-nav > a:hover, .wm-article-nav > a:focus {
-  color: #2C88BC;
+  color: #546e7a;
   text-decoration: none;
   outline: none;
 }
@@ -384,7 +384,7 @@ body {
 
 .search-title {
   font-weight: bold;
-  color: #3297cf;
+  color: #337ab7;
   padding-right: 1rem;
 }
 
@@ -476,11 +476,11 @@ pre code {
 }
 
 a code {
-    color: #5cacd9;
+    color: #2FA4E7;
 }
 
 a:hover code, a:focus code {
-    color: #2779a7;
+    color: #157AB5;
 }
 
 footer {
@@ -517,12 +517,6 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
     color: #3a87ad;
     background-color: #d9edf7;
     border-color: #bce8f1;
-}
-
-.admonition.tip { /* csslint allow: adjoining-classes */
-  color: #3aad57;
-  background-color: #edf7d9;
-  border-color: #bce8f1;
 }
 
 .admonition.warning { /* csslint allow: adjoining-classes */

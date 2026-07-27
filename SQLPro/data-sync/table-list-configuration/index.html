@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Table List Configuration - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+              {title: "Table List overview", url: "#table-list-overview" },
+              {title: "Add or edit a table list", url: "#add-or-edit-a-table-list" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../sync-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../sync-configuration/" class="btn btn-xs btn-link">
+        Sync Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../queue-configuration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../queue-configuration/" class="btn btn-xs btn-link">
+        Queue Configuration
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>A <strong>Table List</strong> defines which source tables belong together and which queue
+processes them.</p>
+<p>To get started, select the <strong>Data Sync</strong> menu and choose <strong>Table List
+Configuration</strong>:</p>
+<!-- Screenshot: Table List Configuration list page -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/table-list/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/table-list/open-page.png"></a></p>
+<h2 id="table-list-overview">Table List overview</h2>
+<p>Each table list has a name, an assigned queue, an active flag, and a set of
+selected tables.</p>
+<!-- Screenshot: Table List list page with rows -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/table-list/list.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/table-list/list.png"></a></p>
+<p>Use <strong>Add Table List</strong> to create a list, <strong>Refresh</strong> to reload, and <strong>Edit</strong> to
+change an existing list.</p>
+<h2 id="add-or-edit-a-table-list">Add or edit a table list</h2>
+<!-- Screenshot: Table List edit dialog showing name, queue, and transfer list -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/table-list/edit-dialog.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/table-list/edit-dialog.png"></a></p>
+<p>Fields:</p>
+<ul>
+<li><strong>Table List Name</strong> - required name for the list.</li>
+<li><strong>Queue</strong> - required processing queue.</li>
+<li><strong>Is Active</strong> - inactive lists are unavailable when creating sync
+  configurations.</li>
+</ul>
+<h3 id="selecting-tables">Selecting tables</h3>
+<p>Below the fields you can browse tables from a source host and database:</p>
+<ol>
+<li>Choose a <strong>Source Host</strong>.</li>
+<li>Choose a <strong>Database</strong>.</li>
+<li>Move tables between Available and Selected using the transfer list.</li>
+</ol>
+<p>The transfer list shows <strong>Schema Name</strong>, <strong>Table Name</strong>, <strong>Row Count</strong>, and
+<strong>Size (MB)</strong>.</p>
+<!-- Screenshot: Transfer list with available and selected tables -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/table-list/transfer-list.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/table-list/transfer-list.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only tables are supported. Each table you sync must have a primary key so
+Change Tracking can identify which rows where inserted, updated or deleted
+since the last delta.</p>
+</div>
+<h3 id="import-and-export">Import and export</h3>
+<p>You can import or export table selections as text:</p>
+<ul>
+<li><strong>Import</strong> - paste table names one per line, or separated by commas or
+  semicolons. Use <code>schema.table</code>, or a bare table name (defaults to <code>dbo</code>). Only
+  tables that exist in the selected database catalog can be imported.</li>
+<li><strong>Export</strong> - copies the selected tables as <code>schema.table</code> (one per line) so
+  you can reuse the list elsewhere.</li>
+</ul>
+<!-- Screenshot: Import dialog or import hint area -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/table-list/import-export.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/table-list/import-export.png"></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Select a source host and database before importing so catalog matching can
+resolve table names.</p>
+</div>
+<p>Select <strong>Save</strong> or <strong>Cancel</strong> when you are done.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../sync-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../sync-configuration/" class="btn btn-xs btn-link">
+        Sync Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../queue-configuration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../queue-configuration/" class="btn btn-xs btn-link">
+        Queue Configuration
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

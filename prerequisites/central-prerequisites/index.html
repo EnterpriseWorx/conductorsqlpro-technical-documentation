@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Central Node Prerequisites - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Central Node Prerequisites - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -41,12 +39,13 @@
 
     </script>
     <script src="../../js/base.js"></script>
-      <script src="../../js/custom.js"></script>
-      <script src="../../search/main.js"></script> 
-<link rel="stylesheet" href="../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../js/jquery.fancybox.js" defer></script>
-<script src="../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../js/custom.js"></script> 
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -72,7 +71,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
       <a href="../instance-prerequisites/" class="btn btn-xs btn-link">
-        Instance Prerequisites
+        Supported Instance Types
       </a>
     </div>
     
@@ -97,7 +96,7 @@ to be monitored. The exact requirements of this server are discussed below.</p>
 <li>0-50 connected instances (2 CPUs, 4GB RAM, 10 GB HDD)</li>
 <li>51-200 connected instances (4 CPUs, 8GB RAM, 40 GB HDD)</li>
 <li>201-1000 connected instances (6 CPUs, 16GB RAM, 500 GB HDD)</li>
-<li>1001-5000 connected instances (8 CPUs, 24GB RAM, 100 GB HDD)</li>
+<li>1001-5000 connected instances (8 CPUs, 24GB RAM, 1000 GB HDD)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -114,8 +113,9 @@ to be monitored. The exact requirements of this server are discussed below.</p>
   potential instances.</li>
 <li>The user performing the installation must have full local System Administrator
   rights to both Windows and SQL Server</li>
-<li>Central Instance must have TCP access to hub.conductor4sql.com on port 10443 for automatic license activation (Manual activation is also possible)</li>
-<li>Either Google Chrome or Microsoft Edge need to be installed on the server to
+<li>Central Instance must have TCP access to hub.conductor4sql.com on port 10443
+  for automatic license activation (Manual activation is also possible)</li>
+<li>Either Google Chrome or Microsoft Edge needs to be installed on the server to
   complete the web installation</li>
 </ul>
 
@@ -135,7 +135,7 @@ to be monitored. The exact requirements of this server are discussed below.</p>
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
       <a href="../instance-prerequisites/" class="btn btn-xs btn-link">
-        Instance Prerequisites
+        Supported Instance Types
       </a>
     </div>
     
@@ -156,5 +156,6 @@ to be monitored. The exact requirements of this server are discussed below.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

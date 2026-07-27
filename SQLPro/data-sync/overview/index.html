@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Overview - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../getting-started/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../getting-started/" class="btn btn-xs btn-link">
+        Getting Started
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../reports/health-report/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../reports/health-report/" class="btn btn-xs btn-link">
+        Health Report
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p><strong>Data Sync</strong> replicates selected Microsoft SQL Server tables to a Microsoft
+Fabric Data Warehouse or another SQL Server destination. Sync is one-way (source
+to target) and uses SQL Server Change Tracking for ongoing updates.</p>
+<p>Where this documentation refers to <strong>Microsoft SQL Server</strong> as a source or
+target, that includes Microsoft Azure SQL, Microsoft Azure SQL Managed Instance,
+and on-premises Microsoft SQL Server.</p>
+<p>Key limits to be aware of:</p>
+<ul>
+<li>Sources must be Microsoft SQL Server (Azure SQL, Managed Instance, or
+  on-premises). Fabric can be a <strong>target only</strong>.</li>
+<li>Each source table must have a <strong>primary key</strong>.</li>
+<li>Deletes from the source are applied as <strong>hard deletes</strong> on the target
+  (soft-delete patterns are not supported).</li>
+</ul>
+<p>To reach the Data Sync section, select the <strong>Data Sync</strong> menu:</p>
+<!-- Screenshot: Data Sync menu open, showing all submenu items -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/open-page.png"></a></p>
+<p>The Data Sync menu offers the following options:</p>
+<ul>
+<li><strong><a href="../getting-started/">Getting Started</a></strong> - prerequisites and the
+  recommended setup order</li>
+<li><strong><a href="../source-host-configuration/">Source Host Configuration</a></strong> - register SQL
+  Server source instances</li>
+<li><strong><a href="../target-host-configuration/">Target Host Configuration</a></strong> - register
+  Fabric or SQL Server targets</li>
+<li><strong><a href="../schedule-configuration/">Schedule Configuration</a></strong> - define delta,
+  checksum, and resync schedules</li>
+<li><strong><a href="../queue-configuration/">Queue Configuration</a></strong> - manage sync processing
+  queues</li>
+<li><strong><a href="../table-list-configuration/">Table List Configuration</a></strong> - choose which
+  tables to sync</li>
+<li><strong><a href="../sync-configuration/">Sync Configuration</a></strong> - wire hosts, schedules, and
+  table lists together</li>
+<li><strong><a href="../monitoring/">Monitoring</a></strong> - watch sync status and run bulk actions</li>
+<li><strong><a href="../queue-monitoring/">Queue Monitoring</a></strong> - inspect source and target
+  queue activity</li>
+<li><strong><a href="../sync-vs-fabric-pipelines/">SQLPro Sync vs Fabric Pipelines</a></strong> -
+  guidance on when to use SQLPro Sync over Fabric Pipelines for ingesting SQL
+  Server data</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../getting-started/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../getting-started/" class="btn btn-xs btn-link">
+        Getting Started
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../reports/health-report/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../reports/health-report/" class="btn btn-xs btn-link">
+        Health Report
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

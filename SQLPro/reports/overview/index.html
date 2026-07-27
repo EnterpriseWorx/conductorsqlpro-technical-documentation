@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Overview - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Overview - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -33,16 +31,19 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+          ]},
         ];
 
     </script>
     <script src="../../../js/base.js"></script>
-      <script src="../../../js/custom.js"></script>
-      <script src="../../../search/main.js"></script> 
-<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../../js/jquery.fancybox.js" defer></script>
-<script src="../../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -63,12 +64,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../audit-history-report/" class="btn btn-xs btn-default pull-right">
+      <a href="../sql-environment-audit-report/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../audit-history-report/" class="btn btn-xs btn-link">
-        Audit History Report
+      <a href="../sql-environment-audit-report/" class="btn btn-xs btn-link">
+        SQL Environment Audit History Report
       </a>
     </div>
     
@@ -84,7 +85,41 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p><img alt="" src="../../../img/under-construction.png" /></p>
+    <h1 id="introduction">Introduction</h1>
+<p><strong>Reports</strong> provides visibility into the health, structure, and activity of your
+SQL Server environment. Use it to review instance health checks, track
+structural changes across servers, and generate an environment-wide audit
+summary.</p>
+<p>To reach the reports section, select the <strong>Reports</strong> icon:</p>
+<!-- Screenshot: Reports menu open from the SQLPro landing / main menu -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/open-page.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Reports menu is available when your role includes <strong>ReportView</strong> and/or
+<strong>AuditView</strong>. Individual reports are shown or hidden based on those
+permissions.</p>
+</div>
+<p>The Reports menu offers the following options:</p>
+<ul>
+<li><strong><a href="../sql-environment-audit-report/">SQL Environment Audit History Report</a></strong> -
+  generate a detailed Microsoft SQL Server environment audit covering instance
+  inventory, licensing and core counts, database backup and CheckDB status,
+  governance checks, and recommendations.</li>
+<li><strong><a href="../audit-history-report/">Audit History Report</a></strong> (<strong>Server Activity Audit
+  History Report</strong>) - review database structural changes across your
+  environment, such as logins, tables, views, and indexes being added, modified,
+  or removed. You can also configure email alerts for selected events.</li>
+<li><strong><a href="../health-report/">Health Report</a></strong> - run communication, database, job,
+  and security health checks against your SQL Server instances.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Server Activity Audit must be enabled on each Microsoft SQL Server instance
+you want to track. Open <strong>Administration &gt;&gt; Instances</strong>, edit the instance,
+and turn on the audit option. This feature is available for Microsoft SQL
+Server, not Azure SQL or other database types.</p>
+</div>
 
   <br>
     
@@ -97,12 +132,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../audit-history-report/" class="btn btn-xs btn-default pull-right">
+      <a href="../sql-environment-audit-report/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../audit-history-report/" class="btn btn-xs btn-link">
-        Audit History Report
+      <a href="../sql-environment-audit-report/" class="btn btn-xs btn-link">
+        SQL Environment Audit History Report
       </a>
     </div>
     
@@ -123,5 +158,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

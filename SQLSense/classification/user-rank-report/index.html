@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>User Rank Report - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>User Rank Report - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -39,12 +37,13 @@
 
     </script>
     <script src="../../../js/base.js"></script>
-      <script src="../../../js/custom.js"></script>
-      <script src="../../../search/main.js"></script> 
-<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../../js/jquery.fancybox.js" defer></script>
-<script src="../../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -87,11 +86,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="introduction">Introduction</h1>
-<p>To reach the user rank report section select the classification icon:</p>
-<p><img alt="" src="../../../img/classification/user-rank/user-rank-menu.png" /></p>
-<p>Here you can view all the users that have logged in recently and how much
-sensitive data they have access to.</p>
-<p><img alt="" src="../../../img/classification/user-rank/user-rank-screen.png" /></p>
+<p>The <strong>User Rank Report</strong> shows which users have the most access to sensitive
+data, based on verified classification results. Use it to prioritise access
+reviews and compliance follow-up.</p>
+<p>To open the report, select the Classification icon, then <strong>User Rank Report</strong>:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/classification/user-rank/user-rank-menu.png" data-desc-position="bottom"><img alt="" src="../../../img/classification/user-rank/user-rank-menu.png"></a></p>
+<p>The report lists users with recent activity and how much sensitive data they can
+access.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/classification/user-rank/user-rank-screen.png" data-desc-position="bottom"><img alt="" src="../../../img/classification/user-rank/user-rank-screen.png"></a></p>
 
   <br>
     
@@ -130,5 +132,6 @@ sensitive data they have access to.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

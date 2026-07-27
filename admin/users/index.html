@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Users - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Users - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -41,12 +39,13 @@
 
     </script>
     <script src="../../js/base.js"></script>
-      <script src="../../js/custom.js"></script>
-      <script src="../../search/main.js"></script> 
-<link rel="stylesheet" href="../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../js/jquery.fancybox.js" defer></script>
-<script src="../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../js/custom.js"></script> 
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -90,48 +89,48 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="introduction">Introduction</h1>
 <p>To view, update or create users select the settings Icon and choose users:</p>
-<p><img alt="" src="../../img/admin/users/open-page.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/open-page.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/open-page.png"></a></p>
 <p>By default, you will have a Super Admin, Admin, and User which correlate with
 the internal roles that come standard with Conductor4SQL.</p>
-<p><img alt="" src="../../img/admin/users/add-user-list.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/add-user-list.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/add-user-list.png"></a></p>
 <p>When adding or editing users you set their username, password, and role. By
 default, the internal User role, which is a view-only role, will be assigned to
 newly created users if you do not assign them a <strong><a href="../roles/">custom role</a></strong>.
 You can create roles as long as you have <strong>AdminRoleUpdate</strong> permission.</p>
-<p><img alt="" src="../../img/admin/users/add-user.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/add-user.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/add-user.png"></a></p>
 <h2 id="setup-ldap-active-directory">Setup LDAP (Active Directory)</h2>
 <p>Instead of having to create local users for each person wishing to interact with
-SQLPro it's often easier to use Microsoft's Active Directory. This way users do
+SQLPro, it's often easier to use Microsoft's Active Directory. This way users do
 not have to remember another password for another system, and it's also more
 secure than using local logins.</p>
 <p>SQLPro supports LDAP which Microsoft uses Active Directory.</p>
 <p>First thing you'll need to do is find out where your AD server is located. So
 open the Command Prompt line on your central server hosting SQLPro and run the
 following command</p>
-<pre><code class="language-cmd">set l | find /i &quot;LOGONSERVER=\\&quot;
+<pre><code class="language-cmd">set l | find /i "LOGONSERVER=\\"
 </code></pre>
 <p>In our example the AD server name is TEST-AD1, take note of your AD server
 location.</p>
 <p>Next in SQLPro, you'll need to go to the Administration &gt;&gt; Users screen and
 select the Edit Configuration button.</p>
-<p><img alt="" src="../../img/admin/users/authentication-configuration-edit.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/authentication-configuration-edit.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/authentication-configuration-edit.png"></a></p>
 <p>Fill in the <strong>LDAP Host</strong> field with your AD server location and in most cases
 keep <strong>LDAP Port</strong> as 389 and click on <strong>Save</strong>.</p>
 <p>When adding a new User, make sure you select <strong>LDAP User</strong> for <strong>Authentication
 Type</strong>. Also include your domain name in the <strong>Username</strong> field.</p>
-<p><img alt="" src="../../img/admin/users/add-ldap-user.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/add-ldap-user.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/add-ldap-user.png"></a></p>
 <p>Now you should be able to log in as this user using normal AD credentials
 (remember to include your domain name in your username)</p>
-<p><img alt="" src="../../img/admin/users/login-ldap-login.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/login-ldap-login.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/login-ldap-login.png"></a></p>
 <h2 id="setup-and-enable-azure-ad-integration">Setup and Enable Azure AD Integration</h2>
 <p>SQLPro also supports Azure Active Directory</p>
 <p>In order to use Azure AD logins the first step is to log into Azure Portal and
 navigate to the <strong>Azure Active Directory</strong> screen
 <a href="https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview">https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview</a>.</p>
 <p>Next select <strong>App Registrations</strong></p>
-<p><img alt="" src="../../img/admin/users/azure-ad-app-registrations-menu.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/azure-ad-app-registrations-menu.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/azure-ad-app-registrations-menu.png"></a></p>
 <p>Select <strong>New registration</strong></p>
-<p><img alt="" src="../../img/admin/users/azure-ad-app-new-registration-menu.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/azure-ad-app-new-registration-menu.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/azure-ad-app-new-registration-menu.png"></a></p>
 <p>Fill in the <strong>Name</strong> field and click on the <strong>Register</strong> button.</p>
 <p>Now open your newly registered app, select the <strong>Authentication</strong> menu item and
 click on <strong>Add a platform</strong>. Fill in the https address that you are using for
@@ -141,21 +140,21 @@ under Redirect URIs, in my example I put down the uri
 (used for implicit and hybrid flows)</strong>. Then finally click on the <strong>Configure</strong>
 button. Note, that you can only use https, and you'll need to adjust the URIs to
 work with your environment.</p>
-<p><img alt="" src="../../img/admin/users/azure-ad-app-new-registration-menu.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/azure-ad-app-new-registration-menu.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/azure-ad-app-new-registration-menu.png"></a></p>
 <p>Now go to the <strong>Overview</strong> section in your newly registered app and take note of
 the <strong>Application (client) ID</strong> and <strong>Directory (tenant) ID</strong> for the app as
 you'll need this information next.</p>
-<p><img alt="" src="../../img/admin/users/azure-ad-app-registration-setup.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/azure-ad-app-registration-setup.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/azure-ad-app-registration-setup.png"></a></p>
 <p>Next in SQLPro, you'll need to go to the <strong>Administration &gt;&gt; Users</strong> screen and
 select the <strong>Edit Configuration</strong> button. Paste in the <strong>Azure Tenant ID</strong> and
 the <strong>Azure Client ID</strong> and Save.</p>
-<p><img alt="" src="../../img/admin/users/edit-azure-authentication-configuration.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/edit-azure-authentication-configuration.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/edit-azure-authentication-configuration.png"></a></p>
 <p>Restart the ConductorSQLPro Windows service.</p>
 <p>Now when adding new users select the <strong>Azure User</strong> option.</p>
-<p><img alt="" src="../../img/admin/users/add-azure-user.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/add-azure-user.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/add-azure-user.png"></a></p>
 <p>If all went well you'll have a <strong>Login With Azure AD</strong> option, and you'll be
 able to log in via this method.</p>
-<p><img alt="" src="../../img/admin/users/login-azure-ad.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/users/login-azure-ad.png" data-desc-position="bottom"><img alt="" src="../../img/admin/users/login-azure-ad.png"></a></p>
 
   <br>
     
@@ -194,5 +193,6 @@ able to log in via this method.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

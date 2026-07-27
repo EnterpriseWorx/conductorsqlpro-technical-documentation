@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Target Host Configuration - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+              {title: "Target Host list", url: "#target-host-list" },
+              {title: "Add a SQL Server target", url: "#add-a-sql-server-target" },
+              {title: "Add an Azure Fabric target", url: "#add-an-azure-fabric-target" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../schedule-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../schedule-configuration/" class="btn btn-xs btn-link">
+        Schedule Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../source-host-configuration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../source-host-configuration/" class="btn btn-xs btn-link">
+        Source Host Configuration
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>Target hosts identify where Data Sync writes data. You can add a <strong>Microsoft SQL
+Server</strong> target (Azure SQL, Azure SQL Managed Instance, or on-premises) or a
+<strong>Microsoft Fabric Data Warehouse</strong> target.</p>
+<p>To get started, select the <strong>Data Sync</strong> menu and choose <strong>Target Host
+Configuration</strong>:</p>
+<!-- Screenshot: Target Host Configuration list page -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/target-host/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/target-host/open-page.png"></a></p>
+<h2 id="target-host-list">Target Host list</h2>
+<p>The list shows registered target hosts, their type, instance name, and active
+state.</p>
+<!-- Screenshot: Target Host list showing SQL Server and Fabric rows -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/target-host/list.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/target-host/list.png"></a></p>
+<p>Header actions:</p>
+<ul>
+<li><strong>Add SQL Server Target</strong> - create a SQL Server destination</li>
+<li><strong>Add Azure Fabric Target</strong> - create a Fabric Data Warehouse destination</li>
+<li><strong>Refresh</strong> - reload the list</li>
+</ul>
+<p>Use the row <strong>Edit</strong> action to update an existing target host.</p>
+<h2 id="add-a-sql-server-target">Add a SQL Server target</h2>
+<p>Select <strong>Add SQL Server Target</strong>. Use this for Azure SQL, Azure SQL Managed
+Instance, or on-premises Microsoft SQL Server destinations.</p>
+<!-- Screenshot: Add SQL Server Target dialog -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/target-host/edit-sql-server.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/target-host/edit-sql-server.png"></a></p>
+<p>Fields:</p>
+<ul>
+<li><strong>Instance Name</strong> - the SQLPro instance to use as the target. Required. Locked
+  after the host is created.</li>
+<li><strong>Is Active</strong> - when off, the host is unavailable for new sync configurations.</li>
+</ul>
+<p>Select <strong>Save</strong> or <strong>Cancel</strong>.</p>
+<h2 id="add-an-azure-fabric-target">Add an Azure Fabric target</h2>
+<p>Select <strong>Add Azure Fabric Target</strong>.</p>
+<!-- Screenshot: Add Azure Fabric Target dialog with Blob Storage SAS URL and Test button -->
+
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/target-host/edit-fabric.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/target-host/edit-fabric.png"></a></p>
+<p>Fields:</p>
+<ul>
+<li><strong>Instance Name</strong> - the SQLPro Fabric instance. Required. Locked after the
+  host is created.</li>
+<li><strong>Blob Storage SAS URL</strong> - Azure Blob Storage shared access signature URL used
+  to stage data during sync. Required for Fabric targets.</li>
+<li><strong>Test Blob Storage</strong> - validates that SQLPro can use the SAS URL.</li>
+<li><strong>Is Active</strong> - when off, the host is unavailable for new sync configurations.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Fabric targets require a working Blob Storage SAS URL. Without it, initial
+sync and delta apply cannot stage data for the warehouse.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <strong>Test Blob Storage</strong> after entering the SAS URL and before saving, so
+connection problems are caught early.</p>
+</div>
+<p>Select <strong>Save</strong> or <strong>Cancel</strong>.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../schedule-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../schedule-configuration/" class="btn btn-xs btn-link">
+        Schedule Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../source-host-configuration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../source-host-configuration/" class="btn btn-xs btn-link">
+        Source Host Configuration
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Audit History Report - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Audit History Report - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -45,12 +43,13 @@
 
     </script>
     <script src="../../../js/base.js"></script>
-      <script src="../../../js/custom.js"></script>
-      <script src="../../../search/main.js"></script> 
-<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../../js/jquery.fancybox.js" defer></script>
-<script src="../../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -81,10 +80,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+      <a href="../sql-environment-audit-report/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
-        Overview
+        Previous</a><a href="../sql-environment-audit-report/" class="btn btn-xs btn-link">
+        SQL Environment Audit History Report
       </a>
     </div>
     
@@ -94,7 +93,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="introduction">Introduction</h1>
 <p>To get started select the reports icon and choose audit history report:</p>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-menu.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-menu.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-menu.png"></a></p>
 <p>Here you can see database structural changes made on your whole environment.
 This allows you to see if logins, databases, tables, views, indexes etc. are
 being added, modified or removed from your servers. You can also set up email
@@ -103,34 +102,35 @@ databases.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Server activity audit is an option that can be set by editing the instance you would like
-to audit. This feature is only available for Microsoft SQL Server and not SQL Azure or another
-of the other database types.</p>
+to audit. This feature is only available for Microsoft SQL Server, not Azure SQL or other
+database types.</p>
 </div>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-instance-edit.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-instance-edit.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-instance-edit.png"></a></p>
 <p>And by viewing a script you can see what statements users have run in SQL.</p>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png" /></p>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-script-view.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-screen.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-script-view.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-script-view.png"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If the script returns --Encrypted-- then the changes were done by an encrypted stored
 procedure and you cannot view the SQL that was changed.</p>
 </div>
 <h1 id="alerts">Alerts</h1>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-screen.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png"></a></p>
 <p>Clicking on the <strong>Alerts</strong> button will bring you to the <strong>Server Activity
 Alerts</strong> screen. Here you can set up alert emails for specific events such as a
 table being created or a database being dropped for example</p>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-alerts-screen.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-alerts-screen.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-alerts-screen.png"></a></p>
 <p>By clicking the <strong>Add Alert</strong>, you can create a new alert.</p>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-add-alerts-screen.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-add-alerts-screen.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-add-alerts-screen.png"></a></p>
 <ul>
 <li><strong>Alert Name</strong> - A free text name of the alert which affects the email subject
-  line, so you can tell from which alert the event fired from.</li>
+  line, so you can tell from which alert the event fired.</li>
 <li><strong>Email List</strong> - The list of To And CC addresses to send the email to</li>
-<li><strong>Email Results Type</strong> - the options are </li>
+<li><strong>Email Results Type</strong> - the options are</li>
 <li><strong>HTML Only</strong> - the alerts are embedded in the email body</li>
 <li><strong>Attachment Only</strong> - the alerts are included as an XLSX attachment</li>
-<li><strong>HTML &amp; Attachment</strong> -  alerts are included in the HTML body and an XLSX attachment</li>
+<li><strong>HTML &amp; Attachment</strong> - alerts are included in the HTML body and an XLSX
+    attachment</li>
 <li><strong>Is Active</strong> - Turn on or off the Alert</li>
 <li><strong>Include Statement in Email</strong> - by default we don't include the actual SQL
   text that was run, turn this on if you would like to see the text.</li>
@@ -153,18 +153,18 @@ table being created or a database being dropped for example</p>
 <li><strong>Email Schedule</strong> - The cron string schedule to use for the email alerts</li>
 </ul>
 <h1 id="exclusions">Exclusions</h1>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-screen.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-screen.png"></a></p>
 <p>Clicking on the <strong>Exclusions</strong> button will bring you to the <strong>Server Activity
 Exclusions</strong> screen. Here you can set up specific events that get excluded
 altogether in the <strong>Service Activity Audit History</strong>. A good example where this
 is useful would be if a destructive load process drops and recreates reporting
 tables every day. This allows you filter out "noise" so you can focus on the
 important events.</p>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-exclusion-list.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-exclusion-list.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-exclusion-list.png"></a></p>
 <p>By default, we exclude some of the objects that are dropped and recreated in
 SQLPro's Backup and Maintenance Module.</p>
 <p>To add a new exclusion, click on the <strong>Add Exclusion</strong> button.</p>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-edit-exclusion.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-edit-exclusion.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-edit-exclusion.png"></a></p>
 <ul>
 <li><strong>Name</strong> - the friendly name for the exclusion</li>
 <li><strong>Event Type Like</strong> - the event that you would like to exclude, note that it
@@ -180,7 +180,7 @@ database "Staging"</p>
 <h1 id="system-settings">System Settings</h1>
 <p>Here you can edit schedules and retention periods for the Server Activity Audit
 report</p>
-<p><img alt="" src="../../../img/reports/audit-history/audit-history-report-system-settings.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/reports/audit-history/audit-history-report-system-settings.png" data-desc-position="bottom"><img alt="" src="../../../img/reports/audit-history/audit-history-report-system-settings.png"></a></p>
 <ul>
 <li><strong>Query Schedule</strong> - The frequency to connect to all the server instances to
   get Audit changes</li>
@@ -212,10 +212,10 @@ report</p>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../overview/" class="btn btn-xs btn-default pull-left">
+      <a href="../sql-environment-audit-report/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../overview/" class="btn btn-xs btn-link">
-        Overview
+        Previous</a><a href="../sql-environment-audit-report/" class="btn btn-xs btn-link">
+        SQL Environment Audit History Report
       </a>
     </div>
     
@@ -228,5 +228,6 @@ report</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

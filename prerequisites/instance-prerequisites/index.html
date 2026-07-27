@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Instance Prerequisites - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Supported Instance Types - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -33,22 +31,20 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Introduction", url: "#_top", children: [
-              {title: "MS SQL Server", url: "#ms-sql-server" },
-              {title: "MySQL", url: "#mysql" },
-              {title: "PostgreSQL", url: "#postgresql" },
-              {title: "MS Azure SQL", url: "#ms-azure-sql" },
+          {title: "Supported instance types", url: "#_top", children: [
+              {title: "Feature support matrix", url: "#feature-support-matrix" },
           ]},
         ];
 
     </script>
     <script src="../../js/base.js"></script>
-      <script src="../../js/custom.js"></script>
-      <script src="../../search/main.js"></script> 
-<link rel="stylesheet" href="../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../js/jquery.fancybox.js" defer></script>
-<script src="../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../js/custom.js"></script> 
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -90,38 +86,98 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="introduction">Introduction</h1>
-<p>The requirements depend on the instance type that is being added to
-Conductor4SQL.</p>
+    <h1 id="supported-instance-types">Supported instance types</h1>
+<p>Supported features depend on the instance type you add to Conductor4SQL.</p>
 <p>Currently supported instance types:</p>
 <ul>
-<li>MS SQL Server</li>
+<li>Microsoft SQL Server</li>
+<li>Microsoft Azure SQL</li>
+<li>Microsoft Azure SQL Managed Instance</li>
+<li>Microsoft Fabric Data Warehouse</li>
 <li>MySQL</li>
 <li>PostgreSQL</li>
-<li>MS Azure SQL</li>
 </ul>
-<h2 id="ms-sql-server">MS SQL Server</h2>
-<ul>
-<li>SQL Server 2014 Express or greater</li>
-<li>All modules work for MS SQL Server</li>
-</ul>
-<h2 id="mysql">MySQL</h2>
-<ul>
-<li>Currently only supports MySQL 8</li>
-<li>Only SQLPro &gt;&gt; User Query, SQLPro &gt;&gt; Live Alerts and SQLSense modules are
-  supported</li>
-</ul>
-<h2 id="postgresql">PostgreSQL</h2>
-<ul>
-<li>Currently only supports PostgreSQL 14</li>
-<li>Only SQLPro &gt;&gt; User Query, SQLPro &gt;&gt; Live Alerts and SQLSense modules are
-  supported</li>
-</ul>
-<h2 id="ms-azure-sql">MS Azure SQL</h2>
-<ul>
-<li>Only SQLPro &gt;&gt; User Query, SQLPro &gt;&gt; Live Alerts and SQLSense modules are
-  supported</li>
-</ul>
+<p>For hardware and software requirements of the central Conductor4SQL server, see
+<strong><a href="../central-prerequisites/">Central Node Prerequisites</a></strong>. For Data Sync
+source and target requirements (Change Tracking, primary keys, Blob SAS), see
+<strong><a href="../../SQLPro/data-sync/getting-started/">Data Sync Getting Started</a></strong>.</p>
+<h2 id="feature-support-matrix">Feature support matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Instance Type</th>
+<th>User Query</th>
+<th>Backup &amp; Maintenance</th>
+<th>Live Alerts</th>
+<th>Data Sync</th>
+<th>DML Auditing</th>
+<th>SQLSense</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft SQL Server</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>SQL Server 2014 Express or greater. Supports all SQLPro modules.</td>
+</tr>
+<tr>
+<td>Microsoft Azure SQL</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft Azure SQL Managed Instance</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft Fabric Data Warehouse</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Target only</td>
+<td>No</td>
+<td>Yes</td>
+<td>Can be a Data Sync target, not a source.</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Currently supports MySQL 8+.</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Currently supports PostgreSQL 14+.</td>
+</tr>
+</tbody>
+</table>
 
   <br>
     
@@ -160,5 +216,6 @@ Conductor4SQL.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

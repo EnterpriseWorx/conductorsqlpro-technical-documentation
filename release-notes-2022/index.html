@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Release Notes - 2022 - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Release Notes - 2022 - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -97,12 +95,13 @@
 
     </script>
     <script src="../js/base.js"></script>
-      <script src="../js/custom.js"></script>
-      <script src="../search/main.js"></script> 
-<link rel="stylesheet" href="../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../js/jquery.fancybox.js" defer></script>
-<script src="../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../js/custom.js"></script> 
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -133,10 +132,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../release-notes/" class="btn btn-xs btn-default pull-left">
+      <a href="../release-notes-2023/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../release-notes/" class="btn btn-xs btn-link">
-        Release Notes - Recent
+        Previous</a><a href="../release-notes-2023/" class="btn btn-xs btn-link">
+        Release Notes - 2023
       </a>
     </div>
     
@@ -228,8 +227,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>HUMMDB-1008 Cannot differentiate between groups and instances in the Query
   Editor screen</li>
 <li>HUMMDB-1004 Move Global Settings from appsettings.json to database</li>
-<li>Split Instance "Bulk Operations" into "Bulk Operations" and "Import/Export" on
-  instance screen</li>
 <li>HUMMDB-1007 Update SQLPro audit report latest SP and CUs</li>
 <li>HUMMDB-997 Allow user to capture groups when bulk importing instances</li>
 <li>HUMMDB-1006 Add instance groups to CSV instance export</li>
@@ -330,7 +327,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <h1 id="version-1270-23062022">Version 1.2.7.0 (23/06/2022)</h1>
 <ul>
-<li>Fixed: Refreshing screen on landing page looses permissions</li>
 <li>Epic HUMMDB-891 Add Azure AD authentication support to SQLPro</li>
 </ul>
 <h1 id="version-1260-15062022">Version 1.2.6.0 (15/06/2022)</h1>
@@ -344,7 +340,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h1 id="version-1250-08062022">Version 1.2.5.0 (08/06/2022)</h1>
 <ul>
 <li>HUMMDB-883 Show installation progress when installing SQLPro service</li>
-<li>Fixed: No styling for Conductor4SQL Setup web app</li>
 <li>HUMMDB-882 SQLPro not running after using the setup utility</li>
 <li>HUMMDB-881 Replace SQLPro installer with web installer</li>
 <li>HUMMDB-878 Outstanding count for Queries modules always returning zero</li>
@@ -502,8 +497,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>HUMMDB-703 Add SQLPro theme colors to SQLPro hub</li>
 <li>HUMMDB-701 Cannot add more than one additional license type on the hub</li>
 </ul>
-<!--suppress CheckEmptyScriptTag -->
-<script src="../js/release-notes.js" defer />
 
   <br>
     
@@ -526,10 +519,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../release-notes/" class="btn btn-xs btn-default pull-left">
+      <a href="../release-notes-2023/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../release-notes/" class="btn btn-xs btn-link">
-        Release Notes - Recent
+        Previous</a><a href="../release-notes-2023/" class="btn btn-xs btn-link">
+        Release Notes - 2023
       </a>
     </div>
     
@@ -542,5 +535,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

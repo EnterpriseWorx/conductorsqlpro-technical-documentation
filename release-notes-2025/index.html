@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Release Notes - 2025 - Conductor4SQL SQLPro Technical Documentation</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Version 1.3.7.0 (22/08/2025)", url: "#_top", children: [
+          ]},
+          {title: "Version 1.3.6.0 (08/08/2025)", url: "#version-1360-08082025", children: [
+          ]},
+          {title: "Version 1.3.5.1 (16/05/2025)", url: "#version-1351-16052025", children: [
+          ]},
+          {title: "Version 1.3.5.0 (15/05/2025)", url: "#version-1350-15052025", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../js/custom.js"></script> 
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../release-notes-2024/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../release-notes-2024/" class="btn btn-xs btn-link">
+        Release Notes - 2024
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../release-notes/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../release-notes/" class="btn btn-xs btn-link">
+        Release Notes - Recent
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="version-1370-22082025">Version 1.3.7.0 (22/08/2025)</h1>
+<ul>
+<li>HUMMDB-1311 Sync Module: Add initial sync timings</li>
+<li>HUMMDB-1310 Refactor Target and Source Helper classes</li>
+<li>HUMMDB-1309 Add "Target Queue Monitoring" Screen</li>
+<li>HUMMDB-1308 Add "Source Queue Monitoring" Screen</li>
+<li>HUMMDB-1307 Add queue monitoring tables</li>
+<li>HUMMDB-1305 Add "Sync Schedule Configuration" screens</li>
+<li>HUMMDB-1304 Add "Sync Configuration" Screen</li>
+<li>HUMMDB-1303 Add "Database Mapping Configuration" screen</li>
+<li>HUMMDB-1302 Add screen for configuring SourceHost</li>
+<li>HUMMDB-1301 Add screen for configuring TargetHost</li>
+<li>HUMMDB-1300 Disable sync of tables where related components deactivated</li>
+<li>HUMMDB-1299 Add IsActive flag for multiple DataSync schema tables</li>
+<li>HUMMDB-1298 Allow user to resync a table or disable sync from the UI</li>
+<li>HUMMDB-1296 Add Sync Monitoring screen</li>
+<li>HUMMDB-1297 Add Sync Monitoring controller</li>
+<li>HUMMDB-1295 Add view vw_SyncTableDetail to simplify table query for
+  DataSync.SyncTableDetail</li>
+<li>HUMMDB-1292 Add delta sync batch size to DataSync.TableConfiguration</li>
+<li>HUMMDB-1293 Initial sync processing speed slow for large batches</li>
+<li>HUMMDB-1291 Add initial sync batch size to DataSync.TableConfiguration</li>
+</ul>
+<h1 id="version-1360-08082025">Version 1.3.6.0 (08/08/2025)</h1>
+<ul>
+<li>HUMMDB-1248 Change "Full Name" to "Friendly Name" in new instance installer
+  and bulk import/export</li>
+<li>HUMMDB-1290 Start rabbitmq container on SQLPro startup and stop the container
+  on shutdown</li>
+<li>Epic: HUMMDB-1251 Add SQLPro Sync Module Engine POC</li>
+</ul>
+<h1 id="version-1351-16052025">Version 1.3.5.1 (16/05/2025)</h1>
+<ul>
+<li>HUMMDB-1233 The Cancel Query button gives user no feedback</li>
+<li>HUMMDB-1234 Hovering over the view results buttons makes them almost invisible</li>
+<li>HUMMDB-1237 Difficult to select the search textbox in the table wrapper
+  component</li>
+<li>HUMMDB-1236 If Azure Blob Storage Credentials is null then database backup and
+  maintenance settings not showing as applied</li>
+<li>HUMMDB-1228 Deployment dll missing errors</li>
+</ul>
+<h1 id="version-1350-15052025">Version 1.3.5.0 (15/05/2025)</h1>
+<ul>
+<li>HUMMDB-1226 The no option in the confirmation dialogs difficult to see</li>
+<li>HUMMDB-1222 Add ability to Test scheduled user queries</li>
+<li>HUMMDB-1180 Update SQLPro audit report latest SP and CUs</li>
+<li>HUMMDB-1216 Add ability to test credentials for blob storage database backups</li>
+<li>HUMMDB-1223 Switch to Microsoft.Data.SqlClient package</li>
+<li>HUMMDB-1224 Hangfire obsolete code</li>
+<li>HUMMDB-1225 Query editor screen pages getting cut off on the right</li>
+<li>HUMMDB-1220 Upgrade to Angular 19</li>
+<li>HUMMDB-1221 Upgrade backend nuget packages</li>
+<li>HUMMDB-1211 Failed Jobs live alerts sometimes misses failed jobs in
+  environments with lots of jobs</li>
+<li>HUMMDB-1210 Upgrade to Angular 18</li>
+<li>HUMMDB-1209 Switch angular routing to use lazy loading</li>
+<li>HUMMDB-1208 Switch angular components to standalone components</li>
+<li>HUMMDB-1207 Switch to embedded .net 8 for SQLPro installation</li>
+<li>HUMMDB-1204 Add papertrail logging checkbox in SQLPro UI</li>
+<li>HUMMDB-1205 Add advanced settings screen</li>
+<li>HUMMDB-1198 Health Dashboard reports do not include business attributes</li>
+<li>HUMMDB-1202 Calendar control blocking text input</li>
+<li>HUMMDB-1200 Add user query history retension option</li>
+<li>HUMMDB-1199 Add user query history option</li>
+<li>HUMMDB-1193 SQLSense View Access bug on poorly named tables/columns</li>
+<li>HUMMDB-1197 Upgrade backend packages to fix security vulnerablilities</li>
+<li>HUMMDB-1196 Improve Classification verification load speed</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../release-notes-2024/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../release-notes-2024/" class="btn btn-xs btn-link">
+        Release Notes - 2024
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../release-notes/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../release-notes/" class="btn btn-xs btn-link">
+        Release Notes - Recent
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

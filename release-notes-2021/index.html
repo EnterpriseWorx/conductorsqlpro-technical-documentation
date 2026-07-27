@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Release Notes - 2021 - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Release Notes - 2021 - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -89,12 +87,13 @@
 
     </script>
     <script src="../js/base.js"></script>
-      <script src="../js/custom.js"></script>
-      <script src="../search/main.js"></script> 
-<link rel="stylesheet" href="../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../js/jquery.fancybox.js" defer></script>
-<script src="../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../js/custom.js"></script> 
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -422,7 +421,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>HUMMDB-488 Cannot Verify more than 2000 columns at once</li>
 <li>HUMMDB-486 Bug: If no Azure SQL Clients classification report goes out to all
   instances</li>
-<li>HUMMDB-483 Move classification report to seperate angular module</li>
+<li>HUMMDB-483 Move classification report to separate angular module</li>
 <li>HUMMDB-484 Speed up the bulk verify/unverify process</li>
 <li>HUMMDB-482 Data Classification report query not working on Azure SQL pools</li>
 <li>HUMMDB-485 Classification query failing on SQL Server 2005 Versions</li>
@@ -551,7 +550,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   hub.hummdb.com</li>
 <li>HUMMDB-376 Make Hub.Hummdb auth callback dynamic</li>
 </ul>
-<script src="../js/release-notes.js" defer />
 
   <br>
     
@@ -590,5 +588,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   
   
     <meta charset="utf-8">
@@ -9,9 +7,9 @@
     
     
     
-    <link rel="shortcut icon" href="../../..../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>System Settings - ConductorSQLPro Technical Documentation</title>
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>System Settings - Conductor4SQL SQLPro Technical Documentation</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -42,12 +40,13 @@
 
     </script>
     <script src="../../../js/base.js"></script>
-      <script src="../../../js/custom.js"></script>
-      <script src="../../../search/main.js"></script> 
-<link rel="stylesheet" href="../../../css/jquery.fancybox.css" type="text/css" defer />
-<script src="../../../js/jquery.fancybox.js" defer></script>
-<script src="../../../js/jquery.fancybox.pack.js" defer></script>
-</head>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
 
 <body>
 <script>
@@ -105,17 +104,17 @@ screen to refresh automatically would be beneficial.</p>
 <p>To enable auto refreshing, simply toggle the <strong>Enable</strong> button. You can also
 adjust the schedule that the refresh occurs by changing the cron string for the
 <strong>Schedule</strong> field. Finally click on the <strong>Save</strong> button once you are done.</p>
-<p><img alt="" src="../../../img/live-alerts/system-edit/dashboard-auto-refresh.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/system-edit/dashboard-auto-refresh.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/system-edit/dashboard-auto-refresh.png"></a></p>
 <h2 id="live-alert-summary-email">Live Alert Summary Email</h2>
 <p>Sending alerts on every issue can result in a fair amount of unwanted email. To
 combat this, you can enable a summary email which has the status of all live
 alerts and lists the instances that have issues and the counts of that issue.
 This way the intended audience will get a single email for all the issues rather
 than an email per issue.</p>
-<p><img alt="" src="../../../img/live-alerts/system-edit/live-alert-summary-email.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/system-edit/live-alert-summary-email.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/system-edit/live-alert-summary-email.png"></a></p>
 <p>To configure the live alert summary click on the <strong>Live Alert Summary Email</strong>
 tab.</p>
-<p><img alt="" src="../../../img/live-alerts/system-edit/live-alert-summary-email-config.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/system-edit/live-alert-summary-email-config.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/system-edit/live-alert-summary-email-config.png"></a></p>
 <p>Enable the email by toggling on the <strong>Enabled</strong> toggle. Select the <strong>Email
 List</strong> of recipients and adjust the schedule by changing the cron string for the
 <strong>Schedule</strong> field.</p>
@@ -136,11 +135,11 @@ schedule is just a cron string.</p>
   alerts with issues using this schedule</li>
 </ul>
 <p>To edit the schedule click on the <strong>Edit</strong> button.</p>
-<p><img alt="" src="../../../img/live-alerts/system-edit/schedules-config.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/system-edit/schedules-config.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/system-edit/schedules-config.png"></a></p>
 <p>Here you can adjust the schedules by editing the cron string for both the
 <strong>Query Cron Schedule</strong> and the <strong>Email Cron Schedule</strong> field. Finally click on
 the <strong>Save</strong> button once you are done.</p>
-<p><img alt="" src="../../../img/live-alerts/system-edit/schedules-config-edit.png" /></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/system-edit/schedules-config-edit.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/system-edit/schedules-config-edit.png"></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Even though you can change the schedule completely. It is recommended that you leave the
@@ -149,7 +148,7 @@ every 12 hours to avoid confusion.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Make sure that there is a couple of minutes between the <strong>Query Cron Schedule</strong> and the <strong>Email
+<p>Make sure that there are a couple of minutes between the <strong>Query Cron Schedule</strong> and the <strong>Email
 Cron Schedule</strong>. Since the Query Schedule needs some time to get the results from all of the
 installed instances.</p>
 </div>
@@ -191,5 +190,6 @@ installed instances.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
-</body>
-</html>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>
