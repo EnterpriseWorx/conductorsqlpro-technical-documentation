@@ -98,7 +98,16 @@ configurations page and simply mark the alert as active or slide to make it
 inactive.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/live-alerts/live-alert-config-page.png" data-desc-position="bottom"><img alt="" src="../../../img/live-alerts/live-alert-config-page.png"></a></p>
 <p>On the edit screen for the system alerts you can add exceptions and customize
-the thresholds for certain system alerts.</p>
+the thresholds for certain system alerts. System alert scripts cannot be
+changed:</p>
+<ul>
+<li><strong>Table Name</strong> is read-only.</li>
+<li>The script row action is <strong>View</strong> (not <strong>Edit</strong>).</li>
+<li>The dialog title is <strong>View Live Alert Script</strong>, the editor is read-only, and
+  only <strong>Cancel</strong> is available.</li>
+</ul>
+<p>You can still change group and report details, retention, the active flag,
+schedules, exclusions, and thresholds on a system alert.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The threshold customization table will only be visible on system alerts that allow for that

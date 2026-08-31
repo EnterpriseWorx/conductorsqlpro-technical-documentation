@@ -139,6 +139,8 @@ page filtered to that configuration and status.</p>
 <ul>
 <li><strong>R</strong> - pending resync (marked by you or the system)</li>
 <li><strong>Q</strong> - resync enqueued</li>
+<li><strong>P</strong> - pending partial resync</li>
+<li><strong>M</strong> - partial resync enqueued</li>
 <li><strong>I</strong> - pending / in initial sync</li>
 <li><strong>S</strong> - syncing (steady-state deltas)</li>
 <li><strong>D</strong> - pending disablement</li>
@@ -148,7 +150,7 @@ page filtered to that configuration and status.</p>
 </ul>
 <p>UI status filters group these as:</p>
 <ul>
-<li><strong>Pending</strong> - <code>I</code>, <code>R</code>, <code>Q</code></li>
+<li><strong>Pending</strong> - <code>I</code>, <code>R</code>, <code>Q</code>, <code>P</code>, <code>M</code></li>
 <li><strong>Syncing</strong> - <code>S</code></li>
 <li><strong>Disabled</strong> - <code>N</code>, <code>D</code>, <code>E</code></li>
 <li><strong>Errors</strong> - <code>X</code></li>
@@ -157,14 +159,19 @@ page filtered to that configuration and status.</p>
 Movement</strong> when changes occurred during calculation.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Checksums exclude several types (for example text, binary, XML, and
-datetime) because source and target platforms can compare them differently.</p>
+<p>Checksums include string columns (using a short prefix and a binary
+collation) and date/time columns (compared at second precision). Binary,
+image, XML, and timestamp columns are excluded because source and target
+platforms can compare them differently.</p>
 </div>
 <h3 id="bulk-actions">Bulk actions</h3>
 <p>Select one or more tables to enable bulk actions:</p>
 <ul>
 <li><strong>Mark Selected for Resync</strong> - marks tables for a full reload on the next
   resync schedule run</li>
+<li><strong>Mark Selected for Partial Resync</strong> - replays Change Tracking history within
+  the retention window on the next resync schedule run (does not drop or reload
+  the target table)</li>
 <li><strong>Disable Selected</strong> - stops syncing on the next delta schedule run</li>
 <li><strong>Calculate Checksum for Selected</strong> - triggers checksum calculation</li>
 </ul>
@@ -177,8 +184,16 @@ datetime) because source and target platforms can compare them differently.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/monitoring/bulk-confirm.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/monitoring/bulk-confirm.png"></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Resync drops and recreates the target table, then reloads all data for that
-table.</p>
+<p>A <strong>full resync</strong> drops and recreates the target table, then reloads all
+data for that table.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <strong>partial resync</strong> when checksum drift is likely still within Change
+Tracking retention (typically 7 days). It is faster than a full reload
+because the target table is left in place. If Change Tracking history has
+already expired, or checksum still fails after a partial resync, use a full
+resync instead.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

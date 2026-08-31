@@ -129,8 +129,27 @@ limited to the name and active flag.</p>
 <li><code>{SourceDatabaseName}</code></li>
 <li><code>{TargetDatabaseName}</code></li>
 </ul>
+<p>You can also wrap placeholders in these transforms (they can be nested):</p>
+<ul>
+<li><code>LOWER(arg)</code></li>
+<li><code>UPPER(arg)</code></li>
+<li><code>REPLACE(text, 'find', 'replace')</code> — arguments may be quoted</li>
+</ul>
+<p>Unknown placeholders or unmatched <code>{</code> <code>}</code> braces are rejected when you save.</p>
 <p>Defaults are <code>{SchemaName}</code> for the schema format and <code>{TableName}</code> for the
 table format.</p>
+<h3 id="preview-target-names">Preview target names</h3>
+<p>After you have selected a table list, source database, target database, and both
+name formats, select <strong>Preview</strong>. The <strong>Target Name Preview</strong> dialog lists each
+source table and the schema and table name it will receive on the target:</p>
+<ul>
+<li><strong>Source Database</strong>, <strong>Source Schema</strong>, <strong>Source Table</strong></li>
+<li><strong>Target Database</strong>, <strong>Target Schema</strong>, <strong>Target Table</strong></li>
+</ul>
+<p>Use this to confirm transforms and placeholders before you save. If a required
+field is missing, SQLPro asks you to select a table list, source database,
+target database, and name formats before previewing.</p>
+<p>Form buttons are <strong>Save</strong>, <strong>Preview</strong>, and <strong>Cancel</strong>.</p>
 <h3 id="naming-format-example">Naming format example</h3>
 <p>To keep the source database visible in the target schema (for example in a
 bronze layer), use:</p>
@@ -141,6 +160,12 @@ bronze layer), use:</p>
 <p>If the source is database <code>SysproCompanyA</code>, schema <code>dbo</code>, table <code>ArTrnDetail</code>,
 the target object becomes <code>bronze_SysproCompanyA.dbo_ArTrnDetail</code>. That makes it
 easy to see where the data came from by looking at the schema name alone.</p>
+<p>Other format examples:</p>
+<ul>
+<li><code>LOWER({TableName})</code> — target table <code>artrndetail</code></li>
+<li><code>UPPER({SchemaName})</code> — target schema <code>DBO</code></li>
+<li><code>REPLACE({SchemaName}, 'dbo', 'target')</code> — schema <code>dbo</code> becomes <code>target</code></li>
+</ul>
 <p>Select <strong>Save</strong> to create the configuration, or <strong>Cancel</strong> to discard it.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

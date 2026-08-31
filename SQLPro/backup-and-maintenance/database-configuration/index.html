@@ -32,6 +32,7 @@
         
         var pageToc = [
           {title: "Introduction", url: "#_top", children: [
+              {title: "Manual Operations", url: "#manual-operations" },
               {title: "Bulk Update", url: "#bulk-update" },
           ]},
         ];
@@ -95,6 +96,19 @@ configuration:</p>
 <p>Make use of the database groups to populate the below table of databases with
 the instances in the database group.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/backup-and-maintenance/database-config/data-config-instance-groups.png" data-desc-position="bottom"><img alt="" src="../../../img/backup-and-maintenance/database-config/data-config-instance-groups.png"></a></p>
+<p>Use the header checkbox to <strong>Select All</strong> visible databases, or tick individual
+rows, before you run a bulk action.</p>
+<h2 id="manual-operations">Manual Operations</h2>
+<p>After selecting one or more databases, use <strong>Manual Operations</strong> to run a job
+immediately (outside the configured schedule window):</p>
+<ul>
+<li><strong>Execute Manual Backup</strong></li>
+<li><strong>Execute Manual Maintenance</strong></li>
+<li><strong>Execute Manual Index Rebuild</strong></li>
+</ul>
+<p>SQLPro asks you to confirm before the job starts, for example: <em>Are you sure you
+want to execute manual backup for 3 selected database(s)?</em> After you accept, a
+notification confirms that the operation was initiated.</p>
 <h2 id="bulk-update">Bulk Update</h2>
 <p>Here you first select all the databases you wish to configure on the right and
 click the 'Bulk Update' button on the top right of the table.</p>

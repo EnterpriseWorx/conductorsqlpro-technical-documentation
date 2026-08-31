@@ -97,6 +97,19 @@ Without instances installed you can't make use of the system.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/instances/add-instance-button.png" data-desc-position="bottom"><img alt="" src="../../img/admin/instances/add-instance-button.png"></a></p>
 <p>Next, fill in the instance details and click <strong>Save</strong>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/instances/fill-instance-details.png" data-desc-position="bottom"><img alt="" src="../../img/admin/instances/fill-instance-details.png"></a></p>
+<p>For <strong>Microsoft SQL Server</strong> instances, choose an <strong>Authentication Type</strong>:</p>
+<ul>
+<li><strong>Windows Authentication</strong> - uses the account running the ConductorSQLPro
+  service. Username and password fields are hidden.</li>
+<li><strong>SQL Server Authentication</strong> - SQL login username and password.</li>
+<li><strong>Microsoft Entra Password</strong> - Microsoft Entra ID (Azure AD) username and
+  password.</li>
+<li><strong>Microsoft Entra Service Principal</strong> - Microsoft Entra application (client)
+  ID as the username and the client secret as the password.</li>
+</ul>
+<p>The other Microsoft SQL Server fields are <strong>Host Name (\instance name)</strong>,
+<strong>Friendly Name</strong>, <strong>SQL Port</strong>, <strong>Database Name</strong>, and optional <strong>Server
+Activity Audit</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Use the <strong>Test Connection</strong> button to ensure that Conductor4SQL can reach this instance using the provided credentials. Although an instance can still be added even if there is no connectivity or if the credentials fail. This will allow you to add instances that are currently offline.</p>
@@ -109,6 +122,9 @@ Without instances installed you can't make use of the system.</p>
 <li>MySQL</li>
 <li>PostgreSQL</li>
 </ul>
+<p>Azure SQL, Azure SQL Managed Instance, MySQL, and PostgreSQL continue to use
+username and password. Microsoft Fabric Data Warehouse uses a <strong>Service
+Principal GUID</strong> and <strong>Service Principal Secret</strong>.</p>
 </div>
 <p>Newly added instances will appear in the instance list.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/instances/installed-instance-list.png" data-desc-position="bottom"><img alt="" src="../../img/admin/instances/installed-instance-list.png"></a></p>

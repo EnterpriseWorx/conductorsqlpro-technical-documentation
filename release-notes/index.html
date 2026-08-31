@@ -31,9 +31,41 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Version 1.5.1.0 (22/07/2026)", url: "#_top", children: [
+          {title: "Version 1.6.8.0 (29/08/2026)", url: "#_top", children: [
+          ]},
+          {title: "Version 1.6.7.0 (29/08/2026)", url: "#version-1670-29082026", children: [
+          ]},
+          {title: "Version 1.6.6.0 (28/08/2026)", url: "#version-1660-28082026", children: [
+          ]},
+          {title: "Version 1.6.5.0 (28/08/2026)", url: "#version-1650-28082026", children: [
+          ]},
+          {title: "Version 1.6.4.0 (25/08/2026)", url: "#version-1640-25082026", children: [
+          ]},
+          {title: "Version 1.6.3.0 (25/08/2026)", url: "#version-1630-25082026", children: [
+          ]},
+          {title: "Version 1.6.0.0 (24/08/2026)", url: "#version-1600-24082026", children: [
+          ]},
+          {title: "Version 1.5.9.0 (21/08/2026)", url: "#version-1590-21082026", children: [
+          ]},
+          {title: "Version 1.5.8.0 (20/08/2026)", url: "#version-1580-20082026", children: [
+          ]},
+          {title: "Version 1.5.7.0 (18/08/2026)", url: "#version-1570-18082026", children: [
+          ]},
+          {title: "Version 1.5.6.0 (14/08/2026)", url: "#version-1560-14082026", children: [
+          ]},
+          {title: "Version 1.5.5.0 (14/08/2026)", url: "#version-1550-14082026", children: [
+          ]},
+          {title: "Version 1.5.4.0 (12/08/2026)", url: "#version-1540-12082026", children: [
+          ]},
+          {title: "Version 1.5.3.0 (04/08/2026)", url: "#version-1530-04082026", children: [
+          ]},
+          {title: "Version 1.5.2.0 (03/08/2026)", url: "#version-1520-03082026", children: [
+          ]},
+          {title: "Version 1.5.1.0 (22/07/2026)", url: "#version-1510-22072026", children: [
           ]},
           {title: "Version 1.5.0.0 (22/07/2026)", url: "#version-1500-22072026", children: [
+          ]},
+          {title: "Version 1.4.9.0 (17/07/2026)", url: "#version-1490-17072026", children: [
           ]},
           {title: "Version 1.4.8.0 (16/07/2026)", url: "#version-1480-16072026", children: [
           ]},
@@ -107,7 +139,86 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="version-1510-22072026">Version 1.5.1.0 (22/07/2026)</h1>
+    <h1 id="version-1680-29082026">Version 1.6.8.0 (29/08/2026)</h1>
+<ul>
+<li>Increase timeout on Microsoft Fabric COPY INTO logic</li>
+</ul>
+<h1 id="version-1670-29082026">Version 1.6.7.0 (29/08/2026)</h1>
+<ul>
+<li>HUMMDB-1543 Sync: Skip file-system and upload parquet files directly to blob
+  storage</li>
+<li>HUMMDB-1542 Sync: Optimise initial and delta sync with clustered index rather
+  than primary key</li>
+<li>HUMMDB-1538 Add additional authentication options for Microsoft SQL Server
+  instances</li>
+</ul>
+<h1 id="version-1660-28082026">Version 1.6.6.0 (28/08/2026)</h1>
+<ul>
+<li>HUMMDB-1541 Sync: Large delta temp table missing index on C4SQL_RowNumber</li>
+</ul>
+<h1 id="version-1650-28082026">Version 1.6.5.0 (28/08/2026)</h1>
+<ul>
+<li>HUMMDB-1540 Sync: Increase delta sync query timeouts</li>
+</ul>
+<h1 id="version-1640-25082026">Version 1.6.4.0 (25/08/2026)</h1>
+<ul>
+<li>Parquet converting C4SQL_CreateDate and C4SQL_LastUpdated to UTC date time</li>
+</ul>
+<h1 id="version-1630-25082026">Version 1.6.3.0 (25/08/2026)</h1>
+<ul>
+<li>HUMMDB-1537 Change C4SQL_CreateDate and C4SQL_LastUpdated to local time</li>
+</ul>
+<h1 id="version-1600-24082026">Version 1.6.0.0 (24/08/2026)</h1>
+<ul>
+<li>HUMMDB-1534 Sync: Add datetime support to checksum</li>
+<li>HUMMDB-1532 Sync: Add string checksum functionality</li>
+<li>HUMMDB-1533 Sync: Add delta processing message before running checksum message</li>
+<li>HUMMDB-1531 MailSenderService is not stopping gracefully</li>
+</ul>
+<h1 id="version-1590-21082026">Version 1.5.9.0 (21/08/2026)</h1>
+<ul>
+<li>HUMMDB-1529 Sync: Add partial resync functionality</li>
+<li>HUMMDB-1528 Sync: Add minimum change tracking check before calculating deltas</li>
+</ul>
+<h1 id="version-1580-20082026">Version 1.5.8.0 (20/08/2026)</h1>
+<ul>
+<li>HUMMDB-1527 Optimise average row calculation logic</li>
+<li>HUMMDB-1526 Remove WindowsServiceStartup workaround</li>
+<li>HUMMDB-1525 Switch from Hangfire SQL integration to in memory package</li>
+</ul>
+<h1 id="version-1570-18082026">Version 1.5.7.0 (18/08/2026)</h1>
+<ul>
+<li>HUMMDB-1524 Simplify ColumnInformation caching</li>
+<li>HUMMDB-1523 Initial checksum and delta for same table can run at the same time</li>
+</ul>
+<h1 id="version-1560-14082026">Version 1.5.6.0 (14/08/2026)</h1>
+<ul>
+<li>HUMMDB-1522 Column information cache issue in SQL Server target</li>
+</ul>
+<h1 id="version-1550-14082026">Version 1.5.5.0 (14/08/2026)</h1>
+<ul>
+<li>HUMMDB-1521 Add validation to schema and table name formatting</li>
+<li>Add target name preview dialog on sync configuration edit</li>
+<li>HUMMDB-1520 Make it more obvious that system live alerts are not editable</li>
+<li>Bulk resync dialog has the incorrect default columns</li>
+<li>Overlay spinner stuck on screen</li>
+</ul>
+<h1 id="version-1540-12082026">Version 1.5.4.0 (12/08/2026)</h1>
+<ul>
+<li>HUMMDB-1519 Add additional transforms to Target Schema and Table Name</li>
+</ul>
+<h1 id="version-1530-04082026">Version 1.5.3.0 (04/08/2026)</h1>
+<ul>
+<li>HUMMDB-1510 User and System Query History paging still running slowly</li>
+<li>HUMMDB-1495 Replace Primeng with Optimus UI</li>
+</ul>
+<h1 id="version-1520-03082026">Version 1.5.2.0 (03/08/2026)</h1>
+<ul>
+<li>HUMMDB-1508 Add support for new "Data Sync" license parameter in SQLPro client</li>
+<li>Add confirmation on Manual Operations</li>
+<li>"Select All" option on Backup &amp; Maintenance &gt;&gt; Database Configuration missing</li>
+</ul>
+<h1 id="version-1510-22072026">Version 1.5.1.0 (22/07/2026)</h1>
 <ul>
 <li>HUMMDB-1499 Switch to server-side paging for Event notification audit screen</li>
 <li>HUMMDB-1497 Switch to server-side paging for Query History screens</li>
@@ -120,6 +231,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>HUMMDB-1492 Switch from deprecated @angular-devkit/build-angular to supported
   @angular/build</li>
 <li>HUMMDB-1491 Application losing settings on Server restart</li>
+</ul>
+<h1 id="version-1490-17072026">Version 1.4.9.0 (17/07/2026)</h1>
+<ul>
+<li>Dapper variable mismatch in
+  SyncTableConfigurationHelper.GetTotalActiveTablesForQueue</li>
 </ul>
 <h1 id="version-1480-16072026">Version 1.4.8.0 (16/07/2026)</h1>
 <ul>

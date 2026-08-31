@@ -107,7 +107,7 @@ active.</p>
 <li><strong>Schedule Name</strong></li>
 <li><strong>Delta Schedule</strong> - required cron for ongoing Change Tracking sync</li>
 <li><strong>Checksum Schedule</strong> - optional cron for validation</li>
-<li><strong>Resync Schedule</strong> - optional cron for full reloads</li>
+<li><strong>Resync Schedule</strong> - optional cron for full reloads and partial resyncs</li>
 <li><strong>Active</strong></li>
 </ul>
 <p>Header actions: <strong>Add Schedule</strong>, <strong>Refresh</strong>.</p>
@@ -128,7 +128,7 @@ active.</p>
 <li><strong>Schedule Name</strong> - required display name.</li>
 <li><strong>Schedule String (Cron Expression)</strong> - required delta schedule.</li>
 <li><strong>Checksum Schedule (Cron Expression)</strong> - checksum run time.</li>
-<li><strong>Resync Schedule (Cron Expression)</strong> - full resync run time.</li>
+<li><strong>Resync Schedule (Cron Expression)</strong> - full and partial resync run time.</li>
 <li><strong>Is Active</strong> - inactive schedules are not available when creating sync
   configurations.</li>
 </ul>
@@ -153,8 +153,9 @@ immediately instead of waiting for the next overnight run.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Manual runs process tables that are eligible for that schedule action. For
-example, resync only processes tables marked for resync (status pending
-resync) and a checksum process will only checksum tables that are under the "syncing" status.</p>
+example, resync processes tables marked for full resync (pending resync) or
+partial resync (pending partial resync). A checksum process only checksums
+tables that are under the <strong>syncing</strong> status.</p>
 </div>
 
   <br>
