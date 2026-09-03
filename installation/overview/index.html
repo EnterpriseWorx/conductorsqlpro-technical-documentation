@@ -101,13 +101,38 @@ over to the server that you wish to install the app.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/installation.png" data-desc-position="bottom"><img alt="" src="../../img/installation/installation.png"></a> <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/shortcut.png" data-desc-position="bottom"><img alt="" src="../../img/installation/shortcut.png"></a>
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/install.png" data-desc-position="bottom"><img alt="" src="../../img/installation/install.png"></a></p>
 <p>Finally, after the setup is complete a browser window will open to
-http://localhost:8085 which will open the step by step web installer.</p>
+http://localhost:8085 which will open the <strong>ConductorSQLPro Setup</strong> wizard.</p>
+<p>The wizard must run as <strong>Administrator</strong>. If it is not elevated, setup shows
+<em>Setup is not running as Administrator</em> and <strong>Install</strong> stays disabled.</p>
+<h3 id="sql-server">SQL Server</h3>
+<ul>
+<li><strong>Database server</strong> - hostname or address of the central SQL Server (default
+  <code>127.0.0.1</code>).</li>
+<li><strong>Use Windows authentication for SQL Server</strong> - when checked, SQL username and
+  password are hidden and the installer uses Windows authentication.</li>
+<li><strong>SQL username</strong> / <strong>SQL password</strong> - used when Windows authentication is off.</li>
+</ul>
+<p>Select <strong>Test connection</strong> to verify SQL Server access before you install. A
+success or error banner appears on the form.</p>
+<h3 id="windows-service">Windows service</h3>
+<ul>
+<li>Leave <strong>Run the Windows service as a specific account</strong> unchecked to run as
+  <strong>Local System</strong>.</li>
+<li>When checked, enter <strong>Service account</strong> (<code>DOMAIN\account</code>) and <strong>Service
+  password</strong>, then select <strong>Test account</strong>.</li>
+</ul>
+<p>Select <strong>Install</strong> to start the copy and service registration. An <strong>Installation
+progress</strong> page shows status, then a <strong>Setup complete</strong> or <strong>Setup failed</strong>
+result. On failure, return to setup and check <code>Logs/setup-log.txt</code> for details.</p>
 <p>After configuration is complete, you can then access the service using
 http://localhost:8083 or https://localhost:8084. Adjust your firewall rules to
 access the application from an external browser.</p>
 <h2 id="upgrades">Upgrades</h2>
-<p>Before you upgrade ConductorSQLPro, you'll first want to uninstall the old
-version of Conductor4SQLPro. Go to Windows <strong>Settings</strong> and open <strong>Apps</strong></p>
+<p>Run the new installer on the same server. The setup wizard <strong>preserves</strong> an
+existing <code>appsettings.Production.json</code> (SQL connection and related production
+settings) when it finds one from a previous release.</p>
+<p>If you prefer a clean Windows install first, uninstall the old version of
+ConductorSQLPro. Go to Windows <strong>Settings</strong> and open <strong>Apps</strong></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/windows-settings-apps.png" data-desc-position="bottom"><img alt="" src="../../img/installation/windows-settings-apps.png"></a></p>
 <p>Search for <strong>ConductorSQLPro</strong> and select the <strong>Uninstall</strong> option</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/installation/search-and-uninstall.png" data-desc-position="bottom"><img alt="" src="../../img/installation/search-and-uninstall.png"></a></p>

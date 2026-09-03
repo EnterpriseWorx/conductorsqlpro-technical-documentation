@@ -34,6 +34,7 @@
           {title: "Introduction", url: "#_top", children: [
               {title: "Table List overview", url: "#table-list-overview" },
               {title: "Add or edit a table list", url: "#add-or-edit-a-table-list" },
+              {title: "Column filtering", url: "#column-filtering" },
           ]},
         ];
 
@@ -96,13 +97,14 @@ Configuration</strong>:</p>
 
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/table-list/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/table-list/open-page.png"></a></p>
 <h2 id="table-list-overview">Table List overview</h2>
-<p>Each table list has a name, an assigned queue, an active flag, and a set of
-selected tables.</p>
+<p>Each table list has a name, an assigned queue, an active flag, a set of selected
+tables, and optional column subsets.</p>
 <!-- Screenshot: Table List list page with rows -->
 
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/table-list/list.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/table-list/list.png"></a></p>
-<p>Use <strong>Add Table List</strong> to create a list, <strong>Refresh</strong> to reload, and <strong>Edit</strong> to
-change an existing list.</p>
+<p>Use <strong>Add Table List</strong> to create a list, <strong>Refresh</strong> to reload, <strong>Edit</strong> to
+change an existing list, and <strong>Column Filtering</strong> to choose which columns each
+table syncs.</p>
 <h2 id="add-or-edit-a-table-list">Add or edit a table list</h2>
 <!-- Screenshot: Table List edit dialog showing name, queue, and transfer list -->
 
@@ -150,6 +152,52 @@ since the last delta.</p>
 resolve table names.</p>
 </div>
 <p>Select <strong>Save</strong> or <strong>Cancel</strong> when you are done.</p>
+<h2 id="column-filtering">Column filtering</h2>
+<p>By default each table syncs <strong>all columns</strong>, including columns added later on
+the source. Use the row <strong>Column Filtering</strong> action to limit a table to a subset
+of columns.</p>
+<p>The <strong>Column Filtering</strong> dialog shows the table list name. Add tables with
+<strong>Edit</strong> before choosing columns.</p>
+<p>Fields and controls:</p>
+<ul>
+<li><strong>Table</strong> (<code>* = column filtering enabled</code>) - pick a table from the list.
+  Tables with a stored subset are marked with <code>*</code> and listed first.</li>
+<li><strong>Sync all columns</strong> - leave this checked to keep the default (all columns,
+  including new source columns later). Clear it to choose a subset.</li>
+<li><strong>Source Host</strong> and <strong>Database</strong> - required to browse the live column catalog
+  or import names. You can still export a saved subset without them.</li>
+</ul>
+<p>When <strong>Sync all columns</strong> is cleared, a transfer list shows <strong>Available
+columns</strong> and <strong>Selected columns</strong>, with <strong>Column</strong>, <strong>Type</strong>, and <strong>PK</strong>.
+Primary key columns cannot be unselected.</p>
+<p>Import and export work like table selection:</p>
+<ul>
+<li><strong>Import</strong> - paste column names one per line, or separated by commas or
+  semicolons. Bracketed names such as <code>[OrderId]</code> are accepted. Only columns
+  from the selected table catalog can be imported.</li>
+<li><strong>Export</strong> - copies selected column names (one per line) so you can reuse the
+  list elsewhere.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Column selection can be changed while a related table is in <strong>Pending
+Resync</strong>, <strong>Disabled</strong>, or <strong>Error</strong>. It is locked while a sync or disable
+operation is queued or running. Mark the table for Pending Resync or disable
+it first, then change columns.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A stored subset ignores new columns added later on the source. All sync
+configurations that share the table list share the same subset. Column names
+are compared case-sensitively, so tables with a case-sensitive collation can
+select distinct columns such as <code>ID</code> and <code>id</code>.</p>
+</div>
+<p>After you save, <strong><a href="../monitoring/">Sync Monitoring</a></strong> shows <strong>All columns</strong> or
+<strong>Subset (n)</strong> in the <strong>Columns</strong> field. Checksums and sync payloads use the
+selected columns (plus primary keys). An update to an unselected column still
+produces a Change Tracking delta, but only selected column values are written to
+the target.</p>
+<p>Select <strong>Save</strong> or <strong>Cancel</strong>.</p>
 
   <br>
     

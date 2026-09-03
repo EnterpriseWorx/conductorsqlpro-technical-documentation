@@ -112,7 +112,11 @@ Monitoring</strong> or <strong>Target Queue Monitoring</strong>:</p>
 <!-- Screenshot: Source Queue Logs dialog -->
 
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/queue-monitoring/source-logs.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/queue-monitoring/source-logs.png"></a></p>
-<p>Use <strong>Refresh</strong> in the dialog to reload logs. Close the dialog when finished.</p>
+<p>The dialog keeps the <strong>last 20</strong> log messages. While a step is still running, a
+<strong>Current step running for</strong> timer appears above the table (for example
+<code>2m 15s</code>) together with the latest step message. Use <strong>Refresh</strong> in the dialog
+to reload logs, or wait — the dialog also refreshes on its own while it is open.
+Close the dialog when finished.</p>
 <h3 id="peek-messages">Peek messages</h3>
 <!-- Screenshot: Source Peek Messages dialog with Remove and Refresh -->
 
@@ -124,6 +128,8 @@ Monitoring</strong> or <strong>Target Queue Monitoring</strong>:</p>
   front of the queue</li>
 <li><strong>Refresh</strong> the peeked message list</li>
 </ul>
+<p>SQLPro asks you to confirm before removing messages, for example: <em>Are you sure
+you want to remove 3 messages from "Default"? This cannot be undone.</em></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Removing messages discards queued work. Only remove messages when you

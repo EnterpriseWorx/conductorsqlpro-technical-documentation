@@ -118,10 +118,23 @@ last sync date, and status counts.</p>
 page filtered to that configuration and status.</p>
 <p>Use <strong>Refresh</strong> to reload the summary.</p>
 <h2 id="sync-monitoring-details">Sync Monitoring details</h2>
-<p>The detail page lists tables for one or more configurations.</p>
+<p>The detail page lists tables for one or more configurations. Use the table
+column selector to show extra fields such as <strong>Source Row Count</strong>, <strong>Target Row
+Count</strong>, and <strong>Row Count Difference</strong> (those are hidden by default).</p>
 <!-- Screenshot: Sync Monitoring Details page with filters and table rows -->
 
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/monitoring/details.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/monitoring/details.png"></a></p>
+<p>Key detail columns include:</p>
+<ul>
+<li><strong>Source Host</strong> / <strong>Target Host</strong></li>
+<li><strong>Source Database</strong> / <strong>Schema</strong> / <strong>Table</strong></li>
+<li><strong>Columns</strong> - <strong>All columns</strong>, or <strong>Subset (n)</strong> when
+  <a href="../table-list-configuration/#column-filtering">column filtering</a> is enabled</li>
+<li><strong>Last Delta Check</strong></li>
+<li><strong>Status</strong></li>
+<li><strong>Checksum</strong></li>
+<li><strong>Error Message</strong></li>
+</ul>
 <p>Header actions:</p>
 <ul>
 <li><strong>Back to Sync Monitoring</strong> - return to the summary</li>
@@ -159,13 +172,18 @@ page filtered to that configuration and status.</p>
 Movement</strong> when changes occurred during calculation.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Checksums include string columns (using a short prefix and a binary
-collation) and date/time columns (compared at second precision). Binary,
-image, XML, and timestamp columns are excluded because source and target
-platforms can compare them differently.</p>
+<p>Checksums compare the <strong>synced</strong> columns for each table (the Table List
+subset plus primary keys when a subset is configured, otherwise all source
+columns). String columns are included using a short prefix and a binary
+collation, and date/time columns are compared at second precision. Binary,
+image, XML, and timestamp columns are excluded, as are sync metadata columns
+named <code>C4SQL_*</code>, because source and target platforms can compare them
+differently.</p>
 </div>
 <h3 id="bulk-actions">Bulk actions</h3>
-<p>Select one or more tables to enable bulk actions:</p>
+<p>Select one or more tables to enable bulk actions. The bar groups them as <strong>Next
+schedule</strong> and <strong>On demand</strong>.</p>
+<p><strong>Next schedule</strong> (applied on the next matching schedule run):</p>
 <ul>
 <li><strong>Mark Selected for Resync</strong> - marks tables for a full reload on the next
   resync schedule run</li>
@@ -173,6 +191,11 @@ platforms can compare them differently.</p>
   the retention window on the next resync schedule run (does not drop or reload
   the target table)</li>
 <li><strong>Disable Selected</strong> - stops syncing on the next delta schedule run</li>
+</ul>
+<p><strong>On demand</strong> (queued immediately):</p>
+<ul>
+<li><strong>Run Delta for Selected</strong> - queues an immediate delta sync. Only tables with
+  status <strong>Syncing</strong> are queued.</li>
 <li><strong>Calculate Checksum for Selected</strong> - triggers checksum calculation</li>
 </ul>
 <!-- Screenshot: Bulk action bar with tables selected -->
@@ -200,6 +223,12 @@ resync instead.</p>
 <p>If tables remain in pending status or show errors, check
 <a href="../queue-monitoring/">Queue Monitoring</a> and confirm the related schedule is
 active.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <strong>Run Delta for Selected</strong> when you need Change Tracking applied now
+instead of waiting for the next delta schedule. It does not replace a full
+or partial resync.</p>
 </div>
 
   <br>

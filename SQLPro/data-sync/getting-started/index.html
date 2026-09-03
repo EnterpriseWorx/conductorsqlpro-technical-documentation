@@ -170,7 +170,8 @@ Managed Instance, and on-premises Microsoft SQL Server.</p>
 <li><strong><a href="../queue-configuration/">Queue Configuration</a></strong> - create or reuse a
    processing queue (a <strong>Default</strong> queue is provided).</li>
 <li><strong><a href="../table-list-configuration/">Table List Configuration</a></strong> - select the
-   tables to sync and assign them to a queue.</li>
+   tables to sync, assign them to a queue, and optionally limit which columns
+   each table syncs.</li>
 <li><strong><a href="../sync-configuration/">Sync Configuration</a></strong> - combine source, target,
    schedule, table list, and databases into a sync job.</li>
 <li><strong><a href="../monitoring/">Monitoring</a></strong> - confirm tables move from pending to
@@ -184,12 +185,15 @@ Managed Instance, and on-premises Microsoft SQL Server.</p>
    reload). The same schedule also processes tables marked for <strong>partial
    resync</strong>.</li>
 <li>The <strong>delta</strong> schedule applies ongoing Change Tracking inserts, updates, and
-   deletes to the target.</li>
+   deletes to the target. You can also queue an immediate delta from
+   <strong><a href="../monitoring/">Sync Monitoring</a></strong> with <strong>Run Delta for Selected</strong>.</li>
 <li>An optional <strong>checksum</strong> schedule compares source and target row counts and
    checksums for validation.</li>
 </ol>
 <p>Target tables also receive <code>C4SQL_CreateDate</code> and <code>C4SQL_LastUpdated</code> metadata
-columns. Those timestamps are stored in the source server's local time.</p>
+columns. Those timestamps are stored in the source server's local time. An
+optional <code>C4SqlClientDatabaseName</code> column can store the source database name on
+each target row.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Use <strong><a href="../queue-monitoring/">Queue Monitoring</a></strong> if a table stays pending

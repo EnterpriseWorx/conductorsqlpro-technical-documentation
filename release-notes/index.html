@@ -31,7 +31,11 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Version 1.6.8.0 (29/08/2026)", url: "#_top", children: [
+          {title: "Version 1.7.0.0 (03/09/2026)", url: "#_top", children: [
+          ]},
+          {title: "Version 1.6.9.0 (31/08/2026)", url: "#version-1690-31082026", children: [
+          ]},
+          {title: "Version 1.6.8.0 (29/08/2026)", url: "#version-1680-29082026", children: [
           ]},
           {title: "Version 1.6.7.0 (29/08/2026)", url: "#version-1670-29082026", children: [
           ]},
@@ -139,7 +143,33 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="version-1680-29082026">Version 1.6.8.0 (29/08/2026)</h1>
+    <h1 id="version-1700-03092026">Version 1.7.0.0 (03/09/2026)</h1>
+<ul>
+<li>HUMMDB-1536 Allow column filtering in Table Configuration screen</li>
+<li>HUMMDB-1555 Column Selector screen not showing all columns when duplicate
+  columns with different case exist on table</li>
+<li>HUMMDB-1553 Sync: Allow getting delta sync on demand</li>
+<li>HUMMDB-1551 Sync: Add central and client row count columns in "Sync Monitoring
+  Details" screen</li>
+<li>HUMMDB-1550 Sync: Optimise table row count logic on initial sync</li>
+<li>HUMMDB-1552 Sync: Reduce timeout for enable/disable change tracking</li>
+<li>HUMMDB-1549 Sync: Queue logs screen improvements</li>
+<li>HUMMDB-1548 Sync: Show readonly fields on Sync configuration edit screen</li>
+<li>HUMMDB-1547 Sync: Add a confirmation before removing messages from the source
+  or target queues</li>
+<li>Split "Sync Monitoring Details" buttons into logical groups</li>
+<li>Support case-sensitive column names in schema compare and delta staging</li>
+<li>Checksum calculations need to be skipped on initial sync if table is in error
+  state</li>
+<li>RowCountDiscrepancy in DataSync.vw_SyncTableDetail should always be positive</li>
+<li>Fixed: Column cache filtered column checksum bug</li>
+</ul>
+<h1 id="version-1690-31082026">Version 1.6.9.0 (31/08/2026)</h1>
+<ul>
+<li>HUMMDB-1539 Add C4SQLClientDatabaseName column support to all target tables</li>
+<li>HUMMDB-1545 Improve SQLPro setup wizard</li>
+</ul>
+<h1 id="version-1680-29082026">Version 1.6.8.0 (29/08/2026)</h1>
 <ul>
 <li>Increase timeout on Microsoft Fabric COPY INTO logic</li>
 </ul>

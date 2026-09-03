@@ -34,7 +34,7 @@
           {title: "Introduction", url: "#_top", children: [
               {title: "Sync Configuration list", url: "#sync-configuration-list" },
               {title: "Create a sync configuration", url: "#create-a-sync-configuration" },
-              {title: "Edit name and active status", url: "#edit-name-and-active-status" },
+              {title: "Edit a sync configuration", url: "#edit-a-sync-configuration" },
           ]},
         ];
 
@@ -103,8 +103,9 @@ list, and databases into a runnable sync job.</p>
 <p>Use <strong>Add Configuration</strong> to create a configuration and <strong>Refresh</strong> to reload
 the list.</p>
 <h2 id="create-a-sync-configuration">Create a sync configuration</h2>
-<p>Structural settings are set when you create the configuration. Editing later is
-limited to the name and active flag.</p>
+<p>Structural settings are set when you create the configuration. When you edit
+later, hosts, databases, schedule, table list, and naming formats are visible
+but read-only. You can still change the name and active flag.</p>
 <!-- Screenshot: Create Sync Configuration dialog with all fields -->
 
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/sync-configuration/create-dialog.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/sync-configuration/create-dialog.png"></a></p>
@@ -178,13 +179,16 @@ naming formats. Create a new configuration if those need to change.</p>
 table on the same target host and database will place the affected tables
 into an error state.</p>
 </div>
-<h2 id="edit-name-and-active-status">Edit name and active status</h2>
-<p>Use the row edit action to change only:</p>
+<h2 id="edit-a-sync-configuration">Edit a sync configuration</h2>
+<p>Use the row edit action to open the same fields as create. You can change:</p>
 <ul>
 <li><strong>Configuration Name</strong></li>
-<li><strong>Active</strong></li>
+<li><strong>Is Active</strong></li>
 </ul>
-<!-- Screenshot: Edit Sync Configuration name / Active dialog -->
+<p>The remaining fields (hosts, databases, schedule, table list, and naming
+formats) are shown read-only so you can confirm the configuration. <strong>Preview</strong>
+still lists the resolved target names.</p>
+<!-- Screenshot: Edit Sync Configuration dialog with read-only structural fields -->
 
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/sync-configuration/edit-name-dialog.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/sync-configuration/edit-name-dialog.png"></a></p>
 <p>Select <strong>Save</strong> or <strong>Cancel</strong>.</p>
