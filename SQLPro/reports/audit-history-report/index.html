@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    
+    <meta name="author" content="EnterpriseWorx">
     
     <link rel="shortcut icon" href="../../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Audit History Report - Conductor4SQL SQLPro Technical Documentation</title>
+    <title>Audit History Report - Conductor4SQL Technical Documentation</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
@@ -126,11 +126,13 @@ table being created or a database being dropped for example</p>
 <li><strong>Alert Name</strong> - A free text name of the alert which affects the email subject
   line, so you can tell from which alert the event fired.</li>
 <li><strong>Email List</strong> - The list of To And CC addresses to send the email to</li>
-<li><strong>Email Results Type</strong> - the options are</li>
+<li><strong>Email Results Type</strong> - the options are<ul>
 <li><strong>HTML Only</strong> - the alerts are embedded in the email body</li>
 <li><strong>Attachment Only</strong> - the alerts are included as an XLSX attachment</li>
 <li><strong>HTML &amp; Attachment</strong> - alerts are included in the HTML body and an XLSX
-    attachment</li>
+  attachment</li>
+</ul>
+</li>
 <li><strong>Is Active</strong> - Turn on or off the Alert</li>
 <li><strong>Include Statement in Email</strong> - by default we don't include the actual SQL
   text that was run, turn this on if you would like to see the text.</li>
@@ -224,7 +226,7 @@ report</p>
     <br>
 </div>
 
-<footer class="container-fluid wm-page-content"><p>Copyright © 2022 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+<footer class="container-fluid wm-page-content"><p>Copyright © 2026 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
   <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 

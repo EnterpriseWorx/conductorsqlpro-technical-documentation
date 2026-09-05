@@ -1,4 +1,6 @@
-/* SQLPro brand colors (from the application theme) */
+/* SQLPro brand colors (from the application theme)
+   Primary #2c88bc · Dark #1e5f83 · Darker #163f57
+   Typeface: Segoe UI, matching the SQLPro UI and EWX digital typeface */
 :root {
   --primary-color: #2c88bc;
   --primary-color-dark: #1e5f83;
@@ -10,20 +12,43 @@
   --surface-a: #ffffff;
   --surface-b: #f4f4f4;
   --border-color: #1e5f83;
+  --primary-color-text: #ffffff;
+
+  --font-family:
+    "Segoe UI", SegoeUI, "Segoe UI Web", -apple-system, BlinkMacSystemFont,
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+html,
+body,
+.wm-page-content,
+.navbar,
+.wm-toc-pane,
+.wm-toctree,
+.btn,
+.form-control {
+  font-family: var(--font-family);
 }
 
 body {
   background-color: var(--surface-b);
   color: var(--text-color);
+  font-size: 12pt;
+  line-height: 1.55;
 }
 
 /***********************************************************************
- Top bar — match SQLPro primary blue
+ Top bar — match the SQLPro app chrome (light surface so logo blue stays visible)
  ***********************************************************************/
 
 .navbar,
 .wm-top-tool-expanded {
-  background-color: var(--primary-color);
+  background-color: var(--surface-b);
+  box-shadow:
+    0 3px 5px rgba(0, 0, 0, 0.02),
+    0 0 2px rgba(0, 0, 0, 0.05),
+    0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .wm-top-brand,
@@ -32,12 +57,44 @@ body {
 .wm-top-link:active,
 .wm-top-link:visited,
 .wm-top-link:focus {
-  color: #fff;
+  color: var(--primary-color-darker);
+}
+
+.wm-top-logo {
+  width: auto;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.wm-top-title {
+  font-weight: 600;
+  color: var(--primary-color);
 }
 
 .wm-top-version {
-  border-color: rgba(255, 255, 255, 0.55);
-  color: rgba(255, 255, 255, 0.85);
+  border-color: var(--primary-color);
+  color: var(--primary-color-dark);
+}
+
+.navbar .btn-default,
+.wm-top-tool .btn-default {
+  background-color: var(--surface-a);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.navbar .btn-default:hover,
+.navbar .btn-default:focus,
+.wm-top-tool .btn-default:hover,
+.wm-top-tool .btn-default:focus {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color-text);
+}
+
+.wm-top-search .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(44, 136, 188, 0.35);
 }
 
 /***********************************************************************
@@ -47,6 +104,10 @@ body {
 .wm-toc-pane {
   background-color: var(--primary-color-lighter);
   border-right-color: var(--primary-color-light);
+}
+
+.wm-toctree {
+  font-size: 10pt;
 }
 
 .wm-toctree a,
@@ -59,14 +120,15 @@ body {
 .wm-toc-li.wm-current,
 .wm-toc-li.wm-current:hover {
   background-color: var(--primary-color);
-  color: #fff;
+  color: var(--primary-color-text);
 }
 
 .wm-toc-li.wm-current a,
 .wm-toc-li.wm-current a:visited,
 .wm-toc-li.wm-current a:hover,
 .wm-toc-li.wm-current a:focus {
-  color: #fff;
+  color: var(--primary-color-text);
+  font-weight: 600;
 }
 
 .wm-toc-li:hover {
@@ -78,11 +140,12 @@ body {
 }
 
 /***********************************************************************
- Content links and headings
+ Content
  ***********************************************************************/
 
 .wm-page-content {
   max-width: 1100px;
+  background-color: var(--surface-a);
 }
 
 .wm-page-content a,
@@ -102,11 +165,54 @@ body {
   color: var(--primary-color-dark);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family);
+  font-weight: 700;
+}
+
 h1 {
-  font-size: 190%;
+  font-size: 16pt;
   text-decoration: underline;
   text-decoration-color: var(--primary-color);
+  text-underline-offset: 0.2em;
   color: var(--primary-color-darker);
+}
+
+h2 {
+  font-size: 14pt;
+  color: var(--primary-color-darker);
+}
+
+h3,
+h4 {
+  font-size: 12pt;
+  color: var(--primary-color-dark);
+}
+
+img[alt="Conductor4SQL"] {
+  height: auto;
+  display: block;
+  margin: 1.5rem 0 2rem;
+}
+
+.wm-page-content table,
+.wm-page-content figcaption,
+footer.wm-page-content {
+  font-size: 10pt;
+}
+
+footer.wm-page-content {
+  color: var(--text-color-secondary);
+}
+
+footer.wm-page-content a,
+footer.wm-page-content a:visited {
+  color: var(--primary-color);
 }
 
 /***********************************************************************
@@ -117,18 +223,20 @@ h1 {
   color: var(--primary-color);
 }
 
+#mkdocs-search-results a {
+  color: var(--primary-color-dark);
+}
+
 /***********************************************************************
  Admonitions
  ***********************************************************************/
 
-/* Tip — green, same pattern as Windmill warning */
 .admonition.tip {
   color: #3a7a3a;
   background-color: #edf7ed;
   border-color: #c3e6c3;
 }
 
-/* Note / info — brand blue */
 .admonition.note,
 .admonition.info {
   color: var(--primary-color-dark);
