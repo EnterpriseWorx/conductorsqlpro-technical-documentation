@@ -91,20 +91,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="advanced-settings">Advanced Settings</h1>
 <p><strong>Advanced Settings</strong> controls system-wide options that affect how SQLPro
-processes SQL queues, sends mail, writes syslog output, and runs Data Sync.</p>
-<p>To open the page, select the <strong>Administration</strong> menu and choose <strong>Advanced
-Settings</strong>:</p>
-<!-- Screenshot: Administration menu with Advanced Settings highlighted -->
-
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/advanced-settings/open-page.png" data-desc-position="bottom"><img alt="" src="../../img/admin/advanced-settings/open-page.png"></a></p>
+processes SQL queues, sends mail, writes syslog output, and whether Data Sync is
+enabled.</p>
+<p>To open the page, select <strong>SQLPro</strong> on the landing page, then
+<strong>Administration &gt;&gt; Advanced Settings</strong>:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/sqlpro/administration/advanced-settings/open-page.png" data-desc-position="bottom"><img alt="" src="../../img/sqlpro/administration/advanced-settings/open-page.png"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You need the <strong>AdminAdvancedSettingsUpdate</strong> permission to open and change
 Advanced Settings. Without it, the menu item is hidden.</p>
 </div>
-<!-- Screenshot: Advanced Settings form with Save Settings button -->
-
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/admin/advanced-settings/form.png" data-desc-position="bottom"><img alt="" src="../../img/admin/advanced-settings/form.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../img/sqlpro/administration/advanced-settings/form.png" data-desc-position="bottom"><img alt="" src="../../img/sqlpro/administration/advanced-settings/form.png"></a></p>
 <p>Select <strong>Save Settings</strong> to store the values. Changes are written to the SQLPro
 global configuration table.</p>
 <div class="admonition warning">
@@ -200,8 +197,9 @@ changing them, restart the service and confirm log delivery in your
 collector.</p>
 </div>
 <h2 id="data-sync">Data Sync</h2>
-<p>These settings control whether Data Sync runs and how many worker threads it
-uses.</p>
+<p>This switch controls whether Data Sync runs. Thread counts, staging, and issue
+email settings are now under
+<strong><a href="../../SQLPro/data-sync/global-configuration/">SQLSync &gt;&gt; Data Sync &gt;&gt; Global Configuration</a></strong>.</p>
 <table>
 <thead>
 <tr>
@@ -216,25 +214,8 @@ uses.</p>
 <td>Enables or disables the Data Sync feature. When off, sync processors do not start and users lose the <strong>SyncUpdate</strong> permission</td>
 <td><code>Off</code></td>
 </tr>
-<tr>
-<td><strong>Sync Source Thread Count</strong></td>
-<td>Number of worker threads that process source-side sync queue work</td>
-<td><code>1</code></td>
-</tr>
-<tr>
-<td><strong>Sync Target Thread Count</strong></td>
-<td>Number of worker threads that process target-side sync queue work</td>
-<td><code>1</code></td>
-</tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Leave thread counts at <code>1</code> unless you have measured that source or target
-queues are backlog-bound and the SQLPro host can support more parallelism.
-Raise source and target counts independently based on which side is the
-bottleneck.</p>
-</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Turning <strong>Sync Feature Enabled</strong> off stops sync processing and removes Data

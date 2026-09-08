@@ -91,17 +91,15 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="introduction">Introduction</h1>
 <p>Schedules control when Data Sync runs delta sync, checksum validation, and full
 resync jobs.</p>
-<p>To get started, select the <strong>Data Sync</strong> menu and choose <strong>Schedule
-Configuration</strong>:</p>
-<!-- Screenshot: Sync Schedule Configuration list page -->
-
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/schedule/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/schedule/open-page.png"></a></p>
+<p>To get started, open <strong>SQLSync</strong> from the landing page, then select <strong>Data Sync
+Schedule Configuration</strong>:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/sync-schedule-list/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/sync-schedule-list/open-page.png"></a></p>
 <h2 id="schedule-list">Schedule list</h2>
 <p>The list shows each schedule name, its cron expressions, and whether it is
 active.</p>
 <!-- Screenshot: Schedule list with Delta, Checksum, and Resync columns -->
 
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/schedule/list.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/schedule/list.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/sync-schedule-list/list.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/sync-schedule-list/list.png"></a></p>
 <p>Columns:</p>
 <ul>
 <li><strong>Schedule Name</strong></li>
@@ -122,7 +120,7 @@ active.</p>
 <p>Select <strong>Add Schedule</strong>, or use <strong>Edit</strong> on an existing row.</p>
 <!-- Screenshot: Add / Edit Schedule dialog with cron fields -->
 
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/schedule/edit-dialog.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/schedule/edit-dialog.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/sync-schedule-list/edit-dialog.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/sync-schedule-list/edit-dialog.png"></a></p>
 <p>Fields:</p>
 <ul>
 <li><strong>Schedule Name</strong> - required display name.</li>
@@ -149,7 +147,7 @@ you can fire <strong>Run Resync Schedule</strong> during business hours so the l
 immediately instead of waiting for the next overnight run.</p>
 <!-- Screenshot: Confirmation dialog for manually firing a schedule -->
 
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/schedule/run-confirm.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/schedule/run-confirm.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/sync-schedule-list/run-confirm.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/sync-schedule-list/run-confirm.png"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Manual runs process tables that are eligible for that schedule action. For

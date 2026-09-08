@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="EnterpriseWorx">
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Global Configuration - Conductor4SQL Technical Documentation</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Global Configuration", url: "#_top", children: [
+              {title: "Processor threads", url: "#processor-threads" },
+              {title: "Staging", url: "#staging" },
+              {title: "Issue email alerts", url: "#issue-email-alerts" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+      <script src="../../../js/custom.js"></script> 
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../source-host-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../source-host-configuration/" class="btn btn-xs btn-link">
+        Source Host Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../getting-started/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../getting-started/" class="btn btn-xs btn-link">
+        Getting Started
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="global-configuration">Global Configuration</h1>
+<p><strong>Global Configuration</strong> holds Data Sync settings that apply to every sync job:
+processor thread counts, staging behaviour, and Data Sync issue email alerts.</p>
+<p>To open the page, select the <strong>SQLSync</strong> icon on the landing page, then choose
+<strong>Data Sync &gt;&gt; Global Configuration</strong>:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/global-configuration/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/global-configuration/open-page.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need the <strong>SyncUpdate</strong> permission to open this page. Data Sync must
+also be licensed and <strong>Sync Feature Enabled</strong> must be on under
+<strong><a href="../../../admin/advanced-settings/">SQLPro &gt;&gt; Administration &gt;&gt; Advanced Settings</a></strong>.</p>
+</div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/global-configuration/form.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/global-configuration/form.png"></a></p>
+<p>Select <strong>Save Settings</strong> to store the values. Thread count changes are picked up
+when the <strong>ConductorSQLPro</strong> service restarts. The issue email schedule applies
+as soon as you save.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>After changing <strong>Sync Source Thread Count</strong> or <strong>Sync Target Thread Count</strong>,
+restart the <strong>ConductorSQLPro</strong> service.</p>
+</div>
+<h2 id="processor-threads">Processor threads</h2>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sync Source Thread Count</strong></td>
+<td>Number of worker threads that process source-side sync queue work</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><strong>Sync Target Thread Count</strong></td>
+<td>Number of worker threads that process target-side sync queue work</td>
+<td><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Leave thread counts at <code>1</code> unless you have measured that source or target
+queues are backlog-bound and the SQLPro host can support more parallelism.
+Raise source and target counts independently based on which side is the
+bottleneck.</p>
+</div>
+<h2 id="staging">Staging</h2>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Use global temp tables for sync staging</strong></td>
+<td>When on, initial and delta source copies use SQL Server <code>##</code> global temp tables instead of physical tables in <code>tempdb</code></td>
+<td><code>Off</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="issue-email-alerts">Issue email alerts</h2>
+<p>SQLPro can email a <strong>Data Sync Issues Report</strong> when sync configurations have
+table errors, checksum errors, or tables that have fallen behind. The job uses
+the mail list configured under
+<strong><a href="../../../admin/mail/">SQLPro &gt;&gt; Administration &gt;&gt; Mail</a></strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Issue email schedule</strong></td>
+<td>Hangfire cron for the <strong>Data Sync Issue Email Alerts</strong> job, in the SQLPro host's local time. Default is 08:00 daily (<code>0 8 * * *</code>)</td>
+<td><code>0 8 * * *</code></td>
+</tr>
+<tr>
+<td><strong>Minutes behind threshold</strong></td>
+<td>How long a syncing table with no error can go without a successful check before it is treated as behind. Set to <code>0</code> to turn lag alerts off</td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A table counts as behind when its status is syncing (<code>S</code>), it has no error
+message, and <strong>Last Sync Check</strong> is older than the threshold. The email is
+skipped when no configurations currently have issues.</p>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../source-host-configuration/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../source-host-configuration/" class="btn btn-xs btn-link">
+        Source Host Configuration
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../getting-started/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../getting-started/" class="btn btn-xs btn-link">
+        Getting Started
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright © 2026 EnterpriseWorx, maintained by the Conductor4SQL team.</p>
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>

@@ -210,35 +210,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   </ul>
 </li>
 
-      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">Data Sync</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/overview/" class="wm-article-link wm-toc-text">Overview</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/getting-started/" class="wm-article-link wm-toc-text">Getting Started</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/source-host-configuration/" class="wm-article-link wm-toc-text">Source Host Configuration</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/target-host-configuration/" class="wm-article-link wm-toc-text">Target Host Configuration</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/schedule-configuration/" class="wm-article-link wm-toc-text">Schedule Configuration</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/queue-configuration/" class="wm-article-link wm-toc-text">Queue Configuration</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/table-list-configuration/" class="wm-article-link wm-toc-text">Table List Configuration</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/sync-configuration/" class="wm-article-link wm-toc-text">Sync Configuration</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/monitoring/" class="wm-article-link wm-toc-text">Monitoring</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/queue-monitoring/" class="wm-article-link wm-toc-text">Queue Monitoring</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev3 "><a href="SQLPro/data-sync/sync-vs-fabric-pipelines/" class="wm-article-link wm-toc-text">SQLPro Sync vs Fabric Pipelines</a>
-</li>
-  </ul>
-</li>
-
       <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">SKU Request</span>
 </li>
 <li class="wm-toc-li-nested collapse">
@@ -250,6 +221,37 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   </ul>
 </li>
 
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">SQLSync</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/overview/" class="wm-article-link wm-toc-text">Overview</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/getting-started/" class="wm-article-link wm-toc-text">Getting Started</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/global-configuration/" class="wm-article-link wm-toc-text">Global Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/source-host-configuration/" class="wm-article-link wm-toc-text">Source Host Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/target-host-configuration/" class="wm-article-link wm-toc-text">Target Host Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/schedule-configuration/" class="wm-article-link wm-toc-text">Schedule Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/queue-configuration/" class="wm-article-link wm-toc-text">Queue Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/table-list-configuration/" class="wm-article-link wm-toc-text">Table List Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/sync-configuration/" class="wm-article-link wm-toc-text">Sync Configuration</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/monitoring/" class="wm-article-link wm-toc-text">Monitoring</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/queue-monitoring/" class="wm-article-link wm-toc-text">Queue Monitoring</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="SQLPro/data-sync/sync-vs-fabric-pipelines/" class="wm-article-link wm-toc-text">SQLPro Sync vs Fabric Pipelines</a>
+</li>
   </ul>
 </li>
 
@@ -365,10 +367,12 @@ approach.</p>
   database maintenance from a central location (MS SQL Server only)</li>
 <li><strong>Auditing</strong> - Audit DDL changes and create email alerts for any defined
   dangerous changes.</li>
-<li><strong>Data Sync</strong> - Replicate selected Microsoft SQL Server tables (Azure SQL,
-  Azure SQL Managed Instance, or on-premises) to Microsoft Fabric Data
-  Warehouse or another SQL Server destination using Change Tracking.</li>
 </ul>
+</li>
+<li>
+<p><strong>SQLSync</strong> - a module focused on replicating selected Microsoft SQL Server
+  tables (Azure SQL, Azure SQL Managed Instance, or on-premises) to Microsoft
+  Fabric Data Warehouse or another SQL Server destination using Change Tracking.</p>
 </li>
 <li>
 <p><strong>SQLSense</strong> - a module focused on sensitive data detection and checking on
@@ -411,5 +415,5 @@ approach.</p>
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 </script></body></html><!--
 MkDocs version : ProperDocs 1.6.7
-Build Date UTC : 2026-09-05 11:03:04.468795+00:00
+Build Date UTC : 2026-09-08 07:49:51.488201+00:00
 -->

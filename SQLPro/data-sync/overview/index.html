@@ -74,10 +74,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../reports/health-report/" class="btn btn-xs btn-default pull-left">
+      <a href="../../sku-request/sku-request-page/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../reports/health-report/" class="btn btn-xs btn-link">
-        Health Report
+        Previous</a><a href="../../sku-request/sku-request-page/" class="btn btn-xs btn-link">
+        SKU Request
       </a>
     </div>
     
@@ -86,9 +86,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="introduction">Introduction</h1>
-<p><strong>Data Sync</strong> replicates selected Microsoft SQL Server tables to a Microsoft
-Fabric Data Warehouse or another SQL Server destination. Sync is one-way (source
-to target) and uses SQL Server Change Tracking for ongoing updates.</p>
+<p><strong>Data Sync</strong> is the <strong>SQLSync</strong> module. It replicates selected Microsoft SQL
+Server tables to a Microsoft Fabric Data Warehouse or another SQL Server
+destination. Sync is one-way (source to target) and uses SQL Server Change
+Tracking for ongoing updates.</p>
 <p>Where this documentation refers to <strong>Microsoft SQL Server</strong> as a source or
 target, that includes Microsoft Azure SQL, Microsoft Azure SQL Managed Instance,
 and on-premises Microsoft SQL Server.</p>
@@ -100,14 +101,14 @@ and on-premises Microsoft SQL Server.</p>
 <li>Deletes from the source are applied as <strong>hard deletes</strong> on the target
   (soft-delete patterns are not supported).</li>
 </ul>
-<p>To reach the Data Sync section, select the <strong>Data Sync</strong> menu:</p>
-<!-- Screenshot: Data Sync menu open, showing all submenu items -->
-
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/open-page.png"></a></p>
+<p>To reach Data Sync, select the <strong>SQLSync</strong> icon on the landing page:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/open-page.png"></a></p>
 <p>The Data Sync menu offers the following options:</p>
 <ul>
 <li><strong><a href="../getting-started/">Getting Started</a></strong> - prerequisites and the
   recommended setup order</li>
+<li><strong><a href="../global-configuration/">Global Configuration</a></strong> - thread counts, staging
+  options, and Data Sync issue email alerts</li>
 <li><strong><a href="../source-host-configuration/">Source Host Configuration</a></strong> - register SQL
   Server source instances</li>
 <li><strong><a href="../target-host-configuration/">Target Host Configuration</a></strong> - register
@@ -149,10 +150,10 @@ and on-premises Microsoft SQL Server.</p>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../reports/health-report/" class="btn btn-xs btn-default pull-left">
+      <a href="../../sku-request/sku-request-page/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../reports/health-report/" class="btn btn-xs btn-link">
-        Health Report
+        Previous</a><a href="../../sku-request/sku-request-page/" class="btn btn-xs btn-link">
+        SKU Request
       </a>
     </div>
     

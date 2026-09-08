@@ -31,7 +31,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Version 1.7.0.0 (03/09/2026)", url: "#_top", children: [
+          {title: "Version 1.7.1.0 (07/09/2026)", url: "#_top", children: [
+          ]},
+          {title: "Version 1.7.0.0 (03/09/2026)", url: "#version-1700-03092026", children: [
           ]},
           {title: "Version 1.6.9.0 (31/08/2026)", url: "#version-1690-31082026", children: [
           ]},
@@ -143,7 +145,27 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="version-1700-03092026">Version 1.7.0.0 (03/09/2026)</h1>
+    <h1 id="version-1710-07092026">Version 1.7.1.0 (07/09/2026)</h1>
+<ul>
+<li>HUMMDB-1563 Sync: Move sync screens to the SQLSync module</li>
+<li>HUMMDB-1562 Improve look and feel of the side menu</li>
+<li>HUMMDB-1560 Sync: Move Data Sync settings to a dedicated Global Configuration
+  screen</li>
+<li>HUMMDB-1561 Sync: Make Data Sync Issue Email Alerts send-out time configurable</li>
+<li>HUMMDB-1559 Sync: Source and target queue counts need to be realtime</li>
+<li>HUMMDB-1558 Sync: Add flag to use global temp tables for sync staging</li>
+<li>HUMMDB-1564 Sync: Add LOCK_TIMEOUT to important source reads</li>
+<li>HUMMDB-1557 Sync: Remove offset/skip initial sync path</li>
+<li>HUMMDB-1556 Calculating "Has Changes" and counts on deltas is very slow on
+  large tables with large diffs</li>
+<li>Fixed: Not all screens are linked to a side menu entry</li>
+<li>Fixed: Add LOCK_TIMEOUT when enabling Change Tracking on a database</li>
+<li>Fixed: Reset LOCK_TIMEOUT after Change Tracking enable/disable</li>
+<li>Fixed: If a tempdb table copy is missing, mark the table as error</li>
+<li>Improvement: Fix branding colors</li>
+<li>Fixed: Replace "EnterpriseWorx IT" with EnterpriseWorx in branding</li>
+</ul>
+<h1 id="version-1700-03092026">Version 1.7.0.0 (03/09/2026)</h1>
 <ul>
 <li>HUMMDB-1536 Allow column filtering in Table Configuration screen</li>
 <li>HUMMDB-1555 Column Selector screen not showing all columns when duplicate

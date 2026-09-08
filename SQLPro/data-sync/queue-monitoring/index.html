@@ -91,18 +91,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Queue monitoring lets you inspect the source and target processing queues used
 by Data Sync. Use these pages when diagnosing delayed syncs, stuck messages, or
 processor errors.</p>
-<p>To reach these pages, select the <strong>Data Sync</strong> menu and choose <strong>Source Queue
-Monitoring</strong> or <strong>Target Queue Monitoring</strong>:</p>
-<!-- Screenshot: Data Sync menu highlighting Source and Target Queue Monitoring -->
-
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/queue-monitoring/open-menu.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/queue-monitoring/open-menu.png"></a></p>
+<p>To reach these pages, open <strong>SQLSync</strong> from the landing page, then select <strong>Data
+Sync &gt;&gt; Source Queue Monitoring</strong> or <strong>Target Queue Monitoring</strong>:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/source-queue-monitoring/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/source-queue-monitoring/open-page.png"></a></p>
 <h2 id="source-queue-monitoring">Source Queue Monitoring</h2>
 <p>The source queue list shows queues that receive work for reading source tables
 (initial sync, deltas, checksums, and related actions).</p>
 <!-- Screenshot: Source Queue Monitoring list page -->
 
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/queue-monitoring/source-list.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/queue-monitoring/source-list.png"></a></p>
-<p>Use <strong>Refresh</strong> to reload the list.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/source-queue-monitoring/source-list.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/source-queue-monitoring/source-list.png"></a></p>
+<p>Use <strong>Refresh</strong> to reload the list. Message counts on the source and target
+queue lists update in realtime.</p>
 <p>Row actions typically include:</p>
 <ul>
 <li><strong>View Logs</strong> - open recent processor logs for the queue</li>
@@ -111,7 +110,7 @@ Monitoring</strong> or <strong>Target Queue Monitoring</strong>:</p>
 <h3 id="view-logs">View logs</h3>
 <!-- Screenshot: Source Queue Logs dialog -->
 
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/queue-monitoring/source-logs.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/queue-monitoring/source-logs.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/source-queue-monitoring/source-logs.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/source-queue-monitoring/source-logs.png"></a></p>
 <p>The dialog keeps the <strong>last 20</strong> log messages. While a step is still running, a
 <strong>Current step running for</strong> timer appears above the table (for example
 <code>2m 15s</code>) together with the latest step message. Use <strong>Refresh</strong> in the dialog
@@ -120,7 +119,7 @@ Close the dialog when finished.</p>
 <h3 id="peek-messages">Peek messages</h3>
 <!-- Screenshot: Source Peek Messages dialog with Remove and Refresh -->
 
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/queue-monitoring/source-peek.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/queue-monitoring/source-peek.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/source-queue-monitoring/source-peek.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/source-queue-monitoring/source-peek.png"></a></p>
 <p>From the peek dialog you can:</p>
 <ul>
 <li>Review pending messages</li>

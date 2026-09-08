@@ -91,21 +91,21 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="introduction">Introduction</h1>
 <p>To get started select the <strong>Backup &amp; Maintenance</strong> Icon and choose <strong>Global
 Configuration</strong></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/backup-and-maintenance/global-config/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/backup-and-maintenance/global-config/open-page.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlpro/backup-and-maintenance/global-configuration/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlpro/backup-and-maintenance/global-configuration/open-page.png"></a></p>
 <p>You will then find your global default settings that can be customized to your
 database needs. Similar to SQL jobs that are used for production databases.</p>
 <p>The Backup window and Maintenance window start time and lengths can be set. In
 this window backup, the database and a maintenance check will run and check the
 database structure.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/backup-and-maintenance/global-config/global-config-window.png" data-desc-position="bottom"><img alt="" src="../../../img/backup-and-maintenance/global-config/global-config-window.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlpro/backup-and-maintenance/global-configuration/global-config-window.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlpro/backup-and-maintenance/global-configuration/global-config-window.png"></a></p>
 <p>With the retention date, you can set how long you would like to keep your
 backups for and thereby calculate how many backups you would like stored during
 the window time frame saving you valuable space.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/backup-and-maintenance/global-config/global-config-schedule.png" data-desc-position="bottom"><img alt="" src="../../../img/backup-and-maintenance/global-config/global-config-schedule.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlpro/backup-and-maintenance/global-configuration/global-config-schedule.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlpro/backup-and-maintenance/global-configuration/global-config-schedule.png"></a></p>
 <p>The difference between the full backup and log backup is that the logs will only
 be backed up rather than the whole database allowing you to save much-needed
 space.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/backup-and-maintenance/global-config/global-config-backup-path.png" data-desc-position="bottom"><img alt="" src="../../../img/backup-and-maintenance/global-config/global-config-backup-path.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlpro/backup-and-maintenance/global-configuration/global-config-backup-path.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlpro/backup-and-maintenance/global-configuration/global-config-backup-path.png"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>%DefaultBackupLocation% - this is a placeholder for the SQL Server's backup path that you
@@ -126,7 +126,7 @@ an estimated limit on backing up 100GB databases.</p>
 selections. It's also worth taking note of the <strong>Region</strong>, <strong>Performance</strong> and
 <strong>Redundancy</strong> settings and selecting options that will work for your
 organisation.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/backup-and-maintenance/global-config/azure-storage-account-create.png" data-desc-position="bottom"><img alt="" src="../../../img/backup-and-maintenance/global-config/azure-storage-account-create.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlpro/backup-and-maintenance/global-configuration/azure-storage-account-create.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlpro/backup-and-maintenance/global-configuration/azure-storage-account-create.png"></a></p>
 <p>Go to your new <strong>Storage Account</strong> and select the <strong>Containers</strong> section. Create
 a new container called <strong>database-backups</strong> or any other name you like and take
 note of it.</p>
@@ -142,7 +142,7 @@ SQLPro:</p>
 and select the <strong>Shared access tokens</strong></p>
 <p>Under <strong>Permissions</strong> select <strong>Read</strong> and <strong>Write</strong>. Also be sure to select a
 reasonable <strong>Expiry</strong> date for the SAS token.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/backup-and-maintenance/global-config/azure-sp-token.png" data-desc-position="bottom"><img alt="" src="../../../img/backup-and-maintenance/global-config/azure-sp-token.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlpro/backup-and-maintenance/global-configuration/azure-sp-token.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlpro/backup-and-maintenance/global-configuration/azure-sp-token.png"></a></p>
 <p>Once you click on <strong>Generate SAS token and URL</strong> copy down the <strong>Blob SAS
 token</strong> as you'll need it to set up the cloud backups for SQLPro.</p>
 <h3 id="shared-access-signature">Shared Access Signature</h3>
@@ -150,7 +150,7 @@ token</strong> as you'll need it to set up the cloud backups for SQLPro.</p>
 tab.</p>
 <p>Take care to select the same permissions as seen in the screenshot below and be
 sure to select an <strong>End</strong> date for the signature.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/backup-and-maintenance/global-config/azure-sas-token.png" data-desc-position="bottom"><img alt="" src="../../../img/backup-and-maintenance/global-config/azure-sas-token.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlpro/backup-and-maintenance/global-configuration/azure-sas-token.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlpro/backup-and-maintenance/global-configuration/azure-sas-token.png"></a></p>
 <p>Once you click on <strong>Generate SAS and connection string</strong> copy down the <strong>SAS
 token</strong> as you'll need it to set up the cloud backups for SQLPro.</p>
 <div class="admonition warning">
@@ -184,7 +184,7 @@ token</strong> as you'll need it to set up the cloud backups for SQLPro.</p>
 </tbody>
 </table>
 <p>See example below</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/backup-and-maintenance/global-config/cloud-setup.png" data-desc-position="bottom"><img alt="" src="../../../img/backup-and-maintenance/global-config/cloud-setup.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlpro/backup-and-maintenance/global-configuration/cloud-setup.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlpro/backup-and-maintenance/global-configuration/cloud-setup.png"></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The %ServerName% variable is dynamic and in this case it will create a separate folder in blob storage for each server that you are working with.</p>

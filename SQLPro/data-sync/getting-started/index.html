@@ -68,12 +68,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../source-host-configuration/" class="btn btn-xs btn-default pull-right">
+      <a href="../global-configuration/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../source-host-configuration/" class="btn btn-xs btn-link">
-        Source Host Configuration
+      <a href="../global-configuration/" class="btn btn-xs btn-link">
+        Global Configuration
       </a>
     </div>
     
@@ -92,19 +92,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="introduction">Introduction</h1>
 <p>This page describes how to prepare for Data Sync and the recommended order for
 setting it up.</p>
-<p>To reach Data Sync, select the <strong>Data Sync</strong> menu:</p>
-<!-- Screenshot: Data Sync menu open from the SQLPro landing / main menu -->
-
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/data-sync/getting-started/open-menu.png" data-desc-position="bottom"><img alt="" src="../../../img/data-sync/getting-started/open-menu.png"></a></p>
+<p>To reach Data Sync, select the <strong>SQLSync</strong> icon on the landing page:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/open-page.png"></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If the <strong>Data Sync</strong> menu is not available, check that:</p>
+<p>If <strong>SQLSync</strong> or the <strong>Data Sync</strong> menu is not available, check that:</p>
 <ul>
 <li>the <strong>Data Sync</strong> module is enabled on your license under
   <strong><a href="../../../admin/license/">Administration &gt;&gt; License</a></strong></li>
 <li>your role includes the <strong>SyncUpdate</strong> permission</li>
 <li><strong>Sync Feature Enabled</strong> is turned on under
-  <strong><a href="../../../admin/advanced-settings/">Administration &gt;&gt; Advanced Settings</a></strong>,
+  <strong><a href="../../../admin/advanced-settings/">SQLPro &gt;&gt; Administration &gt;&gt; Advanced Settings</a></strong>,
   then restart the <strong>ConductorSQLPro</strong> service</li>
 </ul>
 </div>
@@ -114,7 +112,7 @@ setting it up.</p>
 <li>Your license includes the <strong>Data Sync</strong> module. Confirm this under
   <strong><a href="../../../admin/license/">Administration &gt;&gt; License</a></strong>.</li>
 <li>Your user role includes the <strong>SyncUpdate</strong> permission.</li>
-<li>Source and target instances are already registered under <strong>Administration &gt;
+<li>Source and target instances are already registered under <strong>Administration &gt;&gt;
   Instances</strong>.</li>
 <li>Source databases are <strong>Microsoft SQL Server</strong> (including Azure SQL, Azure SQL
   Managed Instance, and on-premises SQL Server). Data Sync uses SQL Server
@@ -161,6 +159,9 @@ Managed Instance, and on-premises Microsoft SQL Server.</p>
 <h2 id="recommended-setup-order">Recommended setup order</h2>
 <p>Configure Data Sync in this order so each step has what it needs:</p>
 <ol>
+<li><strong><a href="../global-configuration/">Global Configuration</a></strong> - set processor
+   threads, staging, and issue email alerts (optional, but review before you
+   start syncing).</li>
 <li><strong><a href="../source-host-configuration/">Source Host Configuration</a></strong> - register
    the SQL Server instance that owns the source data.</li>
 <li><strong><a href="../target-host-configuration/">Target Host Configuration</a></strong> - register
@@ -211,12 +212,12 @@ longer than expected, or if errors appear in monitoring.</p>
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../source-host-configuration/" class="btn btn-xs btn-default pull-right">
+      <a href="../global-configuration/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../source-host-configuration/" class="btn btn-xs btn-link">
-        Source Host Configuration
+      <a href="../global-configuration/" class="btn btn-xs btn-link">
+        Global Configuration
       </a>
     </div>
     
