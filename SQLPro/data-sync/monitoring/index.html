@@ -111,7 +111,8 @@ last sync date, and status counts.</p>
 <li><strong>Syncing</strong></li>
 <li><strong>Disabled</strong></li>
 <li><strong>Errors</strong></li>
-<li><strong>Checksum Errors</strong></li>
+<li><strong>Checksum Errors</strong> - counts tables with row-count mismatch, checksum
+  mismatch, or data movement during checksum. Does <strong>not</strong> include <strong>Ignored</strong>.</li>
 </ul>
 <p>Click a count (for example <strong>Errors</strong> or <strong>Total Tables</strong>) to open the detail
 page filtered to that configuration and status.</p>
@@ -167,8 +168,14 @@ Count</strong>, and <strong>Row Count Difference</strong> (those are hidden by d
 <li><strong>Disabled</strong> - <code>N</code>, <code>D</code>, <code>E</code></li>
 <li><strong>Errors</strong> - <code>X</code></li>
 </ul>
-<p>Checksum results may show matches, row-count or checksum mismatches, or <strong>Data
-Movement</strong> when changes occurred during calculation.</p>
+<p>Checksum results may show:</p>
+<ul>
+<li><strong>Matches</strong> - source and target row counts and checksums match</li>
+<li><strong>RowCountMismatch</strong> / <strong>ChecksumMismatch</strong> - counts or checksums differ</li>
+<li><strong>DataMovement</strong> - source data changed during checksum verification</li>
+<li><strong>Ignored</strong> - checksum issue was acknowledged with <strong>Ignore Checksum Issue</strong>
+  and will stay out of checksum error alerts until the next checksum run</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Checksums compare the <strong>synced</strong> columns for each table (the Table List
@@ -178,6 +185,15 @@ collation, and date/time columns are compared at second precision. Binary,
 image, XML, and timestamp columns are excluded, as are sync metadata columns
 named <code>C4SQL_*</code>, because source and target platforms can compare them
 differently.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If delta or checksum work is skipped after
+<a href="../global-configuration/#processing">Max delta/checksum retries</a>, the
+table status is left unchanged and <strong>Error Message</strong> explains the skip (for
+example <code>Delta sync skipped after N retries: … The table will be retried on
+the next delta sync.</code>). The table is tried again on the next matching
+schedule run.</p>
 </div>
 <h3 id="bulk-actions">Bulk actions</h3>
 <p>Select one or more tables to enable bulk actions. The bar groups them as <strong>Next
@@ -196,6 +212,9 @@ schedule</strong> and <strong>On demand</strong>.</p>
 <li><strong>Run Delta for Selected</strong> - queues an immediate delta sync. Only tables with
   status <strong>Syncing</strong> are queued.</li>
 <li><strong>Calculate Checksum for Selected</strong> - triggers checksum calculation</li>
+<li><strong>Ignore Checksum Issue</strong> - marks selected tables as checksum status
+  <strong>Ignored</strong>. They no longer appear in checksum error alerts until the next
+  checksum run recalculates them.</li>
 </ul>
 <!-- Screenshot: Bulk action bar with tables selected -->
 
@@ -216,6 +235,12 @@ Tracking retention (typically 7 days). It is faster than a full reload
 because the target table is left in place. If Change Tracking history has
 already expired, or checksum still fails after a partial resync, use a full
 resync instead.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <strong>Ignore Checksum Issue</strong> when you have investigated a mismatch and want
+to clear it from alerts temporarily. Run <strong>Calculate Checksum for Selected</strong>
+(or wait for the next checksum schedule) to re-evaluate the table.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

@@ -104,7 +104,8 @@ click on the <strong>Edit Live Alerts</strong> button in the context menu.</p>
 <li><strong>Agent Offline</strong> - reports on <strong>SQL Server Agent</strong>. The alert will not report
   if you are running on express.</li>
 <li><strong>Low Space SQL Drive</strong> - will be reported when drives have less than 10%
-  space.</li>
+  space. Volumes used only by <strong>tempdb</strong> (no other databases on the same drive)
+  are excluded, because tempdb has exclusive access to those drives.</li>
 <li><strong>No Comms</strong> - flagged when there is no connection to the server.
   Possibilities include the server being off, firewall blocking the connection
   or the server being to busy to accept connections.</li>
@@ -115,7 +116,8 @@ click on the <strong>Edit Live Alerts</strong> button in the context menu.</p>
 <li><strong>Replication Issues</strong> - reports on <strong>SQL Server Replication</strong> typical issues
   allowing it to be easily monitored.</li>
 <li><strong>Long Running Queries</strong> - flags queries that take more than 2 minutes to run.</li>
-<li><strong>Lead Blockers</strong> - reports if things are blocked for more the 2 minutes.</li>
+<li><strong>Lead Blockers</strong> - reports blocking chains where a session has been waiting
+  for at least 10 seconds. See details below.</li>
 <li><strong>No Server Activity Auditing in 24 hours</strong> - flags servers that have had
   nothing changed or reported within the last 24 hours as it would be unusual in
   production environments.</li>
@@ -124,6 +126,18 @@ click on the <strong>Edit Live Alerts</strong> button in the context menu.</p>
 <p>If the alert is <strong>red</strong> then SQLPro has detected an issue. You can click on the
 <strong>show more</strong> icon (top right of the alert card) to see more details.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlpro/live-alerts/report/live-report-view-details.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlpro/live-alerts/report/live-report-view-details.png"></a></p>
+<h3 id="lead-blockers-details">Lead Blockers details</h3>
+<p>The <strong>Lead Blockers</strong> detail grid shows a blocking hierarchy:</p>
+<ul>
+<li><strong>* LEAD BLOCKER *</strong> - a session that is blocking others and is not itself
+  blocked</li>
+<li><strong>Blocked Session</strong> - a session waiting on another SPID</li>
+</ul>
+<p>Useful columns include <strong>BlockingRole</strong>, <strong>Spid</strong>, <strong>BlockedBy</strong>,
+<strong>NumberOfBlockedSpids</strong>, <strong>WaitTime</strong>, <strong>WaitType</strong>, <strong>LoginName</strong>,
+<strong>HostName</strong>, <strong>DatabaseName</strong>, and a short <strong>SQLText</strong> preview. Rows are
+ordered so lead blockers appear first, then by how many sessions they block and
+wait time.</p>
 <h2 id="alert-history">Alert History</h2>
 <p>The alerts also have history for any past alerts that were fired. To view the
 alert history click on the <strong>show history</strong> icon (also top right of the alert

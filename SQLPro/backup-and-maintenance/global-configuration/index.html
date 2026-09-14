@@ -189,6 +189,13 @@ token</strong> as you'll need it to set up the cloud backups for SQLPro.</p>
 <p class="admonition-title">Note</p>
 <p>The %ServerName% variable is dynamic and in this case it will create a separate folder in blob storage for each server that you are working with.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Backup paths may include subfolders under the container (for example
+<code>%ServerName%/logs/</code>). SQLPro creates the Azure blob credential at the
+<strong>container</strong> level. Use a SAS token scoped to that container; do not put
+the subfolder path into the credential itself.</p>
+</div>
 
   <br>
     

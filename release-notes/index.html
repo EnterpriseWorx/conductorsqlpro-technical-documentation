@@ -31,7 +31,11 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Version 1.7.1.0 (07/09/2026)", url: "#_top", children: [
+          {title: "Version 1.7.3.0 (14/09/2026)", url: "#_top", children: [
+          ]},
+          {title: "Version 1.7.2.0 (09/09/2026)", url: "#version-1720-09092026", children: [
+          ]},
+          {title: "Version 1.7.1.0 (07/09/2026)", url: "#version-1710-07092026", children: [
           ]},
           {title: "Version 1.7.0.0 (03/09/2026)", url: "#version-1700-03092026", children: [
           ]},
@@ -145,7 +149,28 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="version-1710-07092026">Version 1.7.1.0 (07/09/2026)</h1>
+    <h1 id="version-1730-14092026">Version 1.7.3.0 (14/09/2026)</h1>
+<ul>
+<li>HUMMDB-1571 Sync: Configure timeouts from data sync config screen</li>
+<li>HUMMDB-1574 Sync: Checksum calculations should also have a set number of
+  retries on the delta sync queue</li>
+<li>HUMMDB-1575 Sync: Add ability to ignore a checksum error status</li>
+<li>HUMMDB-1572 Live Alert: Exclude tempdb-only drives from "Low Space SQL Drives"</li>
+<li>HUMMDB-1214 Live Alert: Add hierarchy to lead blocker query</li>
+<li>HUMMDB-1573 Installer: Test connection should connect to master and not
+  CentralConductor4SQL</li>
+<li>Improvement: Add groups to sync global configuration form</li>
+<li>Improvement: Add milliseconds to DataSync.vw_SyncStatsDetail processing times</li>
+</ul>
+<h1 id="version-1720-09092026">Version 1.7.2.0 (09/09/2026)</h1>
+<ul>
+<li>HUMMDB-1567 Sync: Delta skip after max retries</li>
+<li>HUMMDB-1568 Sync: Data Sync Initial Sync and Delta Stats</li>
+<li>HUMMDB-1569 Backup database functionality failing when pointing subfolder in
+  Azure blob storage</li>
+<li>HUMMDB-1546 Azure SQL Backup SAAS url is in clear text in SQLPro database</li>
+</ul>
+<h1 id="version-1710-07092026">Version 1.7.1.0 (07/09/2026)</h1>
 <ul>
 <li>HUMMDB-1563 Sync: Move sync screens to the SQLSync module</li>
 <li>HUMMDB-1562 Improve look and feel of the side menu</li>

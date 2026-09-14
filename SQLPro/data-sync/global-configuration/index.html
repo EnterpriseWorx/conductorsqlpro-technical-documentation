@@ -32,9 +32,9 @@
         
         var pageToc = [
           {title: "Global Configuration", url: "#_top", children: [
-              {title: "Processor threads", url: "#processor-threads" },
-              {title: "Staging", url: "#staging" },
-              {title: "Issue email alerts", url: "#issue-email-alerts" },
+              {title: "Processing", url: "#processing" },
+              {title: "Issue email", url: "#issue-email" },
+              {title: "Timeouts", url: "#timeouts" },
           ]},
         ];
 
@@ -90,7 +90,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="global-configuration">Global Configuration</h1>
 <p><strong>Global Configuration</strong> holds Data Sync settings that apply to every sync job:
-processor thread counts, staging behaviour, and Data Sync issue email alerts.</p>
+processor threads, staging, max retries, issue email alerts, and timeouts.</p>
 <p>To open the page, select the <strong>SQLSync</strong> icon on the landing page, then choose
 <strong>Data Sync &gt;&gt; Global Configuration</strong>:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/global-configuration/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/global-configuration/open-page.png"></a></p>
@@ -100,16 +100,18 @@ processor thread counts, staging behaviour, and Data Sync issue email alerts.</p
 also be licensed and <strong>Sync Feature Enabled</strong> must be on under
 <strong><a href="../../../admin/advanced-settings/">SQLPro &gt;&gt; Administration &gt;&gt; Advanced Settings</a></strong>.</p>
 </div>
+<p>The form is organised into <strong>Processing</strong>, <strong>Issue email</strong>, and <strong>Timeouts</strong>
+groups:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/global-configuration/form.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/global-configuration/form.png"></a></p>
 <p>Select <strong>Save Settings</strong> to store the values. Thread count changes are picked up
-when the <strong>ConductorSQLPro</strong> service restarts. The issue email schedule applies
-as soon as you save.</p>
+when the <strong>ConductorSQLPro</strong> service restarts. Issue email schedule and timeout
+changes apply as soon as you save.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>After changing <strong>Sync Source Thread Count</strong> or <strong>Sync Target Thread Count</strong>,
 restart the <strong>ConductorSQLPro</strong> service.</p>
 </div>
-<h2 id="processor-threads">Processor threads</h2>
+<h2 id="processing">Processing</h2>
 <table>
 <thead>
 <tr>
@@ -129,6 +131,16 @@ restart the <strong>ConductorSQLPro</strong> service.</p>
 <td>Number of worker threads that process target-side sync queue work</td>
 <td><code>1</code></td>
 </tr>
+<tr>
+<td><strong>Use global temp tables for sync staging</strong></td>
+<td>When on, initial and delta source copies use SQL Server <code>##</code> global temp tables instead of physical tables in <code>tempdb</code></td>
+<td><code>Off</code></td>
+</tr>
+<tr>
+<td><strong>Max delta/checksum retries</strong></td>
+<td>Consecutive thrown failures of a delta sync message, or a checksum message on a delta queue, before the table is skipped. Status is left unchanged so the next schedule can retry</td>
+<td><code>99999</code></td>
+</tr>
 </tbody>
 </table>
 <div class="admonition tip">
@@ -138,27 +150,19 @@ queues are backlog-bound and the SQLPro host can support more parallelism.
 Raise source and target counts independently based on which side is the
 bottleneck.</p>
 </div>
-<h2 id="staging">Staging</h2>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Use global temp tables for sync staging</strong></td>
-<td>When on, initial and delta source copies use SQL Server <code>##</code> global temp tables instead of physical tables in <code>tempdb</code></td>
-<td><code>Off</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="issue-email-alerts">Issue email alerts</h2>
-<p>SQLPro can email a <strong>Data Sync Issues Report</strong> when sync configurations have
-table errors, checksum errors, or tables that have fallen behind. The job uses
-the mail list configured under
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default <strong>Max delta/checksum retries</strong> value (<code>99999</code>) effectively
+disables skipping. When a table is skipped, its sync status does not change.
+<strong>Error Message</strong> on
+<a href="../monitoring/">Sync Monitoring</a> explains the skip (for example that
+delta or checksum was skipped after N retries). The table is tried again on
+the next matching schedule run.</p>
+</div>
+<h2 id="issue-email">Issue email</h2>
+<p>SQLPro can email a <strong>SQLPro - Data Sync Issues Report</strong> when sync configurations
+have table errors, checksum errors, or tables that have fallen behind. The job
+uses the mail list configured under
 <strong><a href="../../../admin/mail/">SQLPro &gt;&gt; Administration &gt;&gt; Mail</a></strong>.</p>
 <table>
 <thead>
@@ -185,8 +189,47 @@ the mail list configured under
 <p class="admonition-title">Note</p>
 <p>A table counts as behind when its status is syncing (<code>S</code>), it has no error
 message, and <strong>Last Sync Check</strong> is older than the threshold. The email is
-skipped when no configurations currently have issues.</p>
+skipped when no configurations currently have issues. Checksum errors in the
+report do not include tables with checksum status <strong>Ignored</strong> (see
+<a href="../monitoring/#bulk-actions">Ignore Checksum Issue</a>).</p>
 </div>
+<h2 id="timeouts">Timeouts</h2>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Live-read lock timeout (seconds)</strong></td>
+<td>Seconds to wait for a lock on live source reads (<code>CHANGETABLE</code> probes, initial <code>SELECT INTO</code>, delta copy, source checksum <code>SELECT</code>)</td>
+<td><code>15</code></td>
+</tr>
+<tr>
+<td><strong>Change tracking command timeout (seconds)</strong></td>
+<td>ADO.NET command timeout for Change Tracking enable/disable</td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td><strong>Long SQL command timeout (seconds)</strong></td>
+<td>ADO.NET command timeout for long SQL (checksums, data-movement probes, temp-table copy/index/count, <code>MERGE</code>, clustered index)</td>
+<td><code>6000</code></td>
+</tr>
+<tr>
+<td><strong>Delta batch read timeout (seconds)</strong></td>
+<td>ADO.NET command timeout when reading a batch from the delta staging table</td>
+<td><code>300</code></td>
+</tr>
+<tr>
+<td><strong>Fabric COPY INTO timeout (seconds)</strong></td>
+<td>ADO.NET command timeout for Fabric <code>COPY INTO</code></td>
+<td><code>1800</code></td>
+</tr>
+</tbody>
+</table>
 
   <br>
     
