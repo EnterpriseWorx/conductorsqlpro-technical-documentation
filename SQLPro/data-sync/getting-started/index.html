@@ -115,11 +115,14 @@ setting it up.</p>
 <li>Source and target instances are already registered under <strong>Administration &gt;&gt;
   Instances</strong>.</li>
 <li>Source databases are <strong>Microsoft SQL Server</strong> (including Azure SQL, Azure SQL
-  Managed Instance, and on-premises SQL Server). Data Sync uses SQL Server
-  Change Tracking. Fabric instances cannot be used as sources.</li>
-<li>Each source table you plan to sync has a <strong>primary key</strong>.</li>
-<li>Source deletes are applied as <strong>hard deletes</strong> on the target. Soft-delete
-  patterns are not supported.</li>
+  Managed Instance, and on-premises SQL Server) or <strong>MySQL 8+</strong>. Fabric
+  instances cannot be used as sources. PostgreSQL is not a sync source.</li>
+<li>Microsoft SQL Server tables that use <strong>Change Tracking</strong> each have a <strong>primary
+  key</strong>. Tables without a primary key, and every MySQL table, use <strong>Destructive
+  Load</strong> (a full reload on the resync schedule).</li>
+<li>Change Tracking deletes are applied as <strong>hard deletes</strong> on the target.
+  Soft-delete patterns are not supported. Destructive Load replaces the target
+  table on each resync.</li>
 <li>For <strong>Microsoft Fabric Data Warehouse</strong> targets, you have an Azure Blob
   Storage <strong>SAS URL</strong> that SQLPro can use for staging data.</li>
 </ul>
@@ -127,8 +130,11 @@ setting it up.</p>
 <p class="admonition-title">Warning</p>
 <p>A <strong>full resync</strong> drops and recreates the target table, then reloads all
 data. Plan accordingly if other processes depend on those target tables. A
-<strong>partial resync</strong> (available from Sync Monitoring) only replays Change
-Tracking history and leaves the target table in place.</p>
+<strong>partial resync</strong> (available from Sync Monitoring for Change Tracking
+tables) only replays Change Tracking history and leaves the target table in
+place. A <strong>Destructive Load</strong> resync also drops and recreates the target
+table. It runs for every selected Destructive Load table whenever the resync
+schedule fires, even when the table is already syncing.</p>
 </div>
 <h2 id="supported-platforms">Supported platforms</h2>
 <table>
@@ -141,7 +147,7 @@ Tracking history and leaves the target table in place.</p>
 <tbody>
 <tr>
 <td>Source</td>
-<td>Microsoft SQL Server (Azure SQL, Azure SQL Managed Instance, and on-premises)</td>
+<td>Microsoft SQL Server (Azure SQL, Azure SQL Managed Instance, and on-premises), or MySQL 8+</td>
 </tr>
 <tr>
 <td>Target</td>
@@ -160,23 +166,25 @@ Managed Instance, and on-premises Microsoft SQL Server.</p>
 <p>Configure Data Sync in this order so each step has what it needs:</p>
 <ol>
 <li><strong><a href="../global-configuration/">Global Configuration</a></strong> - set processor
-   threads, staging, max retries, issue email alerts, and timeouts (optional,
-   but review before you start syncing).</li>
+   threads, staging, max retries, the issue email schedule, and timeouts
+   (optional, but review before you start syncing).</li>
 <li><strong><a href="../source-host-configuration/">Source Host Configuration</a></strong> - register
-   the SQL Server instance that owns the source data.</li>
+   the SQL Server or MySQL instance that owns the source data.</li>
 <li><strong><a href="../target-host-configuration/">Target Host Configuration</a></strong> - register
    the Fabric or SQL Server destination (including Blob SAS for Fabric).</li>
 <li><strong><a href="../schedule-configuration/">Schedule Configuration</a></strong> - define when
-   delta, checksum, and resync jobs run.</li>
+   delta, checksum, and resync jobs run, and the minutes-behind threshold.</li>
 <li><strong><a href="../queue-configuration/">Queue Configuration</a></strong> - create or reuse a
    processing queue (a <strong>Default</strong> queue is provided).</li>
 <li><strong><a href="../table-list-configuration/">Table List Configuration</a></strong> - select the
-   tables to sync, assign them to a queue, and optionally limit which columns
-   each table syncs.</li>
+   tables to sync, set Destructive Load where needed, assign them to a queue,
+   and optionally limit which columns each table syncs.</li>
 <li><strong><a href="../sync-configuration/">Sync Configuration</a></strong> - combine source, target,
-   schedule, table list, and databases into a sync job.</li>
+   schedule, table list, and databases into a sync job. A MySQL source accepts
+   only table lists whose tables are all Destructive Load.</li>
 <li><strong><a href="../monitoring/">Monitoring</a></strong> - confirm tables move from pending to
-   syncing, and use bulk actions as needed.</li>
+   syncing, and use the <strong>Next Schedule Options</strong> and <strong>On Demand Options</strong>
+   menus as needed.</li>
 </ol>
 <h2 id="how-sync-works">How sync works</h2>
 <p>Once a sync configuration is active:</p>
@@ -184,17 +192,21 @@ Managed Instance, and on-premises Microsoft SQL Server.</p>
 <li>Tables start in a pending/resync state.</li>
 <li>The <strong>resync</strong> schedule performs the initial full load (or a later full
    reload). The same schedule also processes tables marked for <strong>partial
-   resync</strong>.</li>
+   resync</strong>. Tables set to <strong>Destructive Load</strong> are fully reloaded on every
+   resync run after they reach "syncing" status.</li>
 <li>The <strong>delta</strong> schedule applies ongoing Change Tracking inserts, updates, and
-   deletes to the target. You can also queue an immediate delta from
-   <strong><a href="../monitoring/">Sync Monitoring</a></strong> with <strong>Run Delta for Selected</strong>.</li>
+   deletes to the target. Destructive Load tables are skipped. You can also
+   queue an immediate delta from <strong><a href="../monitoring/">Sync Monitoring</a></strong> with
+   <strong>Run Delta for Selected</strong>.</li>
 <li>An optional <strong>checksum</strong> schedule compares source and target row counts and
-   checksums for validation.</li>
+   checksums for Change Tracking tables. Destructive Load tables are skipped by
+   that schedule. MySQL checksums compare row counts only. You can still run an
+   on-demand checksum from Sync Monitoring.</li>
 </ol>
 <p>Target tables also receive <code>C4SQL_CreateDate</code> and <code>C4SQL_LastUpdated</code> metadata
 columns. Those timestamps are stored in the source server's local time. An
 optional <code>C4SqlClientDatabaseName</code> column can store the source database name on
-each target row.</p>
+each target row, however, this field is only editable directly in the DataSync.SyncGlobalSetting table under the "SyncClientDatabaseNameColumnEnabled" column and it should only be enable in advanced use cases.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Use <strong><a href="../queue-monitoring/">Queue Monitoring</a></strong> if a table stays pending

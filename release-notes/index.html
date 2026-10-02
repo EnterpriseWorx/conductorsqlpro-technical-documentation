@@ -31,7 +31,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Version 1.7.3.0 (14/09/2026)", url: "#_top", children: [
+          {title: "Version 1.7.4.0 (02/10/2026)", url: "#_top", children: [
+          ]},
+          {title: "Version 1.7.3.0 (14/09/2026)", url: "#version-1730-14092026", children: [
           ]},
           {title: "Version 1.7.2.0 (09/09/2026)", url: "#version-1720-09092026", children: [
           ]},
@@ -149,7 +151,38 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="version-1730-14092026">Version 1.7.3.0 (14/09/2026)</h1>
+    <h1 id="version-1740-02102026">Version 1.7.4.0 (02/10/2026)</h1>
+<ul>
+<li>HUMMDB-1578 Sync: Add Destructive Load so a table fully reloads on the resync
+  schedule, including SQL Server heaps that have no primary key</li>
+<li>HUMMDB-1579 Sync: Allow MySQL as a Data Sync source. MySQL tables use
+  Destructive Load only</li>
+<li>HUMMDB-1583 Map MySQL TIME to varchar so durations outside a clock time are
+  preserved</li>
+<li>HUMMDB-1584 Map MySQL TINYINT to SQL Server SMALLINT</li>
+<li>HUMMDB-1585 Map MySQL unsigned integers to a wider SQL Server type</li>
+<li>Fixed: Map MySQL collations to SQL Server collations when building target tables</li>
+<li>Fixed: Map MySQL spatial types (geometry, point, and related types) to
+  varbinary(max)</li>
+<li>Fixed: Align Fabric Parquet integer types for MySQL smallint and year</li>
+<li>HUMMDB-1586 Fabric loads: write datetimeoffset values as datetime2</li>
+<li>HUMMDB-1587 Sync: Include money, smallmoney, and time in checksums so SQL
+  Server and Fabric compare the same values</li>
+<li>HUMMDB-1588 Sync: Move Sync Monitoring bulk actions into "Next Schedule
+  Options" and "On Demand Options" menus</li>
+<li>HUMMDB-1589 Sync: Add on-demand "Resync Selected", "Partial Resync Selected",
+  and "Disable Selected"</li>
+<li>HUMMDB-1590 Sync: Add an "Issues only" toggle on the Sync Monitoring summary</li>
+<li>Improvement: Add a "Behind" count on the summary and a "Behind" status filter on Sync
+  Monitoring details screen</li>
+<li>HUMMDB-1591 Sync: Exclude Destructive Load tables from the behind calculation</li>
+<li>HUMMDB-1592 Sync: Move "Minutes behind threshold" from Global Configuration
+  onto each schedule. An existing global value is copied to every schedule</li>
+<li>HUMMDB-1580 Set the application name to "SQLPro" (or "SQLPro - Central" for
+  the central database) on Microsoft SQL Server connections</li>
+<li>Improvement: Microsoft SQL Server client connections now require encryption</li>
+</ul>
+<h1 id="version-1730-14092026">Version 1.7.3.0 (14/09/2026)</h1>
 <ul>
 <li>HUMMDB-1571 Sync: Configure timeouts from data sync config screen</li>
 <li>HUMMDB-1574 Sync: Checksum calculations should also have a set number of

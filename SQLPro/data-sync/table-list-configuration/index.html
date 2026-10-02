@@ -121,16 +121,49 @@ table syncs.</p>
 <li>Choose a <strong>Database</strong>.</li>
 <li>Move tables between Available and Selected using the transfer list.</li>
 </ol>
-<p>The transfer list shows <strong>Schema Name</strong>, <strong>Table Name</strong>, <strong>Row Count</strong>, and
-<strong>Size (MB)</strong>.</p>
-<!-- Screenshot: Transfer list with available and selected tables -->
+<p>The transfer list shows <strong>Schema</strong>, <strong>Table</strong>, <strong>Has PK</strong>, <strong>Row Count</strong>, <strong>Size
+(MB)</strong>, and <strong>Destructive Load</strong>.</p>
+<!-- Screenshot: Transfer list with available and selected tables, including Has PK and Destructive Load -->
 
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/database-mapping-list/transfer-list.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/database-mapping-list/transfer-list.png"></a></p>
+<p>Views are not listed. Heap tables (no primary key) are included.</p>
+<h3 id="destructive-load">Destructive Load</h3>
+<p><strong>Destructive Load</strong> reloads the whole table on the
+<a href="../schedule-configuration/">resync schedule</a>. It does not use Change Tracking,
+so the source table does not need a primary key and Change Tracking is not
+enabled on it.</p>
+<p>The <strong>Destructive Load</strong> toggle on a selected table works as follows:</p>
+<ul>
+<li>Tables <strong>with</strong> a primary key on a SQL Server source can be turned on or off.
+  Off means Change Tracking (the default).</li>
+<li>Tables <strong>without</strong> a primary key are locked <strong>on</strong>. They cannot use Change
+  Tracking.</li>
+<li>Every table browsed from a <strong>MySQL</strong> source host is locked <strong>on</strong>.</li>
+</ul>
+<p>Turning Destructive Load on or off for a table that is already in a sync
+configuration marks that table for a full resync, unless it is already on the
+disable path.</p>
+<p>Destructive Load behaviour:</p>
+<ul>
+<li>The table is fully reloaded whenever the <strong>resync</strong> schedule runs, including
+  after it has reached <strong>Syncing</strong> status.</li>
+<li>The delta schedule and the checksum schedule skip it. Disable still uses the
+  delta queue.</li>
+<li>Partial resync and <strong>Run Delta for Selected</strong> are not available. On-demand
+  checksum still runs.</li>
+<li>It is not counted as <strong>Behind</strong>, because a gap between resyncs is expected.</li>
+<li>A SQL Server Destructive Load uses the same full-load path as an initial sync.
+  The SQL Server target table is left as a heap (no clustered index).</li>
+<li>A MySQL Destructive Load reads the live table in pages. There is no staging
+  copy and no resume. If a load is interrupted after it has started, the table
+  goes to <strong>Error</strong> and needs a full resync.</li>
+<li>MySQL checksums compare row counts only. SQL Server Destructive Load checksums
+  still compare column values.</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only tables are supported. Each table you sync must have a primary key so
-Change Tracking can identify which rows where inserted, updated or deleted
-since the last delta.</p>
+<p>Change Tracking tables still need a primary key so SQLPro can identify which
+rows were inserted, updated, or deleted since the last delta.</p>
 </div>
 <h3 id="import-and-export">Import and export</h3>
 <p>You can import or export table selections as text:</p>
@@ -167,7 +200,9 @@ of columns.</p>
 </ul>
 <p>When <strong>Sync all columns</strong> is cleared, a transfer list shows <strong>Available
 columns</strong> and <strong>Selected columns</strong>, with <strong>Column</strong>, <strong>Type</strong>, and <strong>PK</strong>.
-Primary key columns cannot be unselected.</p>
+Primary key columns cannot be unselected when the table has a primary key. A
+heap or Destructive Load table with no primary key can include any columns, and
+a subset must include at least one column.</p>
 <p>Import and export work like table selection:</p>
 <ul>
 <li><strong>Import</strong> - paste column names one per line, or separated by commas or

@@ -90,7 +90,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="global-configuration">Global Configuration</h1>
 <p><strong>Global Configuration</strong> holds Data Sync settings that apply to every sync job:
-processor threads, staging, max retries, issue email alerts, and timeouts.</p>
+processor threads, staging, max retries, the issue email schedule, and timeouts.
+The minutes-behind threshold is set on each
+<a href="../schedule-configuration/">schedule</a>.</p>
 <p>To open the page, select the <strong>SQLSync</strong> icon on the landing page, then choose
 <strong>Data Sync &gt;&gt; Global Configuration</strong>:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/global-configuration/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/global-configuration/open-page.png"></a></p>
@@ -178,20 +180,21 @@ uses the mail list configured under
 <td>Hangfire cron for the <strong>Data Sync Issue Email Alerts</strong> job, in the SQLPro host's local time. Default is 08:00 daily (<code>0 8 * * *</code>)</td>
 <td><code>0 8 * * *</code></td>
 </tr>
-<tr>
-<td><strong>Minutes behind threshold</strong></td>
-<td>How long a syncing table with no error can go without a successful check before it is treated as behind. Set to <code>0</code> to turn lag alerts off</td>
-<td><code>0</code></td>
-</tr>
 </tbody>
 </table>
+<p><strong>Minutes behind threshold</strong> is configured on each
+<a href="../schedule-configuration/#add-or-edit-a-schedule">schedule</a> as different schedules may need to have different thresholds.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A table counts as behind when its status is syncing (<code>S</code>), it has no error
-message, and <strong>Last Sync Check</strong> is older than the threshold. The email is
-skipped when no configurations currently have issues. Checksum errors in the
-report do not include tables with checksum status <strong>Ignored</strong> (see
-<a href="../monitoring/#bulk-actions">Ignore Checksum Issue</a>).</p>
+<p>A Change Tracking table counts as behind when its status is syncing (<code>S</code>),
+it has no error message, and <strong>Last Sync Check</strong> is older than that
+schedule's threshold. Destructive Load tables are excluded. A threshold of
+<code>0</code> turns lag alerts off for that schedule. The email is skipped when no
+configurations currently have issues. Checksum errors in the report do not
+include tables with checksum status <strong>Ignored</strong> (see
+<a href="../monitoring/#bulk-actions">Ignore Checksum Issue</a>). The same rules drive
+the <strong>Issues only</strong> toggle and the <strong>Behind</strong> column on
+<a href="../monitoring/">Sync Monitoring</a>.</p>
 </div>
 <h2 id="timeouts">Timeouts</h2>
 <table>

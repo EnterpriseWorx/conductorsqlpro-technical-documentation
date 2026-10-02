@@ -99,7 +99,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <p>For hardware and software requirements of the central Conductor4SQL server, see
 <strong><a href="../central-prerequisites/">Central Node Prerequisites</a></strong>. For Data Sync
-source and target requirements (Change Tracking, primary keys, Blob SAS), see
+source and target requirements (Change Tracking, Destructive Load, MySQL, Blob
+SAS), see
 <strong><a href="../../SQLPro/data-sync/getting-started/">Data Sync Getting Started</a></strong>.</p>
 <h2 id="feature-support-matrix">Feature support matrix</h2>
 <table>
@@ -161,10 +162,10 @@ source and target requirements (Change Tracking, primary keys, Blob SAS), see
 <td>Yes</td>
 <td>No</td>
 <td>Yes</td>
-<td>No</td>
+<td>Source only</td>
 <td>No</td>
 <td>Yes</td>
-<td>Currently supports MySQL 8+.</td>
+<td>MySQL 8+. Data Sync uses Destructive Load (full reload), not Change Tracking.</td>
 </tr>
 <tr>
 <td>PostgreSQL</td>

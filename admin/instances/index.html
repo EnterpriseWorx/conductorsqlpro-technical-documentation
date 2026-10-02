@@ -111,6 +111,11 @@ Without instances installed you can't make use of the system.</p>
 <p>The other Microsoft SQL Server fields are <strong>Host Name (\instance name)</strong>,
 <strong>Friendly Name</strong>, <strong>SQL Port</strong>, <strong>Database Name</strong>, and optional <strong>Server
 Activity Audit</strong>.</p>
+<p>Connections to Microsoft SQL Server use encryption. SQLPro trusts the server
+certificate, so an instance certificate does not have to be issued by a public
+authority. In SQL Server monitoring (<code>sys.dm_exec_sessions.program_name</code>) those
+connections appear as <strong>SQLPro</strong>. The central SQLPro database connection appears
+as <strong>SQLPro - Central</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Use the <strong>Test Connection</strong> button to ensure that Conductor4SQL can reach this instance using the provided credentials. Although an instance can still be added even if there is no connectivity or if the credentials fail. This will allow you to add instances that are currently offline.</p>

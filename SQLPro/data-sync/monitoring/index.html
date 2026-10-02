@@ -96,9 +96,13 @@ Sync Monitoring</strong>:</p>
 <h2 id="sync-monitoring-summary">Sync Monitoring summary</h2>
 <p>The summary lists each sync configuration with hosts, databases, table list,
 last sync date, and status counts.</p>
-<!-- Screenshot: Summary table with Total Tables, Pending/Resync, Syncing, Disabled, Errors, Checksum Errors -->
+<!-- Screenshot: Summary table with Total Tables, Pending/Resync, Syncing, Disabled, Errors, Checksum Errors, Behind, and the Issues only toggle -->
 
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/sync-configuration-summary/summary.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/sync-configuration-summary/summary.png"></a></p>
+<p><strong>Issues only</strong> hides configurations that have no current issue. A configuration
+is an issue when it has table errors, checksum errors, or tables that count as
+behind. The choice is kept for the browser session. Use <strong>Refresh</strong> to reload
+the summary.</p>
 <p>Key columns:</p>
 <ul>
 <li><strong>Sync Configuration Name</strong></li>
@@ -113,10 +117,15 @@ last sync date, and status counts.</p>
 <li><strong>Errors</strong></li>
 <li><strong>Checksum Errors</strong> - counts tables with row-count mismatch, checksum
   mismatch, or data movement during checksum. Does <strong>not</strong> include <strong>Ignored</strong>.</li>
+<li><strong>Behind</strong> - Change Tracking tables that are syncing, have no error message,
+  and whose last check is older than the configuration schedule's
+  <a href="../schedule-configuration/#add-or-edit-a-schedule">minutes behind threshold</a>.
+  Destructive Load tables are excluded. Schedules with a threshold of <code>0</code>
+  contribute no behind tables.</li>
 </ul>
-<p>Click a count (for example <strong>Errors</strong> or <strong>Total Tables</strong>) to open the detail
-page filtered to that configuration and status.</p>
-<p>Use <strong>Refresh</strong> to reload the summary.</p>
+<p>Click a count (for example <strong>Errors</strong>, <strong>Behind</strong>, or <strong>Total Tables</strong>) to open
+the detail page filtered to that configuration and status. <strong>Behind</strong> opens the
+detail page with Sync Status <strong>Behind</strong>.</p>
 <h2 id="sync-monitoring-details">Sync Monitoring details</h2>
 <p>The detail page lists tables for one or more configurations. Use the table
 column selector to show extra fields such as <strong>Source Row Count</strong>, <strong>Target Row
@@ -128,6 +137,7 @@ Count</strong>, and <strong>Row Count Difference</strong> (those are hidden by d
 <ul>
 <li><strong>Source Host</strong> / <strong>Target Host</strong></li>
 <li><strong>Source Database</strong> / <strong>Schema</strong> / <strong>Table</strong></li>
+<li><strong>Sync Type</strong> - <strong>Change Tracking</strong> or <strong>Destructive Load</strong></li>
 <li><strong>Columns</strong> - <strong>All columns</strong>, or <strong>Subset (n)</strong> when
   <a href="../table-list-configuration/#column-filtering">column filtering</a> is enabled</li>
 <li><strong>Last Delta Check</strong></li>
@@ -143,10 +153,13 @@ Count</strong>, and <strong>Row Count Difference</strong> (those are hidden by d
 <h3 id="filters">Filters</h3>
 <ul>
 <li><strong>Sync Configuration</strong> - limit to one configuration, or show all</li>
-<li><strong>Sync Status</strong> - Pending, Syncing, Disabled, or Errors</li>
+<li><strong>Sync Status</strong> - Pending, Syncing, Disabled, Errors, or Behind</li>
 <li><strong>Checksum Status</strong> - Matches or Not Matches</li>
 <li><strong>Clear Filters</strong> - reset all filters</li>
 </ul>
+<p><strong>Behind</strong> lists syncing Change Tracking tables with no error message whose last
+check is older than the schedule threshold. It does not list Destructive Load
+tables.</p>
 <h3 id="status-meanings">Status meanings</h3>
 <p>Table sync statuses:</p>
 <ul>
@@ -155,7 +168,8 @@ Count</strong>, and <strong>Row Count Difference</strong> (those are hidden by d
 <li><strong>P</strong> - pending partial resync</li>
 <li><strong>M</strong> - partial resync enqueued</li>
 <li><strong>I</strong> - pending / in initial sync</li>
-<li><strong>S</strong> - syncing (steady-state deltas)</li>
+<li><strong>S</strong> - syncing. Change Tracking tables receive deltas. Destructive Load
+  tables wait for the next resync</li>
 <li><strong>D</strong> - pending disablement</li>
 <li><strong>E</strong> - disable enqueued</li>
 <li><strong>N</strong> - disabled / not syncing</li>
@@ -181,10 +195,13 @@ Count</strong>, and <strong>Row Count Difference</strong> (those are hidden by d
 <p>Checksums compare the <strong>synced</strong> columns for each table (the Table List
 subset plus primary keys when a subset is configured, otherwise all source
 columns). String columns are included using a short prefix and a binary
-collation, and date/time columns are compared at second precision. Binary,
-image, XML, and timestamp columns are excluded, as are sync metadata columns
-named <code>C4SQL_*</code>, because source and target platforms can compare them
-differently.</p>
+collation. Date/time columns other than <code>time</code> are compared at second
+precision, and <code>time</code> is compared to millisecond precision. <code>money</code> and
+<code>smallmoney</code> are compared as <code>decimal(19,4)</code> and <code>decimal(10,4)</code> so SQL
+Server and Fabric agree. Binary, image, XML, and timestamp columns are
+excluded, as are sync metadata columns named <code>C4SQL_*</code>, because source and
+target platforms can compare them differently. MySQL tables compare row
+counts only.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -196,26 +213,37 @@ the next delta sync.</code>). The table is tried again on the next matching
 schedule run.</p>
 </div>
 <h3 id="bulk-actions">Bulk actions</h3>
-<p>Select one or more tables to enable bulk actions. The bar groups them as <strong>Next
-schedule</strong> and <strong>On demand</strong>.</p>
-<p><strong>Next schedule</strong> (applied on the next matching schedule run):</p>
+<p>Select one or more tables to enable bulk actions. Two menus appear:</p>
+<ul>
+<li><strong>Next Schedule Options</strong> - mark work for the next matching schedule run</li>
+<li><strong>On Demand Options</strong> - queue the same kind of work immediately</li>
+</ul>
+<p><strong>Next Schedule Options:</strong></p>
 <ul>
 <li><strong>Mark Selected for Resync</strong> - marks tables for a full reload on the next
   resync schedule run</li>
 <li><strong>Mark Selected for Partial Resync</strong> - replays Change Tracking history within
   the retention window on the next resync schedule run (does not drop or reload
-  the target table)</li>
+  the target table). Destructive Load tables are skipped</li>
 <li><strong>Disable Selected</strong> - stops syncing on the next delta schedule run</li>
 </ul>
-<p><strong>On demand</strong> (queued immediately):</p>
+<p><strong>On Demand Options:</strong></p>
 <ul>
 <li><strong>Run Delta for Selected</strong> - queues an immediate delta sync. Only tables with
-  status <strong>Syncing</strong> are queued.</li>
-<li><strong>Calculate Checksum for Selected</strong> - triggers checksum calculation</li>
+  status <strong>Syncing</strong> are queued. Destructive Load tables are skipped</li>
+<li><strong>Calculate Checksum for Selected</strong> - triggers checksum calculation. This
+  still runs for Destructive Load tables (the checksum schedule does not)</li>
 <li><strong>Ignore Checksum Issue</strong> - marks selected tables as checksum status
   <strong>Ignored</strong>. They no longer appear in checksum error alerts until the next
-  checksum run recalculates them.</li>
+  checksum run recalculates them</li>
+<li><strong>Resync Selected</strong> - queues a full reload now for each selected table on an
+  active sync configuration</li>
+<li><strong>Partial Resync Selected</strong> - queues a Change Tracking replay now. Destructive
+  Load tables are skipped</li>
+<li><strong>Disable Selected</strong> - queues disable now for each selected table on an active
+  sync configuration</li>
 </ul>
+<p>MySQL checksums from either menu compare row counts only.</p>
 <!-- Screenshot: Bulk action bar with tables selected -->
 
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/monitoring/bulk-actions.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/monitoring/bulk-actions.png"></a></p>
@@ -251,8 +279,9 @@ active.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Use <strong>Run Delta for Selected</strong> when you need Change Tracking applied now
-instead of waiting for the next delta schedule. It does not replace a full
-or partial resync.</p>
+instead of waiting for the next delta schedule. Use <strong>Resync Selected</strong>, <strong>Partial Resync Selected</strong>, or
+<strong>Disable Selected</strong> under <strong>On Demand Options</strong> when that work should
+start now rather than on the next schedule.</p>
 </div>
 
   <br>

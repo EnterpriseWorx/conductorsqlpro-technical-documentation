@@ -34,6 +34,7 @@
           {title: "Introduction", url: "#_top", children: [
               {title: "Source Host list", url: "#source-host-list" },
               {title: "Add a source host", url: "#add-a-source-host" },
+              {title: "MySQL type mapping", url: "#mysql-type-mapping" },
           ]},
         ];
 
@@ -88,9 +89,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="introduction">Introduction</h1>
-<p>Source hosts identify the Microsoft SQL Server instances that Data Sync reads
-from. This includes Azure SQL, Azure SQL Managed Instance, and on-premises
-Microsoft SQL Server.</p>
+<p>Source hosts identify the instances that Data Sync reads from. Sources can be
+Microsoft SQL Server (Azure SQL, Azure SQL Managed Instance, or on-premises) or
+MySQL 8+.</p>
 <p>To get started, open <strong>SQLSync</strong> from the landing page, then select <strong>Data Sync
 Source Host Configuration</strong>:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/sqlsync/sync/source-host-list/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/sqlsync/sync/source-host-list/open-page.png"></a></p>
@@ -117,8 +118,11 @@ existing source host.</p>
 <p>Select <strong>Save</strong> to create or update the host, or <strong>Cancel</strong> to discard changes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Source hosts are always Microsoft SQL Server (Azure SQL, Azure SQL Managed
-Instance, or on-premises). Fabric instances cannot be used as sources.</p>
+<p>Fabric instances cannot be used as sources. PostgreSQL instances cannot be
+used as sources. MySQL source hosts sync with
+<strong><a href="../table-list-configuration/#destructive-load">Destructive Load</a></strong> only.
+MySQL tables are stored with schema name <code>dbo</code>. The MySQL database name is
+the source database.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -126,8 +130,83 @@ Instance, or on-premises). Fabric instances cannot be used as sources.</p>
 <strong><a href="../../../admin/instances/">Administration &gt; Instances</a></strong> before adding it
 as a source host. Microsoft SQL Server instances can use Windows
 Authentication, SQL Server Authentication, Microsoft Entra Password, or
-Microsoft Entra Service Principal.</p>
+Microsoft Entra Service Principal. MySQL instances use a username and
+password.</p>
 </div>
+<h2 id="mysql-type-mapping">MySQL type mapping</h2>
+<p>MySQL column types are converted to SQL Server types on the target (Fabric or
+SQL Server). Common string, date, and decimal types keep a matching SQL Server
+type. These mappings differ from the MySQL type name:</p>
+<table>
+<thead>
+<tr>
+<th>MySQL type</th>
+<th>Target type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TINYINT</code> (signed or unsigned)</td>
+<td><code>smallint</code></td>
+</tr>
+<tr>
+<td><code>SMALLINT</code> unsigned</td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>MEDIUMINT</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>INT</code> / <code>INTEGER</code> unsigned</td>
+<td><code>bigint</code></td>
+</tr>
+<tr>
+<td><code>BIGINT</code> unsigned</td>
+<td><code>decimal(20,0)</code></td>
+</tr>
+<tr>
+<td><code>FLOAT</code></td>
+<td><code>real</code></td>
+</tr>
+<tr>
+<td><code>DOUBLE</code> / <code>REAL</code></td>
+<td><code>float</code></td>
+</tr>
+<tr>
+<td><code>YEAR</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>TIME</code></td>
+<td><code>varchar</code> holding the duration (for example <code>-01:00:00.123456</code>)</td>
+</tr>
+<tr>
+<td><code>DATETIME</code> / <code>TIMESTAMP</code></td>
+<td><code>datetime2</code></td>
+</tr>
+<tr>
+<td><code>TINYTEXT</code>, <code>TEXT</code>, <code>MEDIUMTEXT</code>, <code>LONGTEXT</code>, <code>JSON</code>, <code>ENUM</code>, <code>SET</code></td>
+<td><code>nvarchar(max)</code></td>
+</tr>
+<tr>
+<td><code>GEOMETRY</code>, <code>POINT</code>, <code>LINESTRING</code>, <code>POLYGON</code>, and the other spatial types</td>
+<td><code>varbinary(max)</code> (WKB bytes)</td>
+</tr>
+</tbody>
+</table>
+<p>String collations are mapped when the target table is created:</p>
+<ul>
+<li>Binary MySQL collations (<code>binary</code>, names ending in <code>_bin</code> or <code>_bin2</code>) become
+  <code>Latin1_General_100_BIN2</code>.</li>
+<li>Case-sensitive collations (names containing <code>_cs</code>) become
+  <code>Latin1_General_100_CS_AS_SC_UTF8</code>.</li>
+<li>Case-insensitive collations (names containing <code>_ci</code> or <code>_ai</code>) become
+  <code>Latin1_General_100_CI_AI_SC_UTF8</code>.</li>
+<li>An unrecognised collation is omitted so the target database default applies.</li>
+</ul>
+<p>MySQL checksums compare <strong>row counts only</strong>. A matching checksum means the
+counts agree. It does not compare column values.</p>
 
   <br>
     

@@ -86,20 +86,32 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="introduction">Introduction</h1>
-<p><strong>Data Sync</strong> is the <strong>SQLSync</strong> module. It replicates selected Microsoft SQL
-Server tables to a Microsoft Fabric Data Warehouse or another SQL Server
-destination. Sync is one-way (source to target) and uses SQL Server Change
-Tracking for ongoing updates.</p>
+<p><strong>Data Sync</strong> is the <strong>SQLSync</strong> module. It replicates selected tables to a
+Microsoft Fabric Data Warehouse or another SQL Server destination. Sync is
+one-way (source to target).</p>
 <p>Where this documentation refers to <strong>Microsoft SQL Server</strong> as a source or
 target, that includes Microsoft Azure SQL, Microsoft Azure SQL Managed Instance,
 and on-premises Microsoft SQL Server.</p>
+<p>Two sync types are available:</p>
+<ul>
+<li><strong>Change Tracking</strong> - the default for Microsoft SQL Server tables that have a
+  primary key. Ongoing inserts, updates, and deletes are applied on the delta
+  schedule.</li>
+<li><strong>Destructive Load</strong> - a full reload of the table every time the resync
+  schedule runs. Use it for SQL Server heaps (no primary key), or when you do
+  not want Change Tracking enabled on the source. <strong>MySQL sources always use
+  Destructive Load.</strong></li>
+</ul>
 <p>Key limits to be aware of:</p>
 <ul>
-<li>Sources must be Microsoft SQL Server (Azure SQL, Managed Instance, or
-  on-premises). Fabric can be a <strong>target only</strong>.</li>
-<li>Each source table must have a <strong>primary key</strong>.</li>
-<li>Deletes from the source are applied as <strong>hard deletes</strong> on the target
-  (soft-delete patterns are not supported).</li>
+<li>Sources are Microsoft SQL Server (Azure SQL, Managed Instance, or on-premises)
+  or <strong>MySQL</strong>. Fabric can be a <strong>target only</strong>. PostgreSQL is not a sync
+  source.</li>
+<li>Change Tracking tables must have a <strong>primary key</strong>. Destructive Load tables do
+  not.</li>
+<li>Deletes from a Change Tracking source are applied as <strong>hard deletes</strong> on the
+  target (soft-delete patterns are not supported). Destructive Load replaces the
+  whole target table on each resync.</li>
 </ul>
 <p>To reach Data Sync, select the <strong>SQLSync</strong> icon on the landing page:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../img/landing/open-page.png" data-desc-position="bottom"><img alt="" src="../../../img/landing/open-page.png"></a></p>
@@ -110,15 +122,16 @@ and on-premises Microsoft SQL Server.</p>
 <li><strong><a href="../global-configuration/">Global Configuration</a></strong> - thread counts,
   staging, max retries, issue email alerts, and timeouts</li>
 <li><strong><a href="../source-host-configuration/">Source Host Configuration</a></strong> - register SQL
-  Server source instances</li>
+  Server or MySQL source instances</li>
 <li><strong><a href="../target-host-configuration/">Target Host Configuration</a></strong> - register
   Fabric or SQL Server targets</li>
 <li><strong><a href="../schedule-configuration/">Schedule Configuration</a></strong> - define delta,
-  checksum, and resync schedules</li>
+  checksum, and resync schedules, and the minutes-behind threshold</li>
 <li><strong><a href="../queue-configuration/">Queue Configuration</a></strong> - manage sync processing
   queues</li>
 <li><strong><a href="../table-list-configuration/">Table List Configuration</a></strong> - choose which
-  tables to sync, and optionally column filtering</li>
+  tables to sync, whether they use Destructive Load, and optionally column
+  filtering</li>
 <li><strong><a href="../sync-configuration/">Sync Configuration</a></strong> - wire hosts, schedules, and
   table lists together</li>
 <li><strong><a href="../monitoring/">Monitoring</a></strong> - watch sync status and run bulk actions</li>

@@ -90,18 +90,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="sqlpro-sync-vs-fabric-pipelines">SQLPro Sync vs Fabric Pipelines</h1>
-<p>SQLPro Sync is purpose-built for ongoing SQL Server → Fabric Warehouse
+<p>SQLPro Sync is purpose-built for ongoing SQL Server or MySQL → Fabric Warehouse
 replication. Microsoft Fabric Pipelines are a general-purpose ETL tool that can
 move data from many sources, including SQL Server, but require you to design and
 maintain the load logic yourself.</p>
 <p>Use this page to decide which approach fits your situation.</p>
 <h2 id="quick-summary">Quick summary</h2>
 <ul>
-<li><strong>Choose SQLPro Sync</strong> when you need to keep SQL Server tables continuously up
-  to date in Fabric with minimal engineering.</li>
-<li><strong>Choose Fabric Pipelines</strong> when you need transformations, non-SQL-Server
-  sources, tables without a primary key, or custom control over how inserts,
-  updates, and deletes are applied to the target.</li>
+<li><strong>Choose SQLPro Sync</strong> when you need to keep SQL Server or MySQL tables in
+  Fabric with minimal engineering. SQL Server tables with a primary key stay
+  current through Change Tracking. Tables without a primary key, and MySQL
+  tables, use Destructive Load (a full reload on the resync schedule).</li>
+<li><strong>Choose Fabric Pipelines</strong> when you need transformations, sources other than
+  SQL Server and MySQL, views or arbitrary queries, or custom control over how
+  inserts, updates, and deletes are applied to the target.</li>
 </ul>
 <h2 id="feature-comparison">Feature comparison</h2>
 <table>
@@ -115,7 +117,7 @@ maintain the load logic yourself.</p>
 <tbody>
 <tr>
 <td>Incremental change detection</td>
-<td>Change Tracking - detects inserts, updates, and deletes without reading the full table</td>
+<td>Change Tracking for SQL Server tables with a primary key. Destructive Load reloads the full table on the resync schedule (required for MySQL and for heaps)</td>
 <td>Must be designed manually: watermark columns, CDC, or full truncate-reload</td>
 </tr>
 <tr>
@@ -150,12 +152,12 @@ maintain the load logic yourself.</p>
 </tr>
 <tr>
 <td>Source types</td>
-<td>SQL Server, Azure SQL, and Azure SQL Managed Instance only</td>
+<td>SQL Server, Azure SQL, Azure SQL Managed Instance, and MySQL 8+</td>
 <td>Many connectors (files, APIs, other databases, Lakehouse, and more)</td>
 </tr>
 <tr>
 <td>Table requirements</td>
-<td>Base tables with a primary key only</td>
+<td>Base tables. Change Tracking needs a primary key. Destructive Load also accepts heaps and MySQL tables</td>
 <td>Any table, view, or arbitrary SQL query</td>
 </tr>
 <tr>
@@ -165,7 +167,7 @@ maintain the load logic yourself.</p>
 </tr>
 <tr>
 <td>Delete handling</td>
-<td>Hard deletes are applied to the target via <code>MERGE</code></td>
+<td>Change Tracking applies hard deletes with <code>MERGE</code>. Destructive Load replaces the target table on each resync</td>
 <td>Configurable - hard delete, soft delete, or custom logic</td>
 </tr>
 </tbody>
@@ -173,10 +175,11 @@ maintain the load logic yourself.</p>
 <h2 id="when-to-use-sqlpro-sync">When to use SQLPro Sync</h2>
 <p>SQLPro Sync is the right choice when:</p>
 <ul>
-<li>You want SQL Server tables continuously replicated into Fabric with low
+<li>You want SQL Server or MySQL tables replicated into Fabric with low
   engineering effort.</li>
-<li>Your tables have primary keys and you need inserts, updates, and deletes
-  reflected in the target.</li>
+<li>Your SQL Server tables have primary keys and you need inserts, updates, and
+  deletes reflected in the target, or you are willing to fully reload heaps and
+  MySQL tables on a resync schedule.</li>
 <li>You want scheduled row-count and checksum validation without building a
   separate reconciliation pipeline.</li>
 <li>Keeping the source SQL Server lightly loaded matters.</li>
@@ -190,8 +193,10 @@ time to configure and maintain than an equivalent set of Fabric pipelines.</p>
 <h2 id="when-to-use-fabric-pipelines">When to use Fabric Pipelines</h2>
 <p>Fabric Pipelines are the right choice when:</p>
 <ul>
-<li>Your source is not SQL Server (files, APIs, other databases, Lakehouse, etc.).</li>
-<li>The tables you need to load do not have a primary key.</li>
+<li>Your source is not SQL Server or MySQL (files, APIs, other databases,
+  Lakehouse, etc.).</li>
+<li>You need incremental changes from a table that has no primary key. SQLPro can
+  still full-reload that table with Destructive Load.</li>
 <li>You need to transform, join, or filter data on the way into Fabric.</li>
 <li>You need to sync views or the results of arbitrary SQL queries.</li>
 <li>You need soft-delete behaviour or custom control over how inserts, updates,

@@ -112,7 +112,10 @@ but read-only. You can still change the name and active flag.</p>
 <ul>
 <li><strong>Configuration Name</strong> - optional. If left blank, SQLPro generates a name from
   the source host, table list, target host, and databases.</li>
-<li><strong>Source Host</strong> - required active source host.</li>
+<li><strong>Source Host</strong> - required active source host. A MySQL source is rejected
+  unless every table in the chosen table list is
+  <a href="../table-list-configuration/#destructive-load">Destructive Load</a>. MySQL
+  table names are stored with schema <code>dbo</code>.</li>
 <li><strong>Target Host</strong> - required active target host.</li>
 <li><strong>Schedule</strong> - required active schedule.</li>
 <li><strong>Table List</strong> - required active table list.</li>
